@@ -38,9 +38,13 @@ for (const page of pages) {
   }
   if (/(CLOUDFLARE_API_TOKEN|github_pat_|Turnstile secret|API_TOKEN=)/i.test(html)) failures.push(`${page} may contain a secret`);
   for (const [, href] of html.matchAll(/href="([^"]+)"/g)) {
-    if (!href.startsWith('/') || href.startsWith('/assets/')) continue;
+    if (!href.startsWith('/') || href.startsWith('/assets/') || href.toLowerCase().endsWith('.pdf')) continue;
     const route = href.split(/[?#]/)[0];
     if (!publicRoutes.has(route) && route !== '/') failures.push(`${page} links to missing route ${route}`);
+  }
+  for (const [, pdfHref] of html.matchAll(/href="(\/[^"]+\.pdf)"/gi)) {
+    const file = pdfHref.split(/[?#]/)[0].replace(/^\//, '');
+    try { await access(join(root, file)); } catch { failures.push(`${page} links to missing download ${file}`); }
   }
 }
 

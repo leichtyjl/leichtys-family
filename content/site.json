@@ -17,7 +17,7 @@
     "contactEmail": "philip.leichty@example.com",
     "contactPhone": "(555) 010-2027",
     "registration": "Formal invitation and RSVP details will follow",
-    "agendaPdf": "reunion-agenda-2027.pdf",
+    "agendaPdf": "rounding_up_the_leichty_clan_agenda.pdf",
     "schedule": [
       { "time": "11:30 AM", "event": "Doors Open & Arrival", "detail": "Welcome, name tags, sign-in, and getting settled.", "featured": false },
       { "time": "12:00 PM", "event": "Family Photo", "detail": "All-family group portrait gathered together before lunch.", "featured": true },

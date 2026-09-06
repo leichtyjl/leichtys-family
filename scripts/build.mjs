@@ -142,7 +142,7 @@ const pages = [
               <div><dt>Where</dt><dd>${site.reunion.venue}<br><span class="event-address">${site.reunion.address}</span></dd></div>
               <div><dt>Doors open</dt><dd>${site.reunion.doorsOpen}</dd></div>
             </dl>
-            ${hasAgenda ? `<p class="agenda-row"><a class="button" href="/${agendaPdf}" download>View the reunion agenda</a></p>` : ''}
+            ${hasAgenda ? `<p class="agenda-row"><a class="button" href="/${agendaPdf}" download>View / Download the Reunion Agenda</a></p>` : ''}
             <div class="hero-actions"><a class="button button-light-forest" href="/reunion/rsvp/">RSVP information</a><a class="text-link" href="#schedule">See the schedule <span aria-hidden="true">↓</span></a></div>
           </div>
           <figure class="reunion-page-artwork"><img src="/assets/reunion-artwork.webp" width="1222" height="1287" alt="Official 2027 Leichty Family Reunion artwork"></figure>
