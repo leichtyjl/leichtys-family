@@ -9,30 +9,36 @@ const pages = [
   {
     path: '/',
     title: 'Leichty Family',
-    description: site.description,
+    description: 'The 2027 Leichty Family Reunion in Goshen, Indiana, and a lasting home for family history, photographs, and stories.',
     active: '',
     body: `
-      <section class="hero" aria-labelledby="hero-title">
+      <section class="reunion-hero" aria-labelledby="hero-title">
         <div class="hero-content">
-          <p class="eyebrow">Our story, gathered together</p>
-          <h1 id="hero-title">Where family history<br>comes home.</h1>
-          <p class="hero-copy">A lasting place for Leichty family stories, photographs, and the reunions that keep us connected.</p>
+          <p class="eyebrow">Leichty Family Reunion · 2027</p>
+          <h1 id="hero-title">Rounding up<br>the clan.</h1>
+          <p class="hero-copy">Seven generations strong—honoring John and Salome, and gathering in Goshen for the next chapter of our family story.</p>
+          <dl class="hero-details" aria-label="Reunion date and location">
+            <div><dt>When</dt><dd>${site.reunion.date}</dd></div>
+            <div><dt>Where</dt><dd>${site.reunion.location}</dd></div>
+          </dl>
           <div class="hero-actions">
-            <a class="button" href="/reunion/">Explore the next reunion</a>
+            <a class="button" href="/reunion/">Explore reunion details</a>
             <a class="text-link" href="/history/">Discover our history <span aria-hidden="true">→</span></a>
           </div>
         </div>
-        <div class="photo-stage" role="img" aria-label="Reserved space for a treasured Leichty family photograph">
-          <span>Leichty family photograph</span>
-          <small>Archive image coming soon</small>
-        </div>
+        <figure class="reunion-centerpiece">
+          <div class="centerpiece-frame">
+            <img src="/assets/reunion-centerpiece.webp" width="1087" height="1447" fetchpriority="high" alt="Colorized vintage photograph of a man seated on a longhorn steer beside a woman in a blue dress">
+          </div>
+          <figcaption><span>Family photograph</span><span>2027 reunion centerpiece</span></figcaption>
+        </figure>
       </section>
 
       <aside class="reunion-ribbon" aria-label="Next reunion summary">
         <div class="ribbon-inner">
           <div>
-            <span class="ribbon-label">Gather together</span>
-            <span class="ribbon-value">${site.reunion.label}</span>
+            <span class="ribbon-label">Our 2027 gathering</span>
+            <span class="ribbon-value">A legacy of connection</span>
           </div>
           <div>
             <span class="ribbon-label">When</span>
@@ -106,7 +112,7 @@ const pages = [
           <div>
             <p class="eyebrow">Come back together</p>
             <h2 id="reunion-title">The next Leichty family reunion.</h2>
-            <p class="section-lead">Planning details are being gathered. The reunion page will become the single place for the date, location, schedule, lodging, meals, and registration.</p>
+            <p class="section-lead">The date and place are set. The reunion page is the single home for the latest schedule, lodging, meal, and registration details as plans take shape.</p>
             <a class="button" href="/reunion/">Visit the reunion page</a>
           </div>
           <ul class="details-list" aria-label="Current reunion details">
@@ -127,7 +133,7 @@ const pages = [
       <section class="section section-paper">
         <div class="reunion-overview">
           <div>
-            <div class="notice"><p><strong>Planning is underway.</strong>The reunion date and location have not been confirmed yet. Check back as the family shares more details.</p></div>
+            <div class="notice"><p><strong>Save the date.</strong>We’ll gather in ${site.reunion.location} on ${site.reunion.date}. Check back as the family shares the schedule and other planning details.</p></div>
             <div class="timeline" aria-label="Reunion planning details">
               ${timelineItem('Date and time', site.reunion.date)}
               ${timelineItem('Location and directions', site.reunion.location)}
@@ -171,7 +177,7 @@ const pages = [
         <div class="rsvp-card">
           <p class="eyebrow">Not open yet</p>
           <h2>There’s nothing to submit today.</h2>
-          <p class="section-lead">The family will announce registration after the reunion date and location are confirmed. No RSVP or contact information is being collected on this page yet.</p>
+          <p class="section-lead">The family will announce when registration opens. No RSVP or contact information is being collected on this page yet.</p>
           <h3>When registration opens, you’ll be able to:</h3>
           <ul class="check-list">
             <li>Respond once for your household</li>
@@ -365,6 +371,7 @@ function shell(page) {
   const canonical = `${site.canonicalOrigin}${canonicalPath}`;
   const title = page.path === '/' ? page.title : `${page.title} · ${site.siteName}`;
   const robots = page.noindex ? '    <meta name="robots" content="noindex, follow">\n' : '';
+  const imagePreload = page.path === '/' ? '    <link rel="preload" as="image" href="/assets/reunion-centerpiece.webp" type="image/webp">\n' : '';
   return `<!doctype html>
 <html lang="en">
   <head>
@@ -389,7 +396,7 @@ ${robots}    <link rel="canonical" href="${canonical}">
     <meta name="twitter:title" content="${title}">
     <meta name="twitter:description" content="${page.description}">
     <meta name="twitter:image" content="${site.canonicalOrigin}/assets/og.png">
-    <link rel="stylesheet" href="/assets/styles.css">
+${imagePreload}    <link rel="stylesheet" href="/assets/styles.css">
     <script src="/assets/site.js" defer></script>
   </head>
   <body>
