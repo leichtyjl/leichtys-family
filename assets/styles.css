@@ -669,6 +669,32 @@ h3 { margin: 0 0 10px; font-size: 1.55rem; font-weight: 600; line-height: 1.15; 
 .reunion-note p { margin: 0; }
 .reunion-note strong { display: block; margin-bottom: 5px; color: var(--gold); font-size: .78rem; font-weight: 800; letter-spacing: .12em; text-transform: uppercase; }
 
+.tagline { margin: 0 0 20px; color: var(--rust-dark); font-family: var(--serif); font-size: clamp(1.2rem, 2.2vw, 1.6rem); font-style: italic; line-height: 1.4; }
+.event-address { display: block; margin-top: 2px; font-family: var(--sans); font-size: .95rem; color: var(--ink-soft); }
+.agenda-row { margin: 6px 0 22px; }
+.button-light-forest { color: var(--forest); background: var(--cream); box-shadow: none; }
+.button-light-forest:hover, .button-light-forest:focus-visible { color: var(--paper); background: var(--rust); }
+.hero-actions .contact-link, .contact-link { color: inherit; text-decoration-color: var(--gold); }
+
+.schedule-badge { display: inline-block; margin-left: 10px; padding: 3px 10px; vertical-align: middle; color: var(--paper); background: var(--rust); border-radius: 99px; font-family: var(--sans); font-size: .66rem; font-weight: 800; letter-spacing: .06em; text-transform: uppercase; }
+.schedule-featured .schedule-details h3 { color: var(--rust-dark); }
+
+.highlights-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+.highlight-card { padding: 30px; background: var(--cream); border-top: 4px solid var(--gold); box-shadow: 0 14px 34px rgba(38,56,47,.08); }
+.highlight-card h3 { font-size: 1.35rem; }
+.highlight-card p { margin-bottom: 0; color: var(--ink-soft); }
+
+.lodging-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+.lodging-card { padding: 26px; background: var(--paper); border: 1px solid var(--line); border-top: 4px solid var(--rust); }
+.lodging-card h3 { font-size: 1.25rem; }
+.lodging-card p { margin-bottom: 0; color: var(--ink-soft); }
+.lodging-note { max-width: 820px; margin-top: 34px; color: var(--ink-soft); font-family: var(--serif); font-size: 1.08rem; font-style: italic; }
+
+.reminders-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+.reminder-card { padding: 28px 24px; background: var(--forest-deep); color: rgba(255,255,255,.9); border-left: 4px solid var(--gold); }
+.reminder-card h3 { color: white; font-size: 1.15rem; }
+.reminder-card p { margin-bottom: 0; color: rgba(255,255,255,.82); }
+
 .archive-year { padding: 30px 0; display: grid; grid-template-columns: 150px 1fr auto; gap: 32px; align-items: center; border-bottom: 1px solid var(--line); }
 .archive-year time { font-family: var(--serif); font-size: 2rem; }
 .archive-year p { margin: 4px 0 0; color: var(--ink-soft); }
@@ -706,6 +732,7 @@ h3 { margin: 0 0 10px; font-size: 1.55rem; font-weight: 600; line-height: 1.15; 
   .logistics-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   .photo-grid { grid-template-columns: 1fr 1fr; }
   .family-photo-card { grid-column: 1 / -1; width: min(100%, 560px); justify-self: center; }
+  .lodging-grid { grid-template-columns: repeat(2, 1fr); }
   .footer-inner { grid-template-columns: 1fr; }
   .footer-meta { grid-column: auto; }
 }
@@ -741,8 +768,10 @@ h3 { margin: 0 0 10px; font-size: 1.55rem; font-weight: 600; line-height: 1.15; 
   .arrival-times li { padding: 16px; }
   .arrival-times span { font-size: 1.5rem; }
   .bring-grid { grid-template-columns: 1fr; gap: 16px; }
+  .highlights-grid, .lodging-grid, .reminders-grid { grid-template-columns: 1fr; gap: 16px; }
   .schedule-item { grid-template-columns: 1fr; gap: 6px; }
   .schedule-time { font-size: 1.25rem; }
+  .schedule-badge { display: inline-block; margin: 6px 0 0; vertical-align: baseline; }
   .detail-card { min-height: auto; }
   .children-grid { grid-template-columns: 1fr; }
   .child-card { min-height: 132px; }

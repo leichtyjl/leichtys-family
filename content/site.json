@@ -3,35 +3,59 @@
   "canonicalOrigin": "https://www.leichtys.com",
   "description": "A gathering place for Leichty family history, photographs, stories, and reunions.",
   "reunion": {
-    "label": "2027 Leichty Family Reunion",
+    "label": "Rounding Up the Leichty Clan · Leichty Family Reunion",
     "date": "Saturday, June 12, 2027",
     "dateShort": "June 12, 2027",
-    "time": "11:30 am – 4:00 pm",
+    "time": "11:30 AM – 4:00 PM",
     "doorsOpen": "11:30 AM",
-    "location": "Shanklin Park (indoor pavilion), Goshen, Indiana",
+    "venue": "Shanklin Park Indoor Pavilion",
+    "address": "417 W. Plymouth Ave, Goshen, IN",
+    "location": "Shanklin Park Indoor Pavilion, Goshen, Indiana",
+    "locationShort": "Shanklin Park, Goshen, Indiana",
+    "tagline": "Celebrating seven generations of heritage, storytelling, and family connection.",
     "contactName": "Philip Leichty",
-    "contactPhone": "219-819-5555",
+    "contactEmail": "philip.leichty@example.com",
+    "contactPhone": "(555) 010-2027",
     "registration": "Formal invitation and RSVP details will follow",
+    "agendaPdf": "reunion-agenda-2027.pdf",
     "schedule": [
-      { "time": "11:30 AM", "event": "Doors Open & Arrival", "detail": "Check in at the welcome table, grab your nametag, and start catching up with cousins and kin.", "featured": false },
-      { "time": "12:00 PM", "event": "Family Photo", "detail": "Please be in the main pavilion hall promptly so we can capture our all-family picture with every branch and generation together.", "featured": true },
-      { "time": "12:15 PM", "event": "Catered Lunch", "detail": "Sit down and enjoy a catered lunch together — no need to worry about bringing main dishes or heating food!", "featured": true },
-      { "time": "1:00 PM", "event": "Family Storytelling", "detail": "A special hour to share favorite family stories, honor our elders, and revisit classic memories.", "featured": false },
-      { "time": "2:00 PM", "event": "Family Connection & Games", "detail": "An open afternoon featuring yard games including cornhole and giant Jenga, board games, trivia, and time to visit our family memory tables and photo albums.", "featured": false },
-      { "time": "3:45 PM", "event": "Prizes & Wrap-Up", "detail": "Celebrating our game champions, special recognitions, and closing announcements.", "featured": false },
-      { "time": "4:00 PM", "event": "Family Farewells", "detail": "Hugs, goodbyes, and safe travels. Our designated cleanup crew will handle pack-down afterward, so everyone can relax and visit right up until departure.", "featured": false }
+      { "time": "11:30 AM", "event": "Doors Open & Arrival", "detail": "Welcome, name tags, sign-in, and getting settled.", "featured": false },
+      { "time": "12:00 PM", "event": "Family Photo", "detail": "All-family group portrait gathered together before lunch.", "featured": true },
+      { "time": "12:15 – 1:00 PM", "event": "Catered Lunch", "detail": "Buffet service, blessing, and open family table seating.", "featured": false },
+      { "time": "1:00 – 2:00 PM", "event": "Family Storytelling", "detail": "Shared memories, family history, and elder spotlights.", "featured": false },
+      { "time": "2:00 – 3:45 PM", "event": "Family Connection & Games", "detail": "Yard & board games, memory sharing, photo browsing & visiting.", "featured": false },
+      { "time": "3:45 – 4:00 PM", "event": "Prizes & Wrap-Up", "detail": "Game winners announced, awards, and closing remarks.", "featured": false },
+      { "time": "4:00 PM", "event": "Family Farewells", "detail": "Warm goodbyes and safe travels. Cleanup begins afterward.", "featured": false }
+    ],
+    "highlights": [
+      { "title": "Memory Tables", "detail": "Explore historic family photos, branch lineage trees, and heirloom keepsakes." },
+      { "title": "Yard & Table Games", "detail": "Friendly competition with cornhole, giant Jenga, board games, and trivia." },
+      { "title": "Family Guestbook", "detail": "Leave a personal note, favorite family recipe, or memory for our archives." }
     ],
     "whatToBring": [
       { "title": "Family Memorabilia", "detail": "Old photos, albums, scrapbooks, or heirlooms to display on the shared Memory Table." },
       { "title": "Comfortable Attire", "detail": "We will have both indoor pavilion seating and lawn space for games outside." },
       { "title": "Your Favorite Memories", "detail": "Think of a story or favorite memory of Grandpa John, Grandma Salome, or growing up in the family to share during our storytelling hour." }
+    ],
+    "reminders": [
+      { "title": "Family Photo at 12:00 PM", "detail": "Please be in the main pavilion hall so everyone is in the picture!" },
+      { "title": "Hospitality", "detail": "Refreshments, coffee, and water are available throughout the afternoon." },
+      { "title": "Questions & Contact", "detail": "Reach out to Philip Leichty with any questions about the day." }
+    ],
+    "lodging": [
+      { "name": "Hampton Inn Goshen", "detail": "Comfortable hotel with breakfast, indoor pool, and fitness center." },
+      { "name": "Holiday Inn Express & Suites Goshen", "detail": "Family-friendly option with breakfast, indoor pool, and suites." },
+      { "name": "Best Western Inn Goshen", "detail": "Convenient and more budget-friendly option with breakfast." },
+      { "name": "Inn On South 5th", "detail": "Charming historic bed & breakfast in downtown Goshen." },
+      { "name": "Spring View Bed & Breakfast", "detail": "Peaceful country setting with a cozy B&B atmosphere." },
+      { "name": "Rose Lane Farm Bed & Breakfast", "detail": "Beautiful rural setting surrounded by Amish and Mennonite farmland." }
     ]
   },
+  "contactNote": "PROTOTYPE FOR FAMILY REVIEW: Philip Leichty's email and phone shown here are placeholders (philip.leichty@example.com / (555) 010-2027). Replace them with the real contact details before public launch.",
   "navigation": [
     { "label": "History", "href": "/history/", "key": "history" },
     { "label": "Our Family", "href": "/family/", "key": "family" },
     { "label": "Photos", "href": "/photos/", "key": "photos" },
-    { "label": "Videos", "href": "/videos/", "key": "videos" },
     { "label": "Reunions", "href": "/reunions/", "key": "reunions" }
   ]
 }

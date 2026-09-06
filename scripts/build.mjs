@@ -1,3 +1,4 @@
+import { existsSync } from 'node:fs';
 import { mkdir, readFile, writeFile } from 'node:fs/promises';
 import { dirname, join } from 'node:path';
 import { fileURLToPath } from 'node:url';
@@ -6,6 +7,8 @@ const root = join(dirname(fileURLToPath(import.meta.url)), '..');
 const site = JSON.parse(await readFile(join(root, 'content/site.json'), 'utf8'));
 const family = JSON.parse(await readFile(join(root, 'content/family.json'), 'utf8'));
 const peopleById = new Map(family.persons.map((person) => [person.id, person]));
+const agendaPdf = site.reunion.agendaPdf ? site.reunion.agendaPdf : null;
+const hasAgenda = !!agendaPdf && existsSync(join(root, agendaPdf));
 
 const pages = [
   {
@@ -36,7 +39,7 @@ const pages = [
         <div class="quick-strip-inner">
           <div><span class="ribbon-label">Reunion</span><span class="ribbon-value">2027 family gathering</span></div>
           <div><span class="ribbon-label">Date</span><span class="ribbon-value">June 12, 2027</span></div>
-          <div><span class="ribbon-label">Place</span><span class="ribbon-value">Shanklin Park, Goshen, Indiana</span></div>
+          <div><span class="ribbon-label">Place</span><span class="ribbon-value">${site.reunion.locationShort}</span></div>
           <a class="button button-light" href="/reunion/">Plan your visit</a>
         </div>
       </aside>
@@ -45,6 +48,7 @@ const pages = [
         <div class="home-intro">
           <p class="eyebrow">The Leichty family</p>
           <h2 id="welcome-title">One family. Seven generations.</h2>
+          <p class="tagline">${site.reunion.tagline}</p>
           <p class="section-lead">It all reaches back to John and Salome Leichty — through their four children, three descendant clans, and the generations gathering this June. Whatever brings you here, there’s a place for you.</p>
           <div class="hero-actions">
             <a class="button" href="/family/">Explore the family</a>
@@ -115,8 +119,6 @@ const pages = [
           </div>
           <ul class="details-list" aria-label="Current reunion details">
             <li><strong>Date</strong>${site.reunion.date}</li>
-            <li><strong>Time</strong>${site.reunion.time}</li>
-            <li><strong>Location</strong>${site.reunion.location}</li>
             <li><strong>Doors open</strong>${site.reunion.doorsOpen}</li>
           </ul>
         </div>
@@ -128,19 +130,20 @@ const pages = [
     description: 'Plans and updates for the next Leichty family reunion.',
     active: 'reunions',
     body: `
-      ${pageHero('Round up for 2027', 'Leichty Family Reunion.', `${site.reunion.date} · ${site.reunion.location}`)}
+      ${pageHero('Rounding Up the Leichty Clan', 'Leichty Family Reunion.', `${site.reunion.date} · ${site.reunion.time} · ${site.reunion.location}`)}
       <section class="section section-paper" aria-labelledby="overview-title">
         <div class="reunion-overview">
           <div>
             <p class="eyebrow">Save the date</p>
             <h2 id="overview-title">Rounding Up the Leichty Clan!</h2>
-            <p class="section-lead">It’s been too long since our whole extended family gathered in one place. We are bringing together all seven generations from Grandpa John and Grandma Salome’s legacy for an afternoon of reconnecting, sharing memories, and catching up.</p>
+            <p class="tagline">${site.reunion.tagline}</p>
             <dl class="event-facts" aria-label="Reunion at a glance">
               <div><dt>When</dt><dd>${site.reunion.date} · ${site.reunion.time}</dd></div>
-              <div><dt>Where</dt><dd>${site.reunion.location}</dd></div>
+              <div><dt>Where</dt><dd>${site.reunion.venue}<br><span class="event-address">${site.reunion.address}</span></dd></div>
               <div><dt>Doors open</dt><dd>${site.reunion.doorsOpen}</dd></div>
             </dl>
-            <a class="button" href="/reunion/rsvp/">RSVP information</a>
+            ${hasAgenda ? `<p class="agenda-row"><a class="button" href="/${agendaPdf}" download>View the reunion agenda</a></p>` : ''}
+            <div class="hero-actions"><a class="button button-light-forest" href="/reunion/rsvp/">RSVP information</a><a class="text-link" href="#schedule">See the schedule <span aria-hidden="true">↓</span></a></div>
           </div>
           <figure class="reunion-page-artwork"><img src="/assets/reunion-artwork.webp" width="1222" height="1287" alt="Official 2027 Leichty Family Reunion artwork"></figure>
         </div>
@@ -151,7 +154,7 @@ const pages = [
           <div class="arrival-callout">
             <p class="eyebrow">Plan your arrival</p>
             <h2 id="arrival-title">Please arrive by noon.</h2>
-            <p class="section-lead">Our all-family photograph will be taken promptly at 12:00 PM, so please check in, grab your nametag, and find your seat by then.</p>
+            <p class="section-lead">Our all-family photograph is taken promptly at 12:00 PM — every branch and generation together — so please check in, grab your nametag, and find your seat by then.</p>
           </div>
           <ul class="arrival-times" aria-label="Key reunion times">
             <li><strong>Doors open</strong><span>11:30 AM</span></li>
@@ -161,22 +164,48 @@ const pages = [
         </div>
       </section>
 
-      <section class="section" aria-labelledby="schedule-title">
+      <section class="section" id="schedule" aria-labelledby="schedule-title">
         <div class="section-heading">
           <p class="eyebrow">Schedule of events</p>
           <h2 id="schedule-title">The day, minute by minute.</h2>
-          <p class="section-lead">A relaxed afternoon with plenty of time to catch up — ${site.reunion.dateShort}, from ${site.reunion.time}.</p>
+          <p class="section-lead">A relaxed afternoon ${site.reunion.dateShort}, from ${site.reunion.time}, with plenty of time to catch up.</p>
         </div>
         <ol class="schedule-list">${site.reunion.schedule.map(scheduleItem).join('')}</ol>
+      </section>
+
+      <section class="section section-paper" aria-labelledby="highlights-title">
+        <div class="section-heading">
+          <p class="eyebrow">Afternoon highlights</p>
+          <h2 id="highlights-title">Plenty to see, play, and share.</h2>
+        </div>
+        <div class="highlights-grid">${site.reunion.highlights.map(highlightCard).join('')}</div>
       </section>
 
       <section class="section section-paper" aria-labelledby="bring-title">
         <div class="section-heading">
           <p class="eyebrow">What to bring</p>
           <h2 id="bring-title">Just three things.</h2>
-          <p class="section-lead">We’re taking care of lunch, so all you need to bring is what matters most.</p>
+          <p class="section-lead">Lunch is catered, so all you need to bring is what matters most.</p>
         </div>
         <div class="bring-grid">${site.reunion.whatToBring.map(bringCard).join('')}</div>
+      </section>
+
+      <section class="section" aria-labelledby="lodging-title">
+        <div class="section-heading">
+          <p class="eyebrow">Lodging information</p>
+          <h2 id="lodging-title">Make it a weekend in Goshen.</h2>
+          <p class="section-lead">Everyone is welcome to make their own lodging arrangements for the weekend of our family reunion in Goshen, Indiana on ${site.reunion.date}. Here are a few nearby options to consider:</p>
+        </div>
+        <div class="lodging-grid">${site.reunion.lodging.map(lodgingCard).join('')}</div>
+        <p class="lodging-note">Please feel free to choose whichever lodging option works best for you and your family. We just wanted to provide a few suggestions to make planning easier! These are suggestions only — there are no reserved room blocks or special rates.</p>
+      </section>
+
+      <section class="section section-paper" aria-labelledby="reminders-title">
+        <div class="section-heading">
+          <p class="eyebrow">Helpful reminders</p>
+          <h2 id="reminders-title">Good to know.</h2>
+        </div>
+        <div class="reminders-grid">${site.reunion.reminders.map(reminderCard).join('')}</div>
       </section>
 
       <section class="section section-forest" aria-labelledby="contact-title">
@@ -184,11 +213,11 @@ const pages = [
           <div>
             <p class="eyebrow">Questions?</p>
             <h2 id="contact-title">We’re here to help.</h2>
-            <p class="section-lead">Please reach out to ${site.reunion.contactName}${site.reunion.contactPhone ? ` at ${site.reunion.contactPhone}` : ''} any time, or ask at the welcome table when you arrive.</p>
+            <p class="section-lead">Please reach out to <strong>${site.reunion.contactName}</strong> at <a class="contact-link" href="mailto:${site.reunion.contactEmail}">${site.reunion.contactEmail}</a> or ${site.reunion.contactPhone}, or ask at the welcome table when you arrive.</p>
             <a class="button button-light" href="/reunion/rsvp/">RSVP information</a>
             <p class="closing-line">Looking forward to seeing everyone on ${site.reunion.dateShort}!</p>
           </div>
-          <aside class="reunion-note" aria-label="Good to know"><p><strong>Lunch is catered.</strong>There’s no need to bring a main dish or worry about heating or serving food. Let ${site.reunion.contactName} know ahead of time about any dietary or accessibility needs.</p></aside>
+          <aside class="reunion-note" aria-label="Good to know"><p><strong>Lunch is catered.</strong>There’s no need to bring a main dish or worry about heating or serving food. Let ${site.reunion.contactName} know ahead of time about any dietary needs.</p></aside>
         </div>
       </section>`
   },
@@ -503,10 +532,11 @@ function detailCard(title, copy) {
 
 function scheduleItem(item) {
   const featured = item.featured ? ' schedule-featured' : '';
+  const badge = item.featured ? '<span class="schedule-badge">Be on time!</span>' : '';
   return `<li class="schedule-item${featured}">
     <div class="schedule-time">${item.time}</div>
     <div class="schedule-details">
-      <h3>${item.event}</h3>
+      <h3>${item.event}${badge}</h3>
       <p>${item.detail}</p>
     </div>
   </li>`;
@@ -514,6 +544,18 @@ function scheduleItem(item) {
 
 function bringCard(item) {
   return `<article class="bring-card"><div class="bring-icon" aria-hidden="true"></div><h3>${item.title}</h3><p>${item.detail}</p></article>`;
+}
+
+function highlightCard(item) {
+  return `<article class="highlight-card"><h3>${item.title}</h3><p>${item.detail}</p></article>`;
+}
+
+function lodgingCard(item) {
+  return `<article class="lodging-card"><h3>${item.name}</h3><p>${item.detail}</p></article>`;
+}
+
+function reminderCard(item) {
+  return `<article class="reminder-card"><h3>${item.title}</h3><p>${item.detail}</p></article>`;
 }
 
 function linkedFeatureCard(title, copy, href, linkLabel) {
@@ -620,7 +662,7 @@ function shell(page) {
   return `<!doctype html>
 <html lang="en">
   <head>
-    <meta charset="utf-8">
+    ${site.contactNote ? `    <!-- ${site.contactNote} -->\n` : ''}    <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="theme-color" content="#f4eee3">
     <title>${title}</title>
@@ -641,8 +683,8 @@ ${robots}    <link rel="canonical" href="${canonical}">
     <meta name="twitter:title" content="${title}">
     <meta name="twitter:description" content="${page.description}">
     <meta name="twitter:image" content="${site.canonicalOrigin}/assets/og.png">
-${imagePreload}    <link rel="stylesheet" href="/assets/styles.css?v=20260906b">
-    <script src="/assets/site.js?v=20260906b" defer></script>
+${imagePreload}    <link rel="stylesheet" href="/assets/styles.css?v=20260906c">
+    <script src="/assets/site.js?v=20260906c" defer></script>
   </head>
   <body>
     <a class="skip-link" href="#main">Skip to main content</a>
