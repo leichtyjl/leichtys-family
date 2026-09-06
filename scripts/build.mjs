@@ -190,14 +190,59 @@ const pages = [
         <div class="bring-grid">${site.reunion.whatToBring.map(bringCard).join('')}</div>
       </section>
 
-      <section class="section" aria-labelledby="lodging-title">
+      <section class="section" aria-labelledby="visiting-title">
         <div class="section-heading">
-          <p class="eyebrow">Lodging information</p>
-          <h2 id="lodging-title">Make it a weekend in Goshen.</h2>
-          <p class="section-lead">Everyone is welcome to make their own lodging arrangements for the weekend of our family reunion in Goshen, Indiana on ${site.reunion.date}. Here are a few nearby options to consider:</p>
+          <p class="eyebrow">Visiting Goshen</p>
+          <h2 id="visiting-title">Planning your trip.</h2>
+          <p class="section-lead">A few practical notes to help family coming in from out of town.</p>
         </div>
-        <div class="lodging-grid">${site.reunion.lodging.map(lodgingCard).join('')}</div>
-        <p class="lodging-note">Please feel free to choose whichever lodging option works best for you and your family. We just wanted to provide a few suggestions to make planning easier! These are suggestions only — there are no reserved room blocks or special rates.</p>
+
+        <div class="visit-block">
+          <h3 class="visit-kicker">Lodging</h3>
+          <p class="visit-intro">Everyone is welcome to make their own lodging arrangements for the weekend of our family reunion in Goshen, Indiana, on ${site.reunion.date}. Here are a few options to consider:</p>
+          <ul class="plain-list lodging-list">
+            ${site.reunion.lodging.map((l) => `<li><strong>${l.name}</strong><span>${l.detail}</span></li>`).join('')}
+          </ul>
+          <p class="visit-note">You can also check <a href="https://www.airbnb.com/" rel="noopener" target="_blank">Airbnb</a> for vacation rentals or use Google to search for additional hotels and lodging options in the Goshen area. Please choose whichever option works best for your family — these are suggestions only, with no reserved room blocks or special rates.</p>
+        </div>
+
+        <div class="visit-block">
+          <h3 class="visit-kicker">Airports</h3>
+          <p class="visit-primary-airport"><strong>${site.reunion.airports.primary.code}</strong> — ${site.reunion.airports.primary.detail}</p>
+          <p class="visit-intro">Other options to check include:</p>
+          <ul class="plain-list airport-list">
+            ${site.reunion.airports.others.map((a) => `<li>${a}</li>`).join('')}
+          </ul>
+          <p class="visit-note">${site.reunion.airports.tip}</p>
+        </div>
+
+        <div class="visit-block">
+          <h3 class="visit-kicker">Restaurant recommendations</h3>
+          <p class="visit-intro">${site.reunion.restaurants.intro}</p>
+
+          <h4 class="visit-subhead">Goshen favorites</h4>
+          <ul class="plain-list two-col-list">
+            ${site.reunion.restaurants.goshen.map((r) => `<li><strong>${r.name}</strong><span>${r.detail}</span></li>`).join('')}
+          </ul>
+
+          <h4 class="visit-subhead">Breakfast &amp; casual dining</h4>
+          <ul class="plain-list">
+            ${site.reunion.restaurants.breakfast.map((r) => `<li><strong>${r.name}</strong><span>${r.detail}</span></li>`).join('')}
+          </ul>
+
+          <h4 class="visit-subhead">Amish-country dining</h4>
+          <ul class="plain-list">
+            ${site.reunion.restaurants.amish.map((r) => `<li><strong>${r.name}</strong><span>${r.detail}</span></li>`).join('')}
+          </ul>
+
+          <h4 class="visit-subhead">Especially recommended for out-of-town family</h4>
+          <p class="visit-intro">If you’re visiting Goshen for the first time, we especially recommend:</p>
+          <ol class="top-picks">
+            ${site.reunion.restaurants.top.map((t) => `<li>${t}</li>`).join('')}
+          </ol>
+
+          <p class="visit-note">${site.reunion.restaurants.tip}</p>
+        </div>
       </section>
 
       <section class="section section-paper" aria-labelledby="reminders-title">
@@ -550,10 +595,6 @@ function highlightCard(item) {
   return `<article class="highlight-card"><h3>${item.title}</h3><p>${item.detail}</p></article>`;
 }
 
-function lodgingCard(item) {
-  return `<article class="lodging-card"><h3>${item.name}</h3><p>${item.detail}</p></article>`;
-}
-
 function reminderCard(item) {
   return `<article class="reminder-card"><h3>${item.title}</h3><p>${item.detail}</p></article>`;
 }
@@ -585,17 +626,17 @@ function familyStructure() {
 
 function childCard(person) {
   const years = `${person.birth}–${person.death}`;
-  if (!person.hasDescendants) {
-    return `<a class="child-card child-card-remembered" href="/family/iona-leichty/">
-      <span class="child-name">${person.name}</span>
-      <span class="child-years">${years}</span>
-      <span class="child-note">Remembering Iona</span>
-    </a>`;
-  }
-  return `<a class="child-card" href="/family/clans/${person.descendantClan}/">
+  const d = person.photoWidth && person.photoHeight ? ` width="${person.photoWidth}" height="${person.photoHeight}"` : '';
+  const photo = person.photo ? `<span class="child-photo"><img src="${person.photo}"${d} alt="Portrait of ${person.name}" loading="lazy" decoding="async"></span>` : '';
+  const note = !person.hasDescendants
+    ? '<span class="child-note">Remembering Iona</span>'
+    : `<span class="child-note">${person.descendantClan[0].toUpperCase()}${person.descendantClan.slice(1)} Clan</span>`;
+  const href = !person.hasDescendants ? '/family/iona-leichty/' : `/family/clans/${person.descendantClan}/`;
+  return `<a class="child-card${person.hasDescendants ? '' : ' child-card-remembered'}" href="${href}">
+    ${photo}
     <span class="child-name">${person.name}</span>
     <span class="child-years">${years}</span>
-    <span class="child-note">${person.descendantClan[0].toUpperCase()}${person.descendantClan.slice(1)} Clan</span>
+    ${note}
   </a>`;
 }
 
@@ -683,8 +724,8 @@ ${robots}    <link rel="canonical" href="${canonical}">
     <meta name="twitter:title" content="${title}">
     <meta name="twitter:description" content="${page.description}">
     <meta name="twitter:image" content="${site.canonicalOrigin}/assets/og.png">
-${imagePreload}    <link rel="stylesheet" href="/assets/styles.css?v=20260906c">
-    <script src="/assets/site.js?v=20260906c" defer></script>
+${imagePreload}    <link rel="stylesheet" href="/assets/styles.css?v=20260906d">
+    <script src="/assets/site.js?v=20260906d" defer></script>
   </head>
   <body>
     <a class="skip-link" href="#main">Skip to main content</a>

@@ -38,6 +38,9 @@
       "generation": 2,
       "biography": null,
       "photos": [],
+      "photo": "/assets/portraits/simon.jpeg",
+      "photoWidth": 336,
+      "photoHeight": 336,
       "descendantClan": "simon",
       "hasDescendants": true
     },
@@ -51,6 +54,9 @@
       "generation": 2,
       "biography": null,
       "photos": [],
+      "photo": "/assets/portraits/iona.png",
+      "photoWidth": 1086,
+      "photoHeight": 1449,
       "descendantClan": null,
       "hasDescendants": false
     },
@@ -64,6 +70,9 @@
       "generation": 2,
       "biography": null,
       "photos": [],
+      "photo": "/assets/portraits/jacob.jpg",
+      "photoWidth": 250,
+      "photoHeight": 339,
       "descendantClan": "jacob",
       "hasDescendants": true
     },
@@ -77,6 +86,9 @@
       "generation": 2,
       "biography": null,
       "photos": [],
+      "photo": "/assets/portraits/carl.png",
+      "photoWidth": 1200,
+      "photoHeight": 1600,
       "descendantClan": "carl",
       "hasDescendants": true
     }

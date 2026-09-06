@@ -46,10 +46,47 @@
       { "name": "Hampton Inn Goshen", "detail": "Comfortable hotel with breakfast, indoor pool, and fitness center." },
       { "name": "Holiday Inn Express & Suites Goshen", "detail": "Family-friendly option with breakfast, indoor pool, and suites." },
       { "name": "Best Western Inn Goshen", "detail": "Convenient and more budget-friendly option with breakfast." },
-      { "name": "Inn On South 5th", "detail": "Charming historic bed & breakfast in downtown Goshen." },
+      { "name": "Inn on South 5th", "detail": "Charming historic bed & breakfast in downtown Goshen." },
       { "name": "Spring View Bed & Breakfast", "detail": "Peaceful country setting with a cozy B&B atmosphere." },
       { "name": "Rose Lane Farm Bed & Breakfast", "detail": "Beautiful rural setting surrounded by Amish and Mennonite farmland." }
-    ]
+    ],
+    "airports": {
+      "primary": {
+        "code": "South Bend International Airport (SBN)",
+        "detail": "The closest airport with regular commercial flights, approximately 30–40 miles from Goshen. This is probably the easiest airport for most family members flying in."
+      },
+      "others": [
+        "Fort Wayne International (FWA)",
+        "Kalamazoo/Battle Creek (AZO)",
+        "Grand Rapids (GRR)",
+        "Chicago Midway (MDW)",
+        "Chicago O’Hare (ORD)"
+      ],
+      "tip": "Check flight prices and schedules for SBN first, but it may be worth comparing the other airports for better fares or nonstop flights."
+    },
+    "restaurants": {
+      "intro": "There are lots of great places to eat in and around Goshen! Here are some recommendations for the reunion weekend:",
+      "goshen": [
+        { "name": "Venturi", "detail": "Award-winning, authentic Neapolitan pizza in downtown Goshen. A great choice for dinner." },
+        { "name": "The Table at 108", "detail": "Italian-inspired food in a comfortable, family-friendly setting." },
+        { "name": "Goshen Brewing Company", "detail": "Casual atmosphere with American-style food." },
+        { "name": "Hoppers Pike Street Grill", "detail": "Casual American dining with generous portions." },
+        { "name": "Biebs & Ash", "detail": "Burgers, sandwiches and fries in downtown Goshen." },
+        { "name": "Universal Tamal", "detail": "Great choice for Mexican food and homemade tamales." },
+        { "name": "Maple Indian Cuisine", "detail": "A flavorful option for Indian food." }
+      ],
+      "breakfast": [
+        { "name": "The Tipsy Biscuit", "detail": "Popular spot for breakfast and brunch." },
+        { "name": "Olympia Candy Kitchen", "detail": "A historic downtown favorite for breakfast, lunch and homemade candy." },
+        { "name": "South Side Soda Shop", "detail": "A fun, old-fashioned diner and soda fountain." }
+      ],
+      "amish": [
+        { "name": "Blue Gate Restaurant & Bakery", "detail": "In Shipshewana. A great place to experience classic Amish-country cooking and homemade bakery treats." },
+        { "name": "Das Dutchman Essenhaus", "detail": "In Middlebury. Family-style Amish cooking, homemade noodles, chicken and delicious pies." }
+      ],
+      "top": ["Venturi", "Blue Gate Restaurant & Bakery", "Das Dutchman Essenhaus"],
+      "tip": "Check Google for current hours, menus, reviews and directions before visiting, as hours can change."
+    }
   },
   "contactNote": "PROTOTYPE FOR FAMILY REVIEW: Philip Leichty's email and phone shown here are placeholders (philip.leichty@example.com / (555) 010-2027). Replace them with the real contact details before public launch.",
   "navigation": [
