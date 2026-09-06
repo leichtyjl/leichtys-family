@@ -1,0 +1,18 @@
+{
+  "siteName": "Leichty Family",
+  "canonicalOrigin": "https://www.leichtys.com",
+  "description": "A gathering place for Leichty family history, photographs, stories, and reunions.",
+  "reunion": {
+    "label": "Next family reunion",
+    "date": "Date coming soon",
+    "location": "Location coming soon",
+    "registration": "Registration opening later"
+  },
+  "navigation": [
+    { "label": "History", "href": "/history/", "key": "history" },
+    { "label": "Family Tree", "href": "/family-tree/", "key": "family-tree" },
+    { "label": "Photos", "href": "/photos/", "key": "photos" },
+    { "label": "Videos", "href": "/videos/", "key": "videos" },
+    { "label": "Reunions", "href": "/reunions/", "key": "reunions" }
+  ]
+}
