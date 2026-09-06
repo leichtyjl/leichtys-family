@@ -5,8 +5,11 @@
   "reunion": {
     "label": "2027 family reunion",
     "date": "Saturday, June 12, 2027",
-    "location": "Goshen, Indiana",
-    "registration": "Family RSVP will open closer to the reunion"
+    "time": "11:30 am – 4:00 pm",
+    "location": "Shanklin Park (indoor pavilion), Goshen, Indiana",
+    "contactName": "Philip Leichty",
+    "contactPhone": "219-819-5555",
+    "registration": "Formal invitation and RSVP details will follow"
   },
   "navigation": [
     { "label": "History", "href": "/history/", "key": "history" },

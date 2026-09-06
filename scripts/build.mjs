@@ -19,7 +19,7 @@ const pages = [
           <p class="eyebrow">Save the date</p>
           <h1 id="hero-title">Leichty Family Reunion 2027</h1>
           <dl class="hero-details" aria-label="Reunion date and location">
-            <div><dt>When</dt><dd>${site.reunion.date}</dd></div>
+            <div><dt>When</dt><dd>${site.reunion.date} · ${site.reunion.time}</dd></div>
             <div><dt>Where</dt><dd>${site.reunion.location}</dd></div>
           </dl>
           <div class="hero-actions">
@@ -36,7 +36,7 @@ const pages = [
         <div class="quick-strip-inner">
           <div><span class="ribbon-label">Reunion</span><span class="ribbon-value">2027 family gathering</span></div>
           <div><span class="ribbon-label">Date</span><span class="ribbon-value">June 12, 2027</span></div>
-          <div><span class="ribbon-label">Place</span><span class="ribbon-value">Goshen, Indiana</span></div>
+          <div><span class="ribbon-label">Place</span><span class="ribbon-value">Shanklin Park, Goshen, Indiana</span></div>
           <a class="button button-light" href="/reunion/">Plan your visit</a>
         </div>
       </aside>
@@ -116,6 +116,18 @@ const pages = [
     active: 'reunions',
     body: `
       ${pageHero('Gather together', 'Leichty Family Reunion 2027.', `${site.reunion.date} · ${site.reunion.location}`)}
+      <section class="section section-paper" aria-labelledby="save-date-title">
+        <div class="section-heading">
+          <p class="eyebrow">Save the date</p>
+          <h2 id="save-date-title">Rounding Up the Leichty Clan!</h2>
+          <p class="section-lead">It’s been too long since our whole extended family gathered in one place. We are bringing together all seven generations from Grandpa John and Grandma Salome’s legacy for an afternoon of reconnecting, sharing memories, and catching up.</p>
+        </div>
+        <dl class="event-facts" aria-label="Save the date details">
+          <div><dt>When</dt><dd>${site.reunion.date} · ${site.reunion.time}</dd></div>
+          <div><dt>Where</dt><dd>${site.reunion.location}</dd></div>
+        </dl>
+        <div class="notice"><p><strong>Mark your calendars!</strong>We’re hoping everyone can steer their way to Indiana to be part of it. The formal invitation and RSVP details will follow. Questions or updates? Contact ${site.reunion.contactName} at ${site.reunion.contactPhone}.</p></div>
+      </section>
       <section class="section section-paper">
         <div class="reunion-overview">
           <div>
@@ -123,6 +135,7 @@ const pages = [
             <h2>Save the date.</h2>
             <dl class="event-facts" aria-label="Current reunion details">
               <div><dt>Date</dt><dd>${site.reunion.date}</dd></div>
+              <div><dt>Time</dt><dd>${site.reunion.time}</dd></div>
               <div><dt>Location</dt><dd>${site.reunion.location}</dd></div>
               <div><dt>Registration</dt><dd>${site.reunion.registration}</dd></div>
             </dl>
@@ -138,8 +151,8 @@ const pages = [
           <p class="section-lead">The details below will stay current as the reunion plan is finalized.</p>
         </div>
         <div class="logistics-grid">
-          ${detailCard('Schedule', 'Arrival time, activities, meals, and closing time will be shared when the day’s plan is final.')}
-          ${detailCard('Location & directions', 'The reunion will be in Goshen, Indiana. The exact venue address, directions, and parking notes will be shared with the family.')}
+          ${detailCard('Schedule', 'The reunion runs Saturday, June 12, from 11:30 am to 4:00 pm. Arrival time, activities, meals, and closing time will be shared when the day’s plan is final.')}
+          ${detailCard('Location & directions', 'The reunion will be held at Shanklin Park’s indoor pavilion in Goshen, Indiana. Directions, parking notes, and the exact gathering point will be shared with the family.')}
           ${detailCard('Food', 'Meal plans and any dish requests will be shared before registration closes.')}
           ${detailCard('Cost', 'Any household or per-person cost will be announced before RSVP opens.')}
           ${detailCard('What to bring', 'A short packing list—plus any family photographs or stories to share—will be posted with the schedule.')}
