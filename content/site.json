@@ -3,13 +3,29 @@
   "canonicalOrigin": "https://www.leichtys.com",
   "description": "A gathering place for Leichty family history, photographs, stories, and reunions.",
   "reunion": {
-    "label": "2027 family reunion",
+    "label": "2027 Leichty Family Reunion",
     "date": "Saturday, June 12, 2027",
+    "dateShort": "June 12, 2027",
     "time": "11:30 am – 4:00 pm",
+    "doorsOpen": "11:30 AM",
     "location": "Shanklin Park (indoor pavilion), Goshen, Indiana",
     "contactName": "Philip Leichty",
     "contactPhone": "219-819-5555",
-    "registration": "Formal invitation and RSVP details will follow"
+    "registration": "Formal invitation and RSVP details will follow",
+    "schedule": [
+      { "time": "11:30 AM", "event": "Doors Open & Arrival", "detail": "Check in at the welcome table, grab your nametag, and start catching up with cousins and kin.", "featured": false },
+      { "time": "12:00 PM", "event": "Family Photo", "detail": "Please be in the main pavilion hall promptly so we can capture our all-family picture with every branch and generation together.", "featured": true },
+      { "time": "12:15 PM", "event": "Catered Lunch", "detail": "Sit down and enjoy a catered lunch together — no need to worry about bringing main dishes or heating food!", "featured": true },
+      { "time": "1:00 PM", "event": "Family Storytelling", "detail": "A special hour to share favorite family stories, honor our elders, and revisit classic memories.", "featured": false },
+      { "time": "2:00 PM", "event": "Family Connection & Games", "detail": "An open afternoon featuring yard games including cornhole and giant Jenga, board games, trivia, and time to visit our family memory tables and photo albums.", "featured": false },
+      { "time": "3:45 PM", "event": "Prizes & Wrap-Up", "detail": "Celebrating our game champions, special recognitions, and closing announcements.", "featured": false },
+      { "time": "4:00 PM", "event": "Family Farewells", "detail": "Hugs, goodbyes, and safe travels. Our designated cleanup crew will handle pack-down afterward, so everyone can relax and visit right up until departure.", "featured": false }
+    ],
+    "whatToBring": [
+      { "title": "Family Memorabilia", "detail": "Old photos, albums, scrapbooks, or heirlooms to display on the shared Memory Table." },
+      { "title": "Comfortable Attire", "detail": "We will have both indoor pavilion seating and lawn space for games outside." },
+      { "title": "Your Favorite Memories", "detail": "Think of a story or favorite memory of Grandpa John, Grandma Salome, or growing up in the family to share during our storytelling hour." }
+    ]
   },
   "navigation": [
     { "label": "History", "href": "/history/", "key": "history" },

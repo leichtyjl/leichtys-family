@@ -41,16 +41,24 @@ const pages = [
         </div>
       </aside>
 
-      <section class="section section-paper" aria-labelledby="welcome-title">
+      <section class="section" aria-labelledby="welcome-title">
+        <div class="home-intro">
+          <p class="eyebrow">The Leichty family</p>
+          <h2 id="welcome-title">One family. Seven generations.</h2>
+          <p class="section-lead">It all reaches back to John and Salome Leichty — through their four children, three descendant clans, and the generations gathering this June. Whatever brings you here, there’s a place for you.</p>
+          <div class="hero-actions">
+            <a class="button" href="/family/">Explore the family</a>
+            <a class="text-link" href="/reunion/">2027 reunion details <span aria-hidden="true">→</span></a>
+          </div>
+        </div>
+      </section>
+
+      <section class="section section-paper" aria-labelledby="john-salome-title">
         <div class="origin-story">
-          <figure class="origin-photo">
-            <img src="/assets/reunion-centerpiece.webp" width="1087" height="1447" loading="lazy" alt="Colorized vintage family photograph of a man seated on a longhorn steer beside a woman in a blue dress">
-            <figcaption>A treasured Leichty family photograph</figcaption>
-          </figure>
           <div>
             <p class="eyebrow">Where our story begins</p>
-            <h2 id="welcome-title">John + Salome Leichty</h2>
-            <p class="section-lead">John Leichty and Salome (Chupp) Leichty are the foundation of the family remembered here. Their story continues through four children, three descendant clans, and seven generations.</p>
+            <h2 id="john-salome-title">John + Salome Leichty</h2>
+            <p class="section-lead">John Leichty and Salome (Chupp) Leichty are the foundation of this family. Their four children — Simon, Iona, Jacob, and Carl — branch into the three descendant clans gathering today.</p>
             <a class="text-link" href="/family/john-and-salome/">Meet John and Salome <span aria-hidden="true">→</span></a>
           </div>
         </div>
@@ -58,33 +66,24 @@ const pages = [
 
       <section class="section section-forest family-origin-section" aria-labelledby="family-origin-title">
         <div class="section-heading">
-          <p class="eyebrow">Where our story begins</p>
+          <p class="eyebrow">Meet the family</p>
           <h2 id="family-origin-title">Four children. Three descendant clans.</h2>
-          <p class="section-lead">John and Salome’s four children all belong in the family story. Today’s reunion family descends through Simon, Jacob, and Carl.</p>
+          <p class="section-lead">John and Salome’s four children all belong in the family story. Today’s descendants continue through Simon, Jacob, and Carl.</p>
         </div>
         ${familyStructure()}
       </section>
 
-      <section class="section section-paper" aria-labelledby="legacy-title">
-        <div class="legacy-callout">
-          <p class="legacy-number" aria-hidden="true">7</p>
-          <div><p class="eyebrow">Seven generations strong</p><h2 id="legacy-title">A legacy of reconnection.</h2><p class="section-lead">The reunion brings every generation and all three descendant clans back to one family table.</p></div>
-        </div>
-      </section>
-
-      <section class="section section-paper" aria-labelledby="reunion-title">
-        <div class="reunion-cta">
-          <div>
-            <p class="eyebrow">Come back together</p>
-            <h2 id="reunion-title">The next Leichty family reunion.</h2>
-            <p class="section-lead">The date and city are set. Visit the reunion page for the latest schedule, directions, meal, cost, and registration information.</p>
-            <div class="hero-actions"><a class="button" href="/reunion/">Reunion details</a><a class="text-link" href="/reunion/rsvp/">RSVP information <span aria-hidden="true">→</span></a></div>
+      <section class="section section-paper" aria-labelledby="years-title">
+        <div class="years-band">
+          <figure class="years-photo">
+            <img src="/assets/reunion-centerpiece.webp" width="1087" height="1447" loading="lazy" alt="Colorized vintage Leichty family photograph of a man seated on a longhorn steer beside a woman in a blue dress">
+          </figure>
+          <div class="years-copy">
+            <p class="eyebrow">Seven generations strong</p>
+            <h2 id="years-title">The faces behind the stories.</h2>
+            <p class="section-lead">Photographs carry the moments words can’t quite hold. The centerpiece of this year’s reunion artwork is a beloved Leichty family photograph — and it’s only the beginning of a story worth keeping.</p>
+            <a class="button" href="/photos/">View family photographs</a>
           </div>
-          <ul class="details-list" aria-label="Current reunion details">
-            <li><strong>Date</strong>${site.reunion.date}</li>
-            <li><strong>Location</strong>${site.reunion.location}</li>
-            <li><strong>Registration</strong>${site.reunion.registration}</li>
-          </ul>
         </div>
       </section>
 
@@ -95,17 +94,31 @@ const pages = [
           <p class="section-lead">Explore the people, photographs, voices, and gatherings that connect the Leichty family.</p>
         </div>
         <div class="card-grid">
-          <a class="archive-card" href="/history/"><span class="card-number">01 · HISTORY</span><div><h3>Our story</h3><p>Family history, places, documents, and stories passed between generations.</p></div><span class="card-arrow" aria-hidden="true">↗</span></a>
-          <a class="archive-card" href="/family/"><span class="card-number">02 · OUR FAMILY</span><div><h3>Our people</h3><p>Meet John and Salome’s family and explore the three descendant clans.</p></div><span class="card-arrow" aria-hidden="true">↗</span></a>
-          <a class="archive-card" href="/photos/"><span class="card-number">03 · PHOTOGRAPHS</span><div><h3>Our faces</h3><p>Treasured images kept with names, dates, places, and context.</p></div><span class="card-arrow" aria-hidden="true">↗</span></a>
-          <a class="archive-card" href="/videos/"><span class="card-number">04 · FILMS</span><div><h3>Our voices</h3><p>Home movies, interviews, and reunion recordings worth preserving.</p></div><span class="card-arrow" aria-hidden="true">↗</span></a>
+          <a class="archive-card" href="/family/"><span class="card-number">01 · OUR FAMILY</span><div><h3>Our people</h3><p>Begin with John and Salome, their four children, and the three descendant clans.</p></div><span class="card-arrow" aria-hidden="true">↗</span></a>
+          <a class="archive-card" href="/history/"><span class="card-number">02 · HISTORY</span><div><h3>Our story</h3><p>The places, documents, and stories that give the family meaning.</p></div><span class="card-arrow" aria-hidden="true">↗</span></a>
+          <a class="archive-card" href="/photos/"><span class="card-number">03 · PHOTOGRAPHS</span><div><h3>Our faces</h3><p>Treasured images shared and remembered, generation to generation.</p></div><span class="card-arrow" aria-hidden="true">↗</span></a>
+          <a class="archive-card" href="/videos/"><span class="card-number">04 · FILMS</span><div><h3>Our voices</h3><p>Home movies and interviews keep the family’s voices alive.</p></div><span class="card-arrow" aria-hidden="true">↗</span></a>
+        </div>
+        <div class="archive-contribute">
+          <p class="section-lead">Have a Leichty family photograph, home movie, or story to share?</p>
+          <a class="button button-light" href="/photos/">Contribute to the family archive</a>
         </div>
       </section>
 
-      <section class="section section-paper" aria-labelledby="preserve-title">
-        <div class="preservation-cta">
-          <div><p class="eyebrow">Preserve a family memory</p><h2 id="preserve-title">Every photograph has a story.</h2><p class="section-lead">Gather the names, date, place, and story behind your family photographs and films. Those details help future generations understand what they are seeing.</p></div>
-          <a class="button" href="/photos/">Explore family photographs</a>
+      <section class="section section-forest" aria-labelledby="reunion-title">
+        <div class="reunion-cta">
+          <div>
+            <p class="eyebrow">Save the date</p>
+            <h2 id="reunion-title">See you in Goshen.</h2>
+            <p class="section-lead">Join every branch and generation on ${site.reunion.dateShort} at Shanklin Park. Doors open at ${site.reunion.doorsOpen}, and lunch is on us.</p>
+            <div class="hero-actions"><a class="button button-light" href="/reunion/">Reunion details</a><a class="text-link" href="/reunion/rsvp/">RSVP information <span aria-hidden="true">→</span></a></div>
+          </div>
+          <ul class="details-list" aria-label="Current reunion details">
+            <li><strong>Date</strong>${site.reunion.date}</li>
+            <li><strong>Time</strong>${site.reunion.time}</li>
+            <li><strong>Location</strong>${site.reunion.location}</li>
+            <li><strong>Doors open</strong>${site.reunion.doorsOpen}</li>
+          </ul>
         </div>
       </section>`
   },
@@ -115,48 +128,67 @@ const pages = [
     description: 'Plans and updates for the next Leichty family reunion.',
     active: 'reunions',
     body: `
-      ${pageHero('Gather together', 'Leichty Family Reunion 2027.', `${site.reunion.date} · ${site.reunion.location}`)}
-      <section class="section section-paper" aria-labelledby="save-date-title">
-        <div class="section-heading">
-          <p class="eyebrow">Save the date</p>
-          <h2 id="save-date-title">Rounding Up the Leichty Clan!</h2>
-          <p class="section-lead">It’s been too long since our whole extended family gathered in one place. We are bringing together all seven generations from Grandpa John and Grandma Salome’s legacy for an afternoon of reconnecting, sharing memories, and catching up.</p>
-        </div>
-        <dl class="event-facts" aria-label="Save the date details">
-          <div><dt>When</dt><dd>${site.reunion.date} · ${site.reunion.time}</dd></div>
-          <div><dt>Where</dt><dd>${site.reunion.location}</dd></div>
-        </dl>
-        <div class="notice"><p><strong>Mark your calendars!</strong>We’re hoping everyone can steer their way to Indiana to be part of it. The formal invitation and RSVP details will follow. Questions or updates? Contact ${site.reunion.contactName} at ${site.reunion.contactPhone}.</p></div>
-      </section>
-      <section class="section section-paper">
+      ${pageHero('Round up for 2027', 'Leichty Family Reunion.', `${site.reunion.date} · ${site.reunion.location}`)}
+      <section class="section section-paper" aria-labelledby="overview-title">
         <div class="reunion-overview">
           <div>
-            <p class="eyebrow">The essentials</p>
-            <h2>Save the date.</h2>
-            <dl class="event-facts" aria-label="Current reunion details">
-              <div><dt>Date</dt><dd>${site.reunion.date}</dd></div>
-              <div><dt>Time</dt><dd>${site.reunion.time}</dd></div>
-              <div><dt>Location</dt><dd>${site.reunion.location}</dd></div>
-              <div><dt>Registration</dt><dd>${site.reunion.registration}</dd></div>
+            <p class="eyebrow">Save the date</p>
+            <h2 id="overview-title">Rounding Up the Leichty Clan!</h2>
+            <p class="section-lead">It’s been too long since our whole extended family gathered in one place. We are bringing together all seven generations from Grandpa John and Grandma Salome’s legacy for an afternoon of reconnecting, sharing memories, and catching up.</p>
+            <dl class="event-facts" aria-label="Reunion at a glance">
+              <div><dt>When</dt><dd>${site.reunion.date} · ${site.reunion.time}</dd></div>
+              <div><dt>Where</dt><dd>${site.reunion.location}</dd></div>
+              <div><dt>Doors open</dt><dd>${site.reunion.doorsOpen}</dd></div>
             </dl>
             <a class="button" href="/reunion/rsvp/">RSVP information</a>
           </div>
           <figure class="reunion-page-artwork"><img src="/assets/reunion-artwork.webp" width="1222" height="1287" alt="Official 2027 Leichty Family Reunion artwork"></figure>
         </div>
       </section>
-      <section class="section" aria-labelledby="planning-title">
-        <div class="section-heading">
-          <p class="eyebrow">Planning your visit</p>
-          <h2 id="planning-title">What we know—and what we’ll share.</h2>
-          <p class="section-lead">The details below will stay current as the reunion plan is finalized.</p>
+
+      <section class="arrival-banner" aria-labelledby="arrival-title">
+        <div class="arrival-banner-inner">
+          <div class="arrival-callout">
+            <p class="eyebrow">Plan your arrival</p>
+            <h2 id="arrival-title">Please arrive by noon.</h2>
+            <p class="section-lead">Our all-family photograph will be taken promptly at 12:00 PM, so please check in, grab your nametag, and find your seat by then.</p>
+          </div>
+          <ul class="arrival-times" aria-label="Key reunion times">
+            <li><strong>Doors open</strong><span>11:30 AM</span></li>
+            <li><strong>Family photo</strong><span>12:00 PM</span></li>
+            <li><strong>Catered lunch</strong><span>12:15 PM</span></li>
+          </ul>
         </div>
-        <div class="logistics-grid">
-          ${detailCard('Schedule', 'The reunion runs Saturday, June 12, from 11:30 am to 4:00 pm. Arrival time, activities, meals, and closing time will be shared when the day’s plan is final.')}
-          ${detailCard('Location & directions', 'The reunion will be held at Shanklin Park’s indoor pavilion in Goshen, Indiana. Directions, parking notes, and the exact gathering point will be shared with the family.')}
-          ${detailCard('Food', 'Meal plans and any dish requests will be shared before registration closes.')}
-          ${detailCard('Cost', 'Any household or per-person cost will be announced before RSVP opens.')}
-          ${detailCard('What to bring', 'A short packing list—plus any family photographs or stories to share—will be posted with the schedule.')}
-          ${detailCard('Questions', 'Answers about accessibility, dietary needs, children, lodging, and travel will be added as plans are confirmed.')}
+      </section>
+
+      <section class="section" aria-labelledby="schedule-title">
+        <div class="section-heading">
+          <p class="eyebrow">Schedule of events</p>
+          <h2 id="schedule-title">The day, minute by minute.</h2>
+          <p class="section-lead">A relaxed afternoon with plenty of time to catch up — ${site.reunion.dateShort}, from ${site.reunion.time}.</p>
+        </div>
+        <ol class="schedule-list">${site.reunion.schedule.map(scheduleItem).join('')}</ol>
+      </section>
+
+      <section class="section section-paper" aria-labelledby="bring-title">
+        <div class="section-heading">
+          <p class="eyebrow">What to bring</p>
+          <h2 id="bring-title">Just three things.</h2>
+          <p class="section-lead">We’re taking care of lunch, so all you need to bring is what matters most.</p>
+        </div>
+        <div class="bring-grid">${site.reunion.whatToBring.map(bringCard).join('')}</div>
+      </section>
+
+      <section class="section section-forest" aria-labelledby="contact-title">
+        <div class="reunion-footer-cta">
+          <div>
+            <p class="eyebrow">Questions?</p>
+            <h2 id="contact-title">We’re here to help.</h2>
+            <p class="section-lead">Please reach out to ${site.reunion.contactName}${site.reunion.contactPhone ? ` at ${site.reunion.contactPhone}` : ''} any time, or ask at the welcome table when you arrive.</p>
+            <a class="button button-light" href="/reunion/rsvp/">RSVP information</a>
+            <p class="closing-line">Looking forward to seeing everyone on ${site.reunion.dateShort}!</p>
+          </div>
+          <aside class="reunion-note" aria-label="Good to know"><p><strong>Lunch is catered.</strong>There’s no need to bring a main dish or worry about heating or serving food. Let ${site.reunion.contactName} know ahead of time about any dietary or accessibility needs.</p></aside>
         </div>
       </section>`
   },
@@ -335,17 +367,15 @@ const pages = [
               <p class="eyebrow">Founding person</p>
               <h2>${founder.name}</h2>
               <p class="section-lead">${founder.birth}–${founder.death}</p>
-              <div class="notice"><p><strong>Help build the ${clan.name} archive.</strong>Names, photographs, and stories should include source details and respect the privacy of living relatives.</p></div>
+              <div class="notice"><p><strong>Meet the family.</strong>Names, photographs, stories, and reunion memories from the ${clan.name} belong here as the family shares them — always with respect for the privacy of living relatives.</p></div>
               <div class="profile-actions"><a class="button" href="/family-tree/">Explore the family tree</a><a class="text-link" href="/family/clans/">All three clans <span aria-hidden="true">→</span></a></div>
             </div>
           </div>
         </section>
-        <section class="section" aria-labelledby="clan-archive-${clan.id}">
-          <div class="section-heading"><p class="eyebrow">Clan archive</p><h2 id="clan-archive-${clan.id}">Stories, people, and photographs.</h2><p class="section-lead">Keep descendants connected with family stories, historical photographs, reunion memories, and their sources.</p></div>
-          <div class="feature-grid">
-            ${featureCard('People', 'A privacy-minded descendant directory can grow from trusted family records.')}
-            ${featureCard('Stories', 'Biographies and memories can be attributed to their sources and contributors.')}
-            ${featureCard('Photographs', 'Images can include names, dates, places, and provenance when known.')}
+        <section class="section" aria-labelledby="clan-contribute-${clan.id}">
+          <div class="preservation-cta">
+            <div><p class="eyebrow">The ${clan.name}</p><h2 id="clan-contribute-${clan.id}">Descendants of ${founder.name}.</h2><p class="section-lead">Have photographs, stories, or memories from this branch of the family? Bring them to the reunion and share them around the family table.</p></div>
+            <a class="button" href="/reunion/rsvp/">Share at the reunion</a>
           </div>
         </section>`
     };
@@ -363,7 +393,7 @@ const pages = [
             <p class="eyebrow">The confirmed foundation</p>
             <h2>Four children. Three descendant clans.</h2>
             <p class="section-lead">John and Salome’s immediate family includes Simon, Iona, Jacob, and Carl. The descendant tree continues through Simon, Jacob, and Carl; Iona remains part of the family record without being shown as a clan.</p>
-            <div class="notice"><p><strong>Privacy comes first.</strong>Details about living relatives will not be published simply because they appear in imported records.</p></div>
+            <div class="notice"><p><strong>Care for every name.</strong>The family shares meaningful, verified details about those who came before us, and respects the privacy of living relatives.</p></div>
           </div>
           <div class="tree-diagram tree-family-diagram" aria-label="John and Salome, their four children, and the three descendant clans">
             <div class="tree-couple">John + Salome</div>
@@ -396,16 +426,14 @@ const pages = [
     body: `
       ${pageHero('Family photographs', 'The faces behind the stories.', 'Treasured images last longer when they carry the names, dates, places, and stories that make them family history.')}
       <section class="section section-paper">
-        <div class="photo-grid photo-grid-authentic" aria-label="Leichty family photographs and archive categories">
-          <figure class="family-photo-card"><img src="/assets/reunion-centerpiece.webp" width="1087" height="1447" alt="Colorized vintage family photograph of a man seated on a longhorn steer beside a woman in a blue dress"><figcaption><strong>A Leichty family photograph</strong><span>Preserved as part of the 2027 reunion artwork</span></figcaption></figure>
-          ${photoPlaceholder('Family albums', 'Names, dates, and stories belong together')}
-          ${photoPlaceholder('Reunion memories', 'Gatherings across the generations')}
+        <div class="photo-grid photo-grid-authentic" aria-label="Leichty family photographs">
+          <figure class="family-photo-card"><img src="/assets/reunion-centerpiece.webp" width="1087" height="1447" alt="Colorized vintage family photograph of a man seated on a longhorn steer beside a woman in a blue dress"><figcaption><strong>A Leichty family photograph</strong><span>The centerpiece of the 2027 reunion artwork</span></figcaption></figure>
         </div>
       </section>
       <section class="section" aria-labelledby="photo-care-title">
-        <div class="intro-grid">
-          <div><p class="eyebrow">Preserved with context</p><h2 id="photo-care-title">A photograph is only the beginning.</h2><p class="section-lead">Each image can eventually include a caption, approximate date, location, identified people, source, provenance, notes, and album.</p></div>
-          <aside class="intro-note"><p>If you are preparing a photograph to share, note who appears in it, when and where it was taken, who owns the original, and anything your family remembers about the moment.</p></aside>
+        <div class="preservation-cta">
+          <div><p class="eyebrow">Share a memory</p><h2 id="photo-care-title">Have a photograph to share?</h2><p class="section-lead">A Leichty family photograph, album, or scrapbook deserves a place here. When you share one, note who appears in it, when and where it was taken, and anything the family remembers about the moment.</p></div>
+          <a class="button" href="/reunion/rsvp/">Bring it to the reunion</a>
         </div>
       </section>`
   },
@@ -415,14 +443,14 @@ const pages = [
     description: 'Leichty family interviews, reunion films, and home movies.',
     active: 'videos',
     body: `
-      ${pageHero('Family videos', 'Voices and moments in motion.', 'Reunion films, family interviews, and home movies can preserve expressions and voices that photographs cannot.')}
+      ${pageHero('Family videos', 'Keeping the family’s voices.', 'Home movies, reunion films, and stories told aloud bring the family’s expressions and voices to life.')}
       <section class="section section-paper">
-        <div class="notice"><p><strong>Have a family video?</strong>Keep the original recording safe and note the people, date, place, and contributor. Those details turn a clip into a lasting family record.</p></div>
-        <div class="video-list space-top-small" aria-label="Family video categories">
-          ${videoItem('Reunion films', 'Past and future reunion recordings can be collected here.')}
-          ${videoItem('Oral histories', 'Family interviews can preserve voices as well as written memories.')}
-          ${videoItem('Home movies', 'Digitized films can include dates, locations, people, and source notes.')}
+        <div class="notice"><p><strong>Have a family video or recording?</strong>Reunion films, oral histories, and home movies are worth keeping. If you have one to share, note the people, date, and place — those details give a cherished clip its meaning.</p></div>
+        <div class="archive-contribute">
+          <p class="section-lead">Your memories of a favorite story, or a clip from a past gathering, would mean a great deal to the family.</p>
+          <a class="button" href="/reunion/rsvp/">Bring it to the reunion</a>
         </div>
+        <p class="video-note">When home movies are shared for the site, they will appear here for the whole family.</p>
       </section>`
   },
   {
@@ -431,23 +459,23 @@ const pages = [
     description: 'Current plans and memories from Leichty family reunions.',
     active: 'reunions',
     body: `
-      ${pageHero('Family reunions', 'Gatherings worth remembering.', 'Find plans for the next gathering and, over time, revisit the photographs and stories from reunions past.')}
+      ${pageHero('Family reunions', 'Gatherings worth remembering.', 'Find plans for the next gathering and, over time, revisit the photographs and memories from reunions past.')}
       <section class="section section-paper">
         <div class="archive-year">
           <time>Next</time>
-          <div><h3>Leichty family reunion</h3><p>${site.reunion.date} · ${site.reunion.location}</p></div>
+          <div><h3>${site.reunion.label}</h3><p>${site.reunion.date} · ${site.reunion.location} · Doors open ${site.reunion.doorsOpen}</p></div>
           <a class="button" href="/reunion/">View plans</a>
         </div>
         <div class="archive-year">
-          <time>Archive</time>
-          <div><h3>Past reunions</h3><p>Preserve dates, places, photographs, and memories from earlier gatherings.</p></div>
+          <time>Coming</time>
+          <div><h3>Past reunions</h3><p>Photographs and memories from earlier Leichty reunions can be shared and preserved here as the family brings them together.</p></div>
           <a class="text-link" href="/photos/">View family photos <span aria-hidden="true">→</span></a>
         </div>
       </section>
-      <section class="section" aria-labelledby="stable-title">
-        <div class="intro-grid">
-          <div><p class="eyebrow">A permanent record</p><h2 id="stable-title">One home for every reunion.</h2><p class="section-lead">Each gathering will receive a stable year-based archive so invitations and memories remain useful long after the event ends.</p></div>
-          <aside class="intro-note"><p>The current reunion page keeps planning details easy to find. This archive keeps the people, photographs, and stories from each gathering connected afterward.</p></aside>
+      <section class="section" aria-labelledby="reunion-contribute-title">
+        <div class="preservation-cta">
+          <div><p class="eyebrow">Help keep gatherings close</p><h2 id="reunion-contribute-title">Do you have reunion photographs?</h2><p class="section-lead">Old reunion photographs and stories are a treasure to revisit. Bring them along to share, or let the family know what you have.</p></div>
+          <a class="button" href="/reunion/rsvp/">Share with the family</a>
         </div>
       </section>`
   },
@@ -471,6 +499,21 @@ function featureCard(title, copy) {
 
 function detailCard(title, copy) {
   return `<article class="detail-card"><h3>${title}</h3><p>${copy}</p></article>`;
+}
+
+function scheduleItem(item) {
+  const featured = item.featured ? ' schedule-featured' : '';
+  return `<li class="schedule-item${featured}">
+    <div class="schedule-time">${item.time}</div>
+    <div class="schedule-details">
+      <h3>${item.event}</h3>
+      <p>${item.detail}</p>
+    </div>
+  </li>`;
+}
+
+function bringCard(item) {
+  return `<article class="bring-card"><div class="bring-icon" aria-hidden="true"></div><h3>${item.title}</h3><p>${item.detail}</p></article>`;
 }
 
 function linkedFeatureCard(title, copy, href, linkLabel) {
@@ -515,9 +558,14 @@ function childCard(person) {
 }
 
 function clanCard(clan) {
+  const founder = peopleById.get(clan.foundingPerson);
+  const years = founder && founder.birth && founder.death ? `${founder.birth}–${founder.death}` : '';
   return `<a class="clan-card" href="/family/clans/${clan.id}/">
     <span class="clan-monogram" aria-hidden="true">${clan.name[0]}</span>
-    <span><strong>${clan.name}</strong><small>Explore descendants</small></span>
+    <span class="clan-body">
+      <strong>${clan.name}</strong>
+      <small>${years ? `Descendants of ${founder.name} · ${years}` : 'Explore descendants'}</small>
+    </span>
     <span class="card-arrow" aria-hidden="true">↗</span>
   </a>`;
 }
@@ -593,8 +641,8 @@ ${robots}    <link rel="canonical" href="${canonical}">
     <meta name="twitter:title" content="${title}">
     <meta name="twitter:description" content="${page.description}">
     <meta name="twitter:image" content="${site.canonicalOrigin}/assets/og.png">
-${imagePreload}    <link rel="stylesheet" href="/assets/styles.css?v=20260906">
-    <script src="/assets/site.js?v=20260906" defer></script>
+${imagePreload}    <link rel="stylesheet" href="/assets/styles.css?v=20260906b">
+    <script src="/assets/site.js?v=20260906b" defer></script>
   </head>
   <body>
     <a class="skip-link" href="#main">Skip to main content</a>
