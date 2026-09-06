@@ -22,9 +22,10 @@ const pages = [
   'reunions/index.html',
   '404.html'
 ];
-const requiredAssets = ['assets/styles.css', 'assets/site.js', 'assets/og.png', 'assets/favicon-32.png', 'assets/apple-touch-icon.png', 'assets/reunion-centerpiece.webp'];
+const requiredAssets = ['assets/styles.css', 'assets/site.js', 'assets/og.png', 'assets/favicon-32.png', 'assets/apple-touch-icon.png', 'assets/reunion-artwork.webp', 'assets/reunion-centerpiece.webp'];
 const failures = [];
 const family = JSON.parse(await readFile(join(root, 'content/family.json'), 'utf8'));
+const publicRoutes = new Set(pages.filter((page) => page !== '404.html').map((page) => page === 'index.html' ? '/' : `/${page.replace(/index\.html$/, '')}`));
 
 for (const file of [...pages, ...requiredAssets, 'sitemap.xml', 'robots.txt', '_headers']) {
   try { await access(join(root, file)); } catch { failures.push(`Missing ${file}`); }
@@ -36,6 +37,11 @@ for (const page of pages) {
     if (!html.includes(fragment)) failures.push(`${page} is missing ${fragment}`);
   }
   if (/(CLOUDFLARE_API_TOKEN|github_pat_|Turnstile secret|API_TOKEN=)/i.test(html)) failures.push(`${page} may contain a secret`);
+  for (const [, href] of html.matchAll(/href="([^"]+)"/g)) {
+    if (!href.startsWith('/') || href.startsWith('/assets/')) continue;
+    const route = href.split(/[?#]/)[0];
+    if (!publicRoutes.has(route) && route !== '/') failures.push(`${page} links to missing route ${route}`);
+  }
 }
 
 const expectedChildren = ['simon-leichty', 'iona-leichty', 'jacob-leichty', 'carl-leichty'];
@@ -64,6 +70,14 @@ try {
 const home = await readFile(join(root, 'index.html'), 'utf8');
 for (const fragment of ['Four children. Three descendant clans.', 'Simon Leichty', 'Iona Leichty', 'Jacob Leichty', 'Carl Leichty', 'Three Descendant Clans']) {
   if (!home.includes(fragment)) failures.push(`Homepage is missing ${fragment}`);
+}
+for (const fragment of ['Leichty Family Reunion 2027', '/assets/reunion-artwork.webp', 'John + Salome Leichty', 'Seven generations strong']) {
+  if (!home.includes(fragment)) failures.push(`Homepage is missing ${fragment}`);
+}
+
+const publicCopy = (await Promise.all(pages.map((page) => readFile(join(root, page), 'utf8')))).join('\n');
+for (const phrase of ['coming soon', 'photograph coming', 'collection is just beginning', 'code repository', 'historical record in progress', 'descendant directory in progress']) {
+  if (publicCopy.toLowerCase().includes(phrase)) failures.push(`Public pages still contain scaffold phrase: ${phrase}`);
 }
 
 if (failures.length) {

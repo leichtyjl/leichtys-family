@@ -14,86 +14,45 @@ const pages = [
     description: 'The 2027 Leichty Family Reunion in Goshen, Indiana, and a lasting home for family history, photographs, and stories.',
     active: '',
     body: `
-      <section class="reunion-hero" aria-labelledby="hero-title">
+      <section class="artwork-hero" aria-labelledby="hero-title">
         <div class="hero-content">
-          <p class="eyebrow">Leichty Family Reunion · 2027</p>
-          <h1 id="hero-title">Rounding up<br>the clan.</h1>
-          <p class="hero-copy">Seven generations strong—honoring John and Salome, and gathering in Goshen for the next chapter of our family story.</p>
+          <p class="eyebrow">Save the date</p>
+          <h1 id="hero-title">Leichty Family Reunion 2027</h1>
           <dl class="hero-details" aria-label="Reunion date and location">
             <div><dt>When</dt><dd>${site.reunion.date}</dd></div>
             <div><dt>Where</dt><dd>${site.reunion.location}</dd></div>
           </dl>
           <div class="hero-actions">
-            <a class="button" href="/reunion/">Explore reunion details</a>
-            <a class="text-link" href="/history/">Discover our history <span aria-hidden="true">→</span></a>
+            <a class="button" href="/reunion/rsvp/">RSVP information</a>
+            <a class="text-link" href="/reunion/">Reunion details <span aria-hidden="true">→</span></a>
           </div>
         </div>
-        <figure class="reunion-centerpiece">
-          <div class="centerpiece-frame">
-            <img src="/assets/reunion-centerpiece.webp" width="1087" height="1447" fetchpriority="high" alt="Colorized vintage photograph of a man seated on a longhorn steer beside a woman in a blue dress">
-          </div>
-          <figcaption><span>Family photograph</span><span>2027 reunion centerpiece</span></figcaption>
+        <figure class="reunion-artwork">
+          <img src="/assets/reunion-artwork.webp" width="1222" height="1287" fetchpriority="high" alt="Official 2027 Leichty Family Reunion artwork featuring a family photograph of a man on a longhorn steer beside a woman">
         </figure>
       </section>
 
-      <aside class="reunion-ribbon" aria-label="Next reunion summary">
-        <div class="ribbon-inner">
-          <div>
-            <span class="ribbon-label">Our 2027 gathering</span>
-            <span class="ribbon-value">A legacy of connection</span>
-          </div>
-          <div>
-            <span class="ribbon-label">When</span>
-            <span class="ribbon-value">${site.reunion.date}</span>
-          </div>
-          <div>
-            <span class="ribbon-label">Where</span>
-            <span class="ribbon-value">${site.reunion.location}</span>
-          </div>
-          <a class="button button-light" href="/reunion/">See reunion details</a>
+      <aside class="quick-strip" aria-label="Reunion quick information">
+        <div class="quick-strip-inner">
+          <div><span class="ribbon-label">Reunion</span><span class="ribbon-value">2027 family gathering</span></div>
+          <div><span class="ribbon-label">Date</span><span class="ribbon-value">June 12, 2027</span></div>
+          <div><span class="ribbon-label">Place</span><span class="ribbon-value">Goshen, Indiana</span></div>
+          <a class="button button-light" href="/reunion/">Plan your visit</a>
         </div>
       </aside>
 
       <section class="section section-paper" aria-labelledby="welcome-title">
-        <div class="intro-grid">
+        <div class="origin-story">
+          <figure class="origin-photo">
+            <img src="/assets/reunion-centerpiece.webp" width="1087" height="1447" loading="lazy" alt="Colorized vintage family photograph of a man seated on a longhorn steer beside a woman in a blue dress">
+            <figcaption>A treasured Leichty family photograph</figcaption>
+          </figure>
           <div>
-            <p class="eyebrow">Welcome to the family table</p>
-            <h2 id="welcome-title">A home for the memories that connect us.</h2>
-            <p class="section-lead">This site is being built to preserve family history, share photographs and stories, and make each Leichty reunion easier to find and enjoy.</p>
+            <p class="eyebrow">Where our story begins</p>
+            <h2 id="welcome-title">John + Salome Leichty</h2>
+            <p class="section-lead">John Leichty and Salome (Chupp) Leichty are the foundation of the family remembered here. Their story continues through four children, three descendant clans, and seven generations.</p>
+            <a class="text-link" href="/family/john-and-salome/">Meet John and Salome <span aria-hidden="true">→</span></a>
           </div>
-          <aside class="intro-note">
-            <p>Family history grows richer when every clan and generation adds what it remembers. The archive will grow as relatives contribute verified names, dates, stories, and photographs.</p>
-          </aside>
-        </div>
-      </section>
-
-      <section class="section" aria-labelledby="explore-title">
-        <div class="section-heading">
-          <p class="eyebrow">Explore the archive</p>
-          <h2 id="explore-title">Many lives. One family story.</h2>
-          <p class="section-lead">The collection is just beginning. These spaces are ready to become a shared archive for generations.</p>
-        </div>
-        <div class="card-grid">
-          <a class="archive-card" href="/history/">
-            <span class="card-number">01 · HISTORY</span>
-            <div><h3>Our story</h3><p>Verified family history, places, documents, and the stories passed between generations.</p></div>
-            <span class="card-arrow" aria-hidden="true">↗</span>
-          </a>
-          <a class="archive-card" href="/family/">
-            <span class="card-number">02 · OUR FAMILY</span>
-            <div><h3>Four children. Three clans.</h3><p>Meet John and Salome’s family and explore the three descendant clans.</p></div>
-            <span class="card-arrow" aria-hidden="true">↗</span>
-          </a>
-          <a class="archive-card" href="/photos/">
-            <span class="card-number">03 · PHOTOGRAPHS</span>
-            <div><h3>Our faces</h3><p>Treasured images with room for names, dates, places, and provenance.</p></div>
-            <span class="card-arrow" aria-hidden="true">↗</span>
-          </a>
-          <a class="archive-card" href="/videos/">
-            <span class="card-number">04 · FILMS</span>
-            <div><h3>Our voices</h3><p>Home movies, interviews, and recordings preserved outside the code repository.</p></div>
-            <span class="card-arrow" aria-hidden="true">↗</span>
-          </a>
         </div>
       </section>
 
@@ -106,19 +65,47 @@ const pages = [
         ${familyStructure()}
       </section>
 
+      <section class="section section-paper" aria-labelledby="legacy-title">
+        <div class="legacy-callout">
+          <p class="legacy-number" aria-hidden="true">7</p>
+          <div><p class="eyebrow">Seven generations strong</p><h2 id="legacy-title">A legacy of reconnection.</h2><p class="section-lead">The reunion brings every generation and all three descendant clans back to one family table.</p></div>
+        </div>
+      </section>
+
       <section class="section section-paper" aria-labelledby="reunion-title">
         <div class="reunion-cta">
           <div>
             <p class="eyebrow">Come back together</p>
             <h2 id="reunion-title">The next Leichty family reunion.</h2>
-            <p class="section-lead">The date and place are set. The reunion page is the single home for the latest schedule, lodging, meal, and registration details as plans take shape.</p>
-            <a class="button" href="/reunion/">Visit the reunion page</a>
+            <p class="section-lead">The date and city are set. Visit the reunion page for the latest schedule, directions, meal, cost, and registration information.</p>
+            <div class="hero-actions"><a class="button" href="/reunion/">Reunion details</a><a class="text-link" href="/reunion/rsvp/">RSVP information <span aria-hidden="true">→</span></a></div>
           </div>
           <ul class="details-list" aria-label="Current reunion details">
             <li><strong>Date</strong>${site.reunion.date}</li>
             <li><strong>Location</strong>${site.reunion.location}</li>
             <li><strong>Registration</strong>${site.reunion.registration}</li>
           </ul>
+        </div>
+      </section>
+
+      <section class="section" aria-labelledby="explore-title">
+        <div class="section-heading">
+          <p class="eyebrow">Family archive</p>
+          <h2 id="explore-title">Many lives. One family story.</h2>
+          <p class="section-lead">Explore the people, photographs, voices, and gatherings that connect the Leichty family.</p>
+        </div>
+        <div class="card-grid">
+          <a class="archive-card" href="/history/"><span class="card-number">01 · HISTORY</span><div><h3>Our story</h3><p>Family history, places, documents, and stories passed between generations.</p></div><span class="card-arrow" aria-hidden="true">↗</span></a>
+          <a class="archive-card" href="/family/"><span class="card-number">02 · OUR FAMILY</span><div><h3>Our people</h3><p>Meet John and Salome’s family and explore the three descendant clans.</p></div><span class="card-arrow" aria-hidden="true">↗</span></a>
+          <a class="archive-card" href="/photos/"><span class="card-number">03 · PHOTOGRAPHS</span><div><h3>Our faces</h3><p>Treasured images kept with names, dates, places, and context.</p></div><span class="card-arrow" aria-hidden="true">↗</span></a>
+          <a class="archive-card" href="/videos/"><span class="card-number">04 · FILMS</span><div><h3>Our voices</h3><p>Home movies, interviews, and reunion recordings worth preserving.</p></div><span class="card-arrow" aria-hidden="true">↗</span></a>
+        </div>
+      </section>
+
+      <section class="section section-paper" aria-labelledby="preserve-title">
+        <div class="preservation-cta">
+          <div><p class="eyebrow">Preserve a family memory</p><h2 id="preserve-title">Every photograph has a story.</h2><p class="section-lead">Gather the names, date, place, and story behind your family photographs and films. Those details help future generations understand what they are seeing.</p></div>
+          <a class="button" href="/photos/">Explore family photographs</a>
         </div>
       </section>`
   },
@@ -128,39 +115,35 @@ const pages = [
     description: 'Plans and updates for the next Leichty family reunion.',
     active: 'reunions',
     body: `
-      ${pageHero('Gather together', 'The next Leichty family reunion.', 'This page will be the home for every practical detail—from the first announcement to the last shared photograph.')}
+      ${pageHero('Gather together', 'Leichty Family Reunion 2027.', `${site.reunion.date} · ${site.reunion.location}`)}
       <section class="section section-paper">
         <div class="reunion-overview">
           <div>
-            <div class="notice"><p><strong>Save the date.</strong>We’ll gather in ${site.reunion.location} on ${site.reunion.date}. Check back as the family shares the schedule and other planning details.</p></div>
-            <div class="timeline" aria-label="Reunion planning details">
-              ${timelineItem('Date and time', site.reunion.date)}
-              ${timelineItem('Location and directions', site.reunion.location)}
-              ${timelineItem('Schedule', 'A day-by-day schedule will be posted when plans are final.')}
-              ${timelineItem('Lodging and meals', 'Recommendations and meal information will be added here.')}
-            </div>
+            <p class="eyebrow">The essentials</p>
+            <h2>Save the date.</h2>
+            <dl class="event-facts" aria-label="Current reunion details">
+              <div><dt>Date</dt><dd>${site.reunion.date}</dd></div>
+              <div><dt>Location</dt><dd>${site.reunion.location}</dd></div>
+              <div><dt>Registration</dt><dd>${site.reunion.registration}</dd></div>
+            </dl>
+            <a class="button" href="/reunion/rsvp/">RSVP information</a>
           </div>
-          <aside class="reunion-panel">
-            <span class="status-chip">Details coming soon</span>
-            <h3>Planning your visit</h3>
-            <ul class="details-list">
-              <li><strong>Registration</strong>${site.reunion.registration}</li>
-              <li><strong>Households</strong>One simple response for each household</li>
-              <li><strong>Accessibility</strong>Needs can be shared privately when RSVP opens</li>
-            </ul>
-            <a class="button button-light" href="/reunion/rsvp/">RSVP information</a>
-          </aside>
+          <figure class="reunion-page-artwork"><img src="/assets/reunion-artwork.webp" width="1222" height="1287" alt="Official 2027 Leichty Family Reunion artwork"></figure>
         </div>
       </section>
-      <section class="section" aria-labelledby="coming-title">
+      <section class="section" aria-labelledby="planning-title">
         <div class="section-heading">
-          <p class="eyebrow">Everything in one place</p>
-          <h2 id="coming-title">What you’ll find here.</h2>
+          <p class="eyebrow">Planning your visit</p>
+          <h2 id="planning-title">What we know—and what we’ll share.</h2>
+          <p class="section-lead">The details below will stay current as the reunion plan is finalized.</p>
         </div>
-        <div class="feature-grid">
-          ${featureCard('Schedule', 'Arrival times, gatherings, meals, and activities once the plan is confirmed.')}
-          ${featureCard('Travel', 'The venue address, clear directions, parking, and nearby lodging recommendations.')}
-          ${featureCard('Registration', 'A private, accessible RSVP for each household when registration opens.')}
+        <div class="logistics-grid">
+          ${detailCard('Schedule', 'Arrival time, activities, meals, and closing time will be shared when the day’s plan is final.')}
+          ${detailCard('Location & directions', 'The reunion will be in Goshen, Indiana. The exact venue address, directions, and parking notes will be shared with the family.')}
+          ${detailCard('Food', 'Meal plans and any dish requests will be shared before registration closes.')}
+          ${detailCard('Cost', 'Any household or per-person cost will be announced before RSVP opens.')}
+          ${detailCard('What to bring', 'A short packing list—plus any family photographs or stories to share—will be posted with the schedule.')}
+          ${detailCard('Questions', 'Answers about accessibility, dietary needs, children, lodging, and travel will be added as plans are confirmed.')}
         </div>
       </section>`
   },
@@ -171,12 +154,12 @@ const pages = [
     active: 'reunions',
     noindex: true,
     body: `
-      ${pageHero('Reunion registration', 'RSVP will open here.', 'A simple, private household registration form is planned for the next reunion.')}
+      ${pageHero('Reunion registration', 'RSVP for 2027.', 'Registration has not opened yet. This page will hold the family’s private household RSVP when it is ready.')}
       <section class="section section-paper">
         <div class="rsvp-card">
-          <p class="eyebrow">Not open yet</p>
-          <h2>There’s nothing to submit today.</h2>
-          <p class="section-lead">The family will announce when registration opens. No RSVP or contact information is being collected on this page yet.</p>
+          <p class="eyebrow">Registration status</p>
+          <h2>Registration has not opened.</h2>
+          <p class="section-lead">The family will announce when it is time to RSVP. No personal information is being collected here today.</p>
           <h3>When registration opens, you’ll be able to:</h3>
           <ul class="check-list">
             <li>Respond once for your household</li>
@@ -191,16 +174,15 @@ const pages = [
   {
     path: '/history/',
     title: 'Family History',
-    description: 'The developing archive of verified Leichty family history and stories.',
+    description: 'Leichty family history, stories, places, documents, and sources.',
     active: 'history',
     body: `
-      ${pageHero('Family history', 'Our story deserves careful keeping.', 'This growing archive will connect verified family history with the places, documents, photographs, and voices that give it meaning.')}
+      ${pageHero('Family history', 'Our story deserves careful keeping.', 'Family history comes alive through the places, documents, photographs, and voices that give each generation meaning.')}
       <section class="section section-paper">
-        <div class="notice"><p><strong>The archive is being assembled.</strong>No historical claims have been added yet. Family facts will be published only after sources and context are available.</p></div>
-        <div class="section-heading space-top">
-          <p class="eyebrow">Built with care</p>
+        <div class="section-heading">
+          <p class="eyebrow">Kept with care</p>
           <h2>More than names and dates.</h2>
-          <p class="section-lead">The history section is prepared for sourced narratives, scanned records, maps, oral histories, and links to the people they describe.</p>
+          <p class="section-lead">Stories, scanned records, maps, and oral histories are strongest when they stay connected to the people and sources they describe.</p>
         </div>
         <div class="feature-grid">
           ${featureCard('Stories', 'Written memories and biographies, clearly attributed to their contributors.')}
@@ -249,7 +231,7 @@ const pages = [
             <p class="eyebrow">The foundation</p>
             <h2>Parents of four children.</h2>
             <p class="section-lead">John and Salome’s children were Simon, Iona, Jacob, and Carl. The three present-day descendant clans continue through Simon, Jacob, and Carl.</p>
-            <div class="notice"><p><strong>Historical record in progress.</strong>Additional biographical details, photographs, and source records will be added only as they are documented and verified.</p></div>
+            <div class="notice"><p><strong>Help document their story.</strong>Family photographs, dates, and memories are most useful when they include the name of the contributor and any known source details.</p></div>
           </div>
           <aside class="foundation-facts" aria-label="John and Salome family summary">
             <span class="lineage-kicker">John + Salome</span>
@@ -302,7 +284,7 @@ const pages = [
             <div><dt>Generation</dt><dd>Second generation</dd></div>
             <div><dt>Descendant clan</dt><dd>None</dd></div>
           </dl>
-          <div class="notice"><p><strong>Her record will grow with care.</strong>Additional biographical details, photographs, and source records will be added when they are documented and verified.</p></div>
+          <div class="notice"><p><strong>Remembering Iona with care.</strong>Family photographs, records, and memories can help keep her place in John and Salome’s immediate family visible.</p></div>
           <div class="profile-actions"><a class="button" href="/family/children/">View all four children</a><a class="text-link" href="/family/clans/">Explore the three clans <span aria-hidden="true">→</span></a></div>
         </article>
       </section>`
@@ -329,7 +311,7 @@ const pages = [
     return {
       path: `/family/clans/${clan.id}/`,
       title: clan.name,
-      description: `${clan.description} A developing home for verified people, photographs, and stories.`,
+      description: `${clan.description} Family people, photographs, and stories.`,
       active: 'family',
       body: `
         ${pageHero('Descendant clan', `${clan.name}.`, clan.description)}
@@ -340,13 +322,13 @@ const pages = [
               <p class="eyebrow">Founding person</p>
               <h2>${founder.name}</h2>
               <p class="section-lead">${founder.birth}–${founder.death}</p>
-              <div class="notice"><p><strong>Descendant directory in progress.</strong>Names of living relatives and additional family details will be published only with appropriate care and verified source information.</p></div>
+              <div class="notice"><p><strong>Help build the ${clan.name} archive.</strong>Names, photographs, and stories should include source details and respect the privacy of living relatives.</p></div>
               <div class="profile-actions"><a class="button" href="/family-tree/">Explore the family tree</a><a class="text-link" href="/family/clans/">All three clans <span aria-hidden="true">→</span></a></div>
             </div>
           </div>
         </section>
         <section class="section" aria-labelledby="clan-archive-${clan.id}">
-          <div class="section-heading"><p class="eyebrow">A growing archive</p><h2 id="clan-archive-${clan.id}">Stories, people, and photographs.</h2><p class="section-lead">This page is ready to connect verified descendants with family stories, historical photographs, reunion memories, and source records.</p></div>
+          <div class="section-heading"><p class="eyebrow">Clan archive</p><h2 id="clan-archive-${clan.id}">Stories, people, and photographs.</h2><p class="section-lead">Keep descendants connected with family stories, historical photographs, reunion memories, and their sources.</p></div>
           <div class="feature-grid">
             ${featureCard('People', 'A privacy-minded descendant directory can grow from trusted family records.')}
             ${featureCard('Stories', 'Biographies and memories can be attributed to their sources and contributors.')}
@@ -385,9 +367,9 @@ const pages = [
         </div>
       </section>
       <section class="section" aria-labelledby="tree-features-title">
-        <div class="section-heading"><p class="eyebrow">Planned capabilities</p><h2 id="tree-features-title">Useful, searchable, and portable.</h2></div>
+        <div class="section-heading"><p class="eyebrow">A useful family record</p><h2 id="tree-features-title">Connected, careful, and clear.</h2></div>
         <div class="feature-grid">
-          ${featureCard('GEDCOM-ready', 'Structured import will make it possible to begin with trusted genealogy data.')}
+          ${featureCard('Family relationships', 'Trusted genealogy records can help connect people across generations.')}
           ${featureCard('Connected stories', 'People can link to biographies, photographs, documents, and reunion memories.')}
           ${featureCard('Clear provenance', 'Sources and contributors can travel with the facts they support.')}
         </div>
@@ -396,34 +378,34 @@ const pages = [
   {
     path: '/photos/',
     title: 'Family Photographs',
-    description: 'The developing Leichty family photograph archive.',
+    description: 'Leichty family photographs preserved with names, dates, places, and stories.',
     active: 'photos',
     body: `
-      ${pageHero('Family photographs', 'The faces behind the stories.', 'This archive will give treasured images the names, dates, places, and context they need to last.')}
+      ${pageHero('Family photographs', 'The faces behind the stories.', 'Treasured images last longer when they carry the names, dates, places, and stories that make them family history.')}
       <section class="section section-paper">
-        <div class="photo-grid" aria-label="Future family photo archive placeholders">
-          ${photoPlaceholder('Family album', 'Photograph coming soon')}
-          ${photoPlaceholder('Gatherings', 'Photograph coming soon')}
-          ${photoPlaceholder('Everyday life', 'Photograph coming soon')}
+        <div class="photo-grid photo-grid-authentic" aria-label="Leichty family photographs and archive categories">
+          <figure class="family-photo-card"><img src="/assets/reunion-centerpiece.webp" width="1087" height="1447" alt="Colorized vintage family photograph of a man seated on a longhorn steer beside a woman in a blue dress"><figcaption><strong>A Leichty family photograph</strong><span>Preserved as part of the 2027 reunion artwork</span></figcaption></figure>
+          ${photoPlaceholder('Family albums', 'Names, dates, and stories belong together')}
+          ${photoPlaceholder('Reunion memories', 'Gatherings across the generations')}
         </div>
       </section>
       <section class="section" aria-labelledby="photo-care-title">
         <div class="intro-grid">
           <div><p class="eyebrow">Preserved with context</p><h2 id="photo-care-title">A photograph is only the beginning.</h2><p class="section-lead">Each image can eventually include a caption, approximate date, location, identified people, source, provenance, notes, and album.</p></div>
-          <aside class="intro-note"><p>Web-ready copies will keep these pages fast. High-quality originals should remain in a separate archival store rather than the website’s code repository.</p></aside>
+          <aside class="intro-note"><p>If you are preparing a photograph to share, note who appears in it, when and where it was taken, who owns the original, and anything your family remembers about the moment.</p></aside>
         </div>
       </section>`
   },
   {
     path: '/videos/',
     title: 'Family Videos',
-    description: 'The developing Leichty family video archive.',
+    description: 'Leichty family interviews, reunion films, and home movies.',
     active: 'videos',
     body: `
-      ${pageHero('Family videos', 'Voices and moments in motion.', 'A future home for reunion films, family interviews, and other recordings—organized with helpful context.')}
+      ${pageHero('Family videos', 'Voices and moments in motion.', 'Reunion films, family interviews, and home movies can preserve expressions and voices that photographs cannot.')}
       <section class="section section-paper">
-        <div class="notice"><p><strong>Video archive coming soon.</strong>No family videos have been published yet. Large video files will remain outside the Git repository and appear here through supported, privacy-appropriate hosting.</p></div>
-        <div class="video-list space-top-small">
+        <div class="notice"><p><strong>Have a family video?</strong>Keep the original recording safe and note the people, date, place, and contributor. Those details turn a clip into a lasting family record.</p></div>
+        <div class="video-list space-top-small" aria-label="Family video categories">
           ${videoItem('Reunion films', 'Past and future reunion recordings can be collected here.')}
           ${videoItem('Oral histories', 'Family interviews can preserve voices as well as written memories.')}
           ${videoItem('Home movies', 'Digitized films can include dates, locations, people, and source notes.')}
@@ -433,7 +415,7 @@ const pages = [
   {
     path: '/reunions/',
     title: 'Family Reunions',
-    description: 'Current plans and the developing archive of Leichty family reunions.',
+    description: 'Current plans and memories from Leichty family reunions.',
     active: 'reunions',
     body: `
       ${pageHero('Family reunions', 'Gatherings worth remembering.', 'Find plans for the next gathering and, over time, revisit the photographs and stories from reunions past.')}
@@ -445,14 +427,14 @@ const pages = [
         </div>
         <div class="archive-year">
           <time>Archive</time>
-          <div><h3>Past reunions</h3><p>Dates, places, photographs, and memories are being gathered.</p></div>
-          <span class="status-chip">Coming soon</span>
+          <div><h3>Past reunions</h3><p>Preserve dates, places, photographs, and memories from earlier gatherings.</p></div>
+          <a class="text-link" href="/photos/">View family photos <span aria-hidden="true">→</span></a>
         </div>
       </section>
       <section class="section" aria-labelledby="stable-title">
         <div class="intro-grid">
           <div><p class="eyebrow">A permanent record</p><h2 id="stable-title">One home for every reunion.</h2><p class="section-lead">Each gathering will receive a stable year-based archive so invitations and memories remain useful long after the event ends.</p></div>
-          <aside class="intro-note"><p>Future reunion archives will use lasting addresses such as <strong>/reunions/2027/</strong>, while <strong>/reunion/</strong> always points family toward the current gathering.</p></aside>
+          <aside class="intro-note"><p>The current reunion page keeps planning details easy to find. This archive keeps the people, photographs, and stories from each gathering connected afterward.</p></aside>
         </div>
       </section>`
   },
@@ -472,6 +454,10 @@ function pageHero(eyebrow, heading, intro) {
 
 function featureCard(title, copy) {
   return `<article class="feature-card"><div class="feature-icon" aria-hidden="true"></div><h3>${title}</h3><p>${copy}</p></article>`;
+}
+
+function detailCard(title, copy) {
+  return `<article class="detail-card"><h3>${title}</h3><p>${copy}</p></article>`;
 }
 
 function linkedFeatureCard(title, copy, href, linkLabel) {
@@ -541,7 +527,7 @@ function navigation(active, mobile = false) {
     return `<a href="${item.href}"${current}>${item.label}</a>`;
   }).join('');
   if (!mobile) return `<nav class="desktop-nav" aria-label="Main navigation">${links}</nav>`;
-  return `<nav class="mobile-menu" id="mobile-menu" data-mobile-menu aria-label="Mobile navigation" hidden>${links}<a href="/reunion/">Next reunion</a></nav>`;
+  return `<nav class="mobile-menu" id="mobile-menu" data-mobile-menu aria-label="Mobile navigation" hidden>${links}<a href="/reunion/rsvp/">RSVP</a></nav>`;
 }
 
 function header(active) {
@@ -549,7 +535,7 @@ function header(active) {
     <a class="wordmark" href="/" aria-label="Leichty Family home"><span class="wordmark-mark" aria-hidden="true">L</span><span>Leichty Family</span></a>
     ${navigation(active)}
     <div class="header-actions">
-      <a class="button button-small" href="/reunion/">Next reunion</a>
+      <a class="button button-small" href="/reunion/rsvp/">RSVP</a>
       <button class="menu-toggle" type="button" aria-label="Open navigation" aria-controls="mobile-menu" aria-expanded="false" data-menu-toggle><span aria-hidden="true"></span></button>
     </div>
     ${navigation(active, true)}
@@ -569,7 +555,7 @@ function shell(page) {
   const canonical = `${site.canonicalOrigin}${canonicalPath}`;
   const title = page.path === '/' ? page.title : `${page.title} · ${site.siteName}`;
   const robots = page.noindex ? '    <meta name="robots" content="noindex, follow">\n' : '';
-  const imagePreload = page.path === '/' ? '    <link rel="preload" as="image" href="/assets/reunion-centerpiece.webp" type="image/webp">\n' : '';
+  const imagePreload = page.path === '/' ? '    <link rel="preload" as="image" href="/assets/reunion-artwork.webp" type="image/webp">\n' : '';
   return `<!doctype html>
 <html lang="en">
   <head>
@@ -594,8 +580,8 @@ ${robots}    <link rel="canonical" href="${canonical}">
     <meta name="twitter:title" content="${title}">
     <meta name="twitter:description" content="${page.description}">
     <meta name="twitter:image" content="${site.canonicalOrigin}/assets/og.png">
-${imagePreload}    <link rel="stylesheet" href="/assets/styles.css">
-    <script src="/assets/site.js" defer></script>
+${imagePreload}    <link rel="stylesheet" href="/assets/styles.css?v=20260906">
+    <script src="/assets/site.js?v=20260906" defer></script>
   </head>
   <body>
     <a class="skip-link" href="#main">Skip to main content</a>

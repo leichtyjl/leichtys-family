@@ -6,12 +6,14 @@ const menu = document.querySelector('[data-mobile-menu]');
 if (toggle && menu) {
   const closeMenu = () => {
     toggle.setAttribute('aria-expanded', 'false');
+    toggle.setAttribute('aria-label', 'Open navigation');
     menu.hidden = true;
   };
 
   toggle.addEventListener('click', () => {
     const isOpen = toggle.getAttribute('aria-expanded') === 'true';
     toggle.setAttribute('aria-expanded', String(!isOpen));
+    toggle.setAttribute('aria-label', isOpen ? 'Open navigation' : 'Close navigation');
     menu.hidden = isOpen;
   });
 
