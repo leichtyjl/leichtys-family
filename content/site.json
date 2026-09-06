@@ -10,7 +10,7 @@
   },
   "navigation": [
     { "label": "History", "href": "/history/", "key": "history" },
-    { "label": "Family Tree", "href": "/family-tree/", "key": "family-tree" },
+    { "label": "Our Family", "href": "/family/", "key": "family" },
     { "label": "Photos", "href": "/photos/", "key": "photos" },
     { "label": "Videos", "href": "/videos/", "key": "videos" },
     { "label": "Reunions", "href": "/reunions/", "key": "reunions" }

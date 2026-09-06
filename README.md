@@ -17,7 +17,7 @@ Cloudflare Pages: leichtys-family
 https://www.leichtys.com
 ```
 
-The site is deliberately a dependency-free static build. Content and configuration live in `content/site.json`, shared page structure lives in `scripts/build.mjs`, and the generated HTML is committed so the existing Cloudflare Pages project can continue serving the repository without a framework-specific runtime.
+The site is deliberately a dependency-free static build. Site configuration lives in `content/site.json`, the family structure lives in `content/family.json`, shared page structure lives in `scripts/build.mjs`, and the generated HTML is committed so the existing Cloudflare Pages project can continue serving the repository without a framework-specific runtime.
 
 There is no database, public RSVP form, authentication, email service, or private family data in this milestone.
 
@@ -57,6 +57,14 @@ The HTML files at the repository root and inside route directories are generated
 /reunion/
 /reunion/rsvp/
 /history/
+/family/
+/family/john-and-salome/
+/family/children/
+/family/iona-leichty/
+/family/clans/
+/family/clans/simon/
+/family/clans/jacob/
+/family/clans/carl/
 /family-tree/
 /photos/
 /videos/
@@ -64,6 +72,8 @@ The HTML files at the repository root and inside route directories are generated
 ```
 
 `/reunion/rsvp/` is currently an informational placeholder. It intentionally collects no information.
+
+The family data intentionally distinguishes John and Salome’s four children from the three descendant clans. Iona remains in the immediate family record, with `hasDescendants: false` and `descendantClan: null`; there is no Iona clan route.
 
 ## Testing
 

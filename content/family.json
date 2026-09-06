@@ -1,0 +1,110 @@
+{
+  "foundation": ["john-leichty", "salome-chupp-leichty"],
+  "children": ["simon-leichty", "iona-leichty", "jacob-leichty", "carl-leichty"],
+  "persons": [
+    {
+      "id": "john-leichty",
+      "name": "John Leichty",
+      "birth": null,
+      "death": null,
+      "parents": [],
+      "spouse": "salome-chupp-leichty",
+      "generation": 1,
+      "biography": null,
+      "photos": [],
+      "descendantClan": null,
+      "hasDescendants": true
+    },
+    {
+      "id": "salome-chupp-leichty",
+      "name": "Salome (Chupp) Leichty",
+      "birth": null,
+      "death": null,
+      "parents": [],
+      "spouse": "john-leichty",
+      "generation": 1,
+      "biography": null,
+      "photos": [],
+      "descendantClan": null,
+      "hasDescendants": true
+    },
+    {
+      "id": "simon-leichty",
+      "name": "Simon Leichty",
+      "birth": 1915,
+      "death": 1992,
+      "parents": ["john-leichty", "salome-chupp-leichty"],
+      "spouse": null,
+      "generation": 2,
+      "biography": null,
+      "photos": [],
+      "descendantClan": "simon",
+      "hasDescendants": true
+    },
+    {
+      "id": "iona-leichty",
+      "name": "Iona Leichty",
+      "birth": 1917,
+      "death": 1920,
+      "parents": ["john-leichty", "salome-chupp-leichty"],
+      "spouse": null,
+      "generation": 2,
+      "biography": null,
+      "photos": [],
+      "descendantClan": null,
+      "hasDescendants": false
+    },
+    {
+      "id": "jacob-leichty",
+      "name": "Jacob Leichty",
+      "birth": 1920,
+      "death": 2012,
+      "parents": ["john-leichty", "salome-chupp-leichty"],
+      "spouse": null,
+      "generation": 2,
+      "biography": null,
+      "photos": [],
+      "descendantClan": "jacob",
+      "hasDescendants": true
+    },
+    {
+      "id": "carl-leichty",
+      "name": "Carl Leichty",
+      "birth": 1925,
+      "death": 2007,
+      "parents": ["john-leichty", "salome-chupp-leichty"],
+      "spouse": null,
+      "generation": 2,
+      "biography": null,
+      "photos": [],
+      "descendantClan": "carl",
+      "hasDescendants": true
+    }
+  ],
+  "clans": [
+    {
+      "id": "simon",
+      "name": "Simon Clan",
+      "foundingPerson": "simon-leichty",
+      "description": "Descendants of Simon Leichty (1915–1992).",
+      "photo": null,
+      "descendants": []
+    },
+    {
+      "id": "jacob",
+      "name": "Jacob Clan",
+      "foundingPerson": "jacob-leichty",
+      "description": "Descendants of Jacob Leichty (1920–2012).",
+      "photo": null,
+      "descendants": []
+    },
+    {
+      "id": "carl",
+      "name": "Carl Clan",
+      "foundingPerson": "carl-leichty",
+      "description": "Descendants of Carl Leichty (1925–2007).",
+      "photo": null,
+      "descendants": []
+    }
+  ]
+}

@@ -4,6 +4,8 @@ import { fileURLToPath } from 'node:url';
 
 const root = join(dirname(fileURLToPath(import.meta.url)), '..');
 const site = JSON.parse(await readFile(join(root, 'content/site.json'), 'utf8'));
+const family = JSON.parse(await readFile(join(root, 'content/family.json'), 'utf8'));
+const peopleById = new Map(family.persons.map((person) => [person.id, person]));
 
 const pages = [
   {
@@ -60,7 +62,7 @@ const pages = [
             <p class="section-lead">This site is being built to preserve family history, share photographs and stories, and make each Leichty reunion easier to find and enjoy.</p>
           </div>
           <aside class="intro-note">
-            <p>Family history grows richer when every branch adds what it remembers. The archive will grow as relatives contribute verified names, dates, stories, and photographs.</p>
+            <p>Family history grows richer when every clan and generation adds what it remembers. The archive will grow as relatives contribute verified names, dates, stories, and photographs.</p>
           </aside>
         </div>
       </section>
@@ -77,9 +79,9 @@ const pages = [
             <div><h3>Our story</h3><p>Verified family history, places, documents, and the stories passed between generations.</p></div>
             <span class="card-arrow" aria-hidden="true">↗</span>
           </a>
-          <a class="archive-card" href="/family-tree/">
-            <span class="card-number">02 · FAMILY TREE</span>
-            <div><h3>Our branches</h3><p>A privacy-minded foundation for connecting people and family lines.</p></div>
+          <a class="archive-card" href="/family/">
+            <span class="card-number">02 · OUR FAMILY</span>
+            <div><h3>Four children. Three clans.</h3><p>Meet John and Salome’s family and explore the three descendant clans.</p></div>
             <span class="card-arrow" aria-hidden="true">↗</span>
           </a>
           <a class="archive-card" href="/photos/">
@@ -95,16 +97,13 @@ const pages = [
         </div>
       </section>
 
-      <section class="section section-forest" aria-labelledby="promise-title">
-        <div class="family-promise">
-          <div class="rings" aria-hidden="true"></div>
-          <div>
-            <p class="eyebrow">Made to last</p>
-            <h2 id="promise-title">A place for every branch.</h2>
-            <p class="section-lead">The site is designed as a long-lived, portable family archive—not a social network. Historical facts will be sourced, living relatives will be treated with care, and the collection can grow without locking the family into one platform.</p>
-            <a class="button button-light" href="/family-tree/">How the family tree will work</a>
-          </div>
+      <section class="section section-forest family-origin-section" aria-labelledby="family-origin-title">
+        <div class="section-heading">
+          <p class="eyebrow">Where our story begins</p>
+          <h2 id="family-origin-title">Four children. Three descendant clans.</h2>
+          <p class="section-lead">John and Salome’s four children all belong in the family story. Today’s reunion family descends through Simon, Jacob, and Carl.</p>
         </div>
+        ${familyStructure()}
       </section>
 
       <section class="section section-paper" aria-labelledby="reunion-title">
@@ -211,27 +210,177 @@ const pages = [
       </section>`
   },
   {
+    path: '/family/',
+    title: 'Our Family',
+    description: 'John and Salome Leichty, their four children, and the three Leichty descendant clans.',
+    active: 'family',
+    body: `
+      ${pageHero('Our family', 'Four children. Three descendant clans.', 'John Leichty and Salome (Chupp) Leichty are the foundation of this family story. Their four children were Simon, Iona, Jacob, and Carl; today’s descendants continue through Simon, Jacob, and Carl.')}
+      <section class="section section-forest family-origin-section" aria-labelledby="family-map-title">
+        <div class="section-heading">
+          <p class="eyebrow">Where our story begins</p>
+          <h2 id="family-map-title">From John and Salome to today.</h2>
+          <p class="section-lead">This overview keeps the immediate family and the present-day clan structure distinct, visible, and historically accurate.</p>
+        </div>
+        ${familyStructure()}
+      </section>
+      <section class="section section-paper" aria-labelledby="family-explore-title">
+        <div class="section-heading">
+          <p class="eyebrow">Explore the family</p>
+          <h2 id="family-explore-title">Begin with the people, then follow the clans.</h2>
+        </div>
+        <div class="feature-grid">
+          ${linkedFeatureCard('John & Salome', 'The founding couple at the center of the family story.', '/family/john-and-salome/', 'Meet John and Salome')}
+          ${linkedFeatureCard('Their Four Children', 'Simon, Iona, Jacob, and Carl—each presented as part of the immediate family.', '/family/children/', 'Meet their children')}
+          ${linkedFeatureCard('The Three Clans', 'Explore the descendant families of Simon, Jacob, and Carl.', '/family/clans/', 'Explore the clans')}
+        </div>
+      </section>`
+  },
+  {
+    path: '/family/john-and-salome/',
+    title: 'John & Salome Leichty',
+    description: 'John Leichty and Salome (Chupp) Leichty, the foundation of the Leichty family story.',
+    active: 'family',
+    body: `
+      ${pageHero('Where our story begins', 'John Leichty + Salome (Chupp) Leichty.', 'John and Salome are the foundation of this family website and the generations gathered by the Leichty reunion.')}
+      <section class="section section-paper">
+        <div class="profile-overview">
+          <div>
+            <p class="eyebrow">The foundation</p>
+            <h2>Parents of four children.</h2>
+            <p class="section-lead">John and Salome’s children were Simon, Iona, Jacob, and Carl. The three present-day descendant clans continue through Simon, Jacob, and Carl.</p>
+            <div class="notice"><p><strong>Historical record in progress.</strong>Additional biographical details, photographs, and source records will be added only as they are documented and verified.</p></div>
+          </div>
+          <aside class="foundation-facts" aria-label="John and Salome family summary">
+            <span class="lineage-kicker">John + Salome</span>
+            <strong>Four children</strong>
+            <span>Simon · Iona · Jacob · Carl</span>
+            <strong>Three descendant clans</strong>
+            <span>Simon · Jacob · Carl</span>
+          </aside>
+        </div>
+      </section>
+      <section class="section" aria-labelledby="founding-children-title">
+        <div class="section-heading">
+          <p class="eyebrow">Their immediate family</p>
+          <h2 id="founding-children-title">John and Salome’s four children.</h2>
+        </div>
+        <div class="children-grid children-grid-light">${family.children.map((id) => childCard(peopleById.get(id))).join('')}</div>
+      </section>`
+  },
+  {
+    path: '/family/children/',
+    title: 'The Four Leichty Children',
+    description: 'Simon, Iona, Jacob, and Carl—the four children of John and Salome Leichty.',
+    active: 'family',
+    body: `
+      ${pageHero('John and Salome’s family', 'Their Four Children.', 'Simon, Iona, Jacob, and Carl each belong in the immediate family story. Three of them became the founders of today’s descendant clans.')}
+      <section class="section section-paper">
+        <div class="children-grid children-directory">${family.children.map((id) => childCard(peopleById.get(id))).join('')}</div>
+        <aside class="lineage-note">
+          <p class="eyebrow">An important distinction</p>
+          <h3>Four children does not mean four clans.</h3>
+          <p>Iona is remembered here with her siblings. She died in childhood and did not create a descendant clan. The reunion’s three descendant clans come through Simon, Jacob, and Carl.</p>
+        </aside>
+      </section>`
+  },
+  {
+    path: '/family/iona-leichty/',
+    title: 'Remembering Iona Leichty',
+    description: 'Remembering Iona Leichty (1917–1920), daughter of John and Salome Leichty.',
+    active: 'family',
+    body: `
+      ${pageHero('Remembering Iona', 'Iona Leichty.', '1917–1920')}
+      <section class="section section-paper">
+        <article class="memory-profile">
+          <p class="eyebrow">John and Salome’s daughter</p>
+          <h2>Part of the family story.</h2>
+          <p class="section-lead">Iona was one of John and Salome’s four children. She died in childhood and did not create a descendant clan, but she remains an important part of the immediate family history.</p>
+          <dl class="profile-facts">
+            <div><dt>Years</dt><dd>1917–1920</dd></div>
+            <div><dt>Parents</dt><dd>John Leichty and Salome (Chupp) Leichty</dd></div>
+            <div><dt>Generation</dt><dd>Second generation</dd></div>
+            <div><dt>Descendant clan</dt><dd>None</dd></div>
+          </dl>
+          <div class="notice"><p><strong>Her record will grow with care.</strong>Additional biographical details, photographs, and source records will be added when they are documented and verified.</p></div>
+          <div class="profile-actions"><a class="button" href="/family/children/">View all four children</a><a class="text-link" href="/family/clans/">Explore the three clans <span aria-hidden="true">→</span></a></div>
+        </article>
+      </section>`
+  },
+  {
+    path: '/family/clans/',
+    title: 'The Three Leichty Clans',
+    description: 'The Simon, Jacob, and Carl descendant clans of the Leichty family.',
+    active: 'family',
+    body: `
+      ${pageHero('Three clans. Seven generations.', 'The Three Leichty Clans.', 'Today’s Leichty family descends through three of John and Salome’s children: Simon, Jacob, and Carl.')}
+      <section class="section section-paper">
+        <div class="clan-grid clan-directory">${family.clans.map(clanCard).join('')}</div>
+        <aside class="lineage-note">
+          <p class="eyebrow">The complete family</p>
+          <h3>Four children remain part of the record.</h3>
+          <p>Iona belongs with Simon, Jacob, and Carl in the story of John and Salome’s immediate family. Because she had no descendants, she is remembered on her own family-history page rather than represented as a fourth clan.</p>
+          <a class="text-link" href="/family/iona-leichty/">Remembering Iona <span aria-hidden="true">→</span></a>
+        </aside>
+      </section>`
+  },
+  ...family.clans.map((clan) => {
+    const founder = peopleById.get(clan.foundingPerson);
+    return {
+      path: `/family/clans/${clan.id}/`,
+      title: clan.name,
+      description: `${clan.description} A developing home for verified people, photographs, and stories.`,
+      active: 'family',
+      body: `
+        ${pageHero('Descendant clan', `${clan.name}.`, clan.description)}
+        <section class="section section-paper">
+          <div class="clan-profile">
+            <div class="clan-seal" aria-hidden="true">${clan.name[0]}</div>
+            <div>
+              <p class="eyebrow">Founding person</p>
+              <h2>${founder.name}</h2>
+              <p class="section-lead">${founder.birth}–${founder.death}</p>
+              <div class="notice"><p><strong>Descendant directory in progress.</strong>Names of living relatives and additional family details will be published only with appropriate care and verified source information.</p></div>
+              <div class="profile-actions"><a class="button" href="/family-tree/">Explore the family tree</a><a class="text-link" href="/family/clans/">All three clans <span aria-hidden="true">→</span></a></div>
+            </div>
+          </div>
+        </section>
+        <section class="section" aria-labelledby="clan-archive-${clan.id}">
+          <div class="section-heading"><p class="eyebrow">A growing archive</p><h2 id="clan-archive-${clan.id}">Stories, people, and photographs.</h2><p class="section-lead">This page is ready to connect verified descendants with family stories, historical photographs, reunion memories, and source records.</p></div>
+          <div class="feature-grid">
+            ${featureCard('People', 'A privacy-minded descendant directory can grow from trusted family records.')}
+            ${featureCard('Stories', 'Biographies and memories can be attributed to their sources and contributors.')}
+            ${featureCard('Photographs', 'Images can include names, dates, places, and provenance when known.')}
+          </div>
+        </section>`
+    };
+  }),
+  {
     path: '/family-tree/',
     title: 'Family Tree',
     description: 'A privacy-minded foundation for the Leichty family tree.',
-    active: 'family-tree',
+    active: 'family',
     body: `
-      ${pageHero('Family tree', 'Every branch has a place.', 'The family tree is being designed for careful import, useful connections, and privacy for living relatives.')}
+      ${pageHero('Family tree', 'Three clans. Seven generations.', 'The family tree begins with John and Salome, includes all four of their children, and follows descendants through the Simon, Jacob, and Carl clans.')}
       <section class="section section-paper">
         <div class="tree-foundation">
           <div>
-            <p class="eyebrow">Foundation in progress</p>
-            <h2>Ready to grow from trusted records.</h2>
-            <p class="section-lead">Rather than hand-coding names into pages, the tree will accept structured genealogy data and connect each person to photographs, stories, and sources.</p>
+            <p class="eyebrow">The confirmed foundation</p>
+            <h2>Four children. Three descendant clans.</h2>
+            <p class="section-lead">John and Salome’s immediate family includes Simon, Iona, Jacob, and Carl. The descendant tree continues through Simon, Jacob, and Carl; Iona remains part of the family record without being shown as a clan.</p>
             <div class="notice"><p><strong>Privacy comes first.</strong>Details about living relatives will not be published simply because they appear in imported records.</p></div>
           </div>
-          <div class="tree-diagram" role="img" aria-label="Placeholder diagram showing the planned structure of the family tree">
-            <div class="tree-diagram-inner">
-              <div class="tree-node">Family records</div>
-              <div class="tree-node">People</div>
-              <div class="tree-node">Relationships</div>
-              <div class="tree-node">Sources</div>
+          <div class="tree-diagram tree-family-diagram" aria-label="John and Salome, their four children, and the three descendant clans">
+            <div class="tree-couple">John + Salome</div>
+            <div class="tree-line" aria-hidden="true"></div>
+            <div class="tree-children">
+              <span>Simon<small>1915–1992</small></span>
+              <span class="tree-remembered">Iona<small>1917–1920</small></span>
+              <span>Jacob<small>1920–2012</small></span>
+              <span>Carl<small>1925–2007</small></span>
             </div>
+            <div class="tree-line" aria-hidden="true"></div>
+            <div class="tree-clans"><span>Simon Clan</span><span>Jacob Clan</span><span>Carl Clan</span></div>
           </div>
         </div>
       </section>
@@ -313,7 +462,7 @@ const pages = [
     description: 'The requested page could not be found.',
     active: '',
     noindex: true,
-    body: `<section class="not-found"><div class="not-found-inner"><p class="eyebrow">Page not found</p><h1>That branch isn’t here.</h1><p class="page-intro">The page may have moved, or the address may be incomplete.</p><a class="button" href="/">Return home</a></div></section>`
+    body: `<section class="not-found"><div class="not-found-inner"><p class="eyebrow">Page not found</p><h1>That page isn’t here.</h1><p class="page-intro">The page may have moved, or the address may be incomplete.</p><a class="button" href="/">Return home</a></div></section>`
   }
 ];
 
@@ -323,6 +472,55 @@ function pageHero(eyebrow, heading, intro) {
 
 function featureCard(title, copy) {
   return `<article class="feature-card"><div class="feature-icon" aria-hidden="true"></div><h3>${title}</h3><p>${copy}</p></article>`;
+}
+
+function linkedFeatureCard(title, copy, href, linkLabel) {
+  return `<article class="feature-card linked-feature-card"><div class="feature-icon" aria-hidden="true"></div><h3>${title}</h3><p>${copy}</p><a class="text-link" href="${href}">${linkLabel} <span aria-hidden="true">→</span></a></article>`;
+}
+
+function familyStructure() {
+  const children = family.children.map((id) => peopleById.get(id));
+  return `<div class="family-lineage">
+    <a class="foundation-card" href="/family/john-and-salome/">
+      <span class="lineage-kicker">The foundation</span>
+      <strong>John Leichty <span aria-hidden="true">+</span> Salome (Chupp) Leichty</strong>
+      <span>Explore their story</span>
+    </a>
+    <div class="lineage-connector" aria-hidden="true"></div>
+    <p class="lineage-label">Their Four Children</p>
+    <div class="children-grid">
+      ${children.map(childCard).join('')}
+    </div>
+    <div class="lineage-connector" aria-hidden="true"></div>
+    <p class="lineage-label">Three Descendant Clans</p>
+    <div class="clan-grid">
+      ${family.clans.map(clanCard).join('')}
+    </div>
+  </div>`;
+}
+
+function childCard(person) {
+  const years = `${person.birth}–${person.death}`;
+  if (!person.hasDescendants) {
+    return `<a class="child-card child-card-remembered" href="/family/iona-leichty/">
+      <span class="child-name">${person.name}</span>
+      <span class="child-years">${years}</span>
+      <span class="child-note">Remembering Iona</span>
+    </a>`;
+  }
+  return `<a class="child-card" href="/family/clans/${person.descendantClan}/">
+    <span class="child-name">${person.name}</span>
+    <span class="child-years">${years}</span>
+    <span class="child-note">${person.descendantClan[0].toUpperCase()}${person.descendantClan.slice(1)} Clan</span>
+  </a>`;
+}
+
+function clanCard(clan) {
+  return `<a class="clan-card" href="/family/clans/${clan.id}/">
+    <span class="clan-monogram" aria-hidden="true">${clan.name[0]}</span>
+    <span><strong>${clan.name}</strong><small>Explore descendants</small></span>
+    <span class="card-arrow" aria-hidden="true">↗</span>
+  </a>`;
 }
 
 function timelineItem(title, copy) {
