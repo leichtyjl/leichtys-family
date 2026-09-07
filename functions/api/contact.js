@@ -56,7 +56,7 @@ export async function onRequestPost({ request, env }) {
   const name = body.name.trim().slice(0, 120);
   const email = body.email.trim().slice(0, 200).toLowerCase();
   const message = body.message.trim().slice(0, 4000);
-  if (!name || !emailRe.test(email) || !message) return j(400, { ok: false, message: 'fields' });
+  if (!name || !emailRe.test(email) || message.length < 2) return j(400, { ok: false, message: 'fields' });
   const ip = request.headers.get('CF-Connecting-IP') || 'unknown';
 
   let idemKey = typeof body.idempotencyKey === 'string' ? body.idempotencyKey.slice(0, 64).replace(/[^A-Za-z0-9_-]/g, '') : '';
