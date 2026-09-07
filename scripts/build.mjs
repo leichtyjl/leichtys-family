@@ -91,14 +91,6 @@ const pages = [
         <ol class="schedule-list">${site.reunion.schedule.map(scheduleItem).join('')}</ol>
       </section>
 
-      <section class="section section-paper" aria-labelledby="highlights-title">
-        <div class="section-heading">
-          <p class="eyebrow">Afternoon highlights</p>
-          <h2 id="highlights-title">Plenty to see, play, and share.</h2>
-        </div>
-        <div class="highlights-grid">${site.reunion.highlights.map(highlightCard).join('')}</div>
-      </section>
-
       <section class="section section-paper" aria-labelledby="bring-title">
         <div class="section-heading">
           <p class="eyebrow">What to Bring</p>
@@ -123,51 +115,30 @@ const pages = [
           <p class="visit-note">You can also check <a href="https://www.airbnb.com/" rel="noopener" target="_blank">Airbnb</a> for vacation rentals or use Google to search for additional hotels and lodging options in the Goshen area. Please choose whichever option works best for your family — these are suggestions only, with no reserved room blocks or special rates.</p>
         </div>
 
-        <div class="visit-block">
-          <h3 class="visit-kicker">Airports</h3>
+        <details class="visit-details">
+          <summary>Travel by air</summary>
           <p class="visit-primary-airport"><strong>${site.reunion.airports.primary.code}</strong> — ${site.reunion.airports.primary.detail}</p>
           <p class="visit-intro">Other options to check include:</p>
           <ul class="plain-list airport-list">
             ${site.reunion.airports.others.map((a) => `<li>${a}</li>`).join('')}
           </ul>
           <p class="visit-note">${site.reunion.airports.tip}</p>
-        </div>
+        </details>
 
-        <div class="visit-block">
-          <h3 class="visit-kicker">Restaurant recommendations</h3>
+        <details class="visit-details">
+          <summary>Dining nearby</summary>
           <p class="visit-intro">${site.reunion.restaurants.intro}</p>
-
-          <h4 class="visit-subhead">Goshen favorites</h4>
           <ul class="plain-list two-col-list">
             ${site.reunion.restaurants.goshen.map((r) => `<li><strong>${r.name}</strong><span>${r.detail}</span></li>`).join('')}
           </ul>
-
-          <h4 class="visit-subhead">Breakfast &amp; casual dining</h4>
           <ul class="plain-list">
             ${site.reunion.restaurants.breakfast.map((r) => `<li><strong>${r.name}</strong><span>${r.detail}</span></li>`).join('')}
           </ul>
-
-          <h4 class="visit-subhead">Amish-country dining</h4>
           <ul class="plain-list">
             ${site.reunion.restaurants.amish.map((r) => `<li><strong>${r.name}</strong><span>${r.detail}</span></li>`).join('')}
           </ul>
-
-          <h4 class="visit-subhead">Especially recommended for out-of-town family</h4>
-          <p class="visit-intro">If you’re visiting Goshen for the first time, we especially recommend:</p>
-          <ol class="top-picks">
-            ${site.reunion.restaurants.top.map((t) => `<li>${t}</li>`).join('')}
-          </ol>
-
           <p class="visit-note">${site.reunion.restaurants.tip}</p>
-        </div>
-      </section>
-
-      <section class="section section-paper" aria-labelledby="reminders-title">
-        <div class="section-heading">
-          <p class="eyebrow">Helpful reminders</p>
-          <h2 id="reminders-title">Good to know.</h2>
-        </div>
-        <div class="reminders-grid">${site.reunion.reminders.map(reminderCard).join('')}</div>
+        </details>
       </section>
 
       <section class="section section-forest" aria-labelledby="contact-title">
@@ -221,6 +192,7 @@ const pages = [
   },
   {
     path: '/history/',
+    noindex: true,
     title: 'Family History',
     description: 'Leichty family history, stories, places, documents, and sources.',
     active: 'history',
@@ -270,6 +242,7 @@ const pages = [
   },
   {
     path: '/family/john-and-salome/',
+    noindex: true,
     title: 'John & Salome Leichty',
     description: 'John Leichty and Salome (Chupp) Leichty, the foundation of the Leichty family story.',
     active: 'family',
@@ -302,6 +275,7 @@ const pages = [
   },
   {
     path: '/family/children/',
+    noindex: true,
     title: 'The Four Leichty Children',
     description: 'Simon, Iona, Jacob, and Carl—the four children of John and Salome Leichty.',
     active: 'family',
@@ -318,6 +292,7 @@ const pages = [
   },
   {
     path: '/family/iona-leichty/',
+    noindex: true,
     title: 'Remembering Iona Leichty',
     description: 'Remembering Iona Leichty (1917–1920), daughter of John and Salome Leichty.',
     active: 'family',
@@ -341,6 +316,7 @@ const pages = [
   },
   {
     path: '/family/branches/',
+    noindex: true,
     title: 'The Three Leichty Branches',
     description: 'The Simon, Jacob, and Carl descendant branches of the Leichty family.',
     active: 'family',
@@ -360,6 +336,7 @@ const pages = [
     const founder = peopleById.get(branch.foundingPerson);
     return {
       path: `/family/branches/${branch.id}/`,
+      noindex: true,
       title: branch.name,
       description: `${branch.description} Family people, photographs, and stories.`,
       active: 'family',
@@ -387,6 +364,7 @@ const pages = [
   }),
   {
     path: '/family-tree/',
+    noindex: true,
     title: 'Family Tree',
     description: 'A privacy-minded foundation for the Leichty family tree.',
     active: 'family',
@@ -425,6 +403,7 @@ const pages = [
   },
   {
     path: '/photos/',
+    noindex: true,
     title: 'Family Photographs',
     description: 'Leichty family photographs preserved with names, dates, places, and stories.',
     active: 'photos',
@@ -444,6 +423,7 @@ const pages = [
   },
   {
     path: '/videos/',
+    noindex: true,
     title: 'Family Videos',
     description: 'Leichty family interviews, reunion films, and home movies.',
     active: 'videos',
@@ -482,11 +462,10 @@ function detailCard(title, copy) {
 
 function scheduleItem(item) {
   const featured = item.featured ? ' schedule-featured' : '';
-  const badge = item.featured ? '<span class="schedule-badge">Be on time!</span>' : '';
   return `<li class="schedule-item${featured}">
     <div class="schedule-time">${item.time}</div>
     <div class="schedule-details">
-      <h3>${item.event}${badge}</h3>
+      <h3>${item.event}</h3>
       <p>${item.detail}</p>
     </div>
   </li>`;
@@ -603,7 +582,7 @@ function header(active) {
 
 function footer() {
   return `<footer class="site-footer"><div class="footer-inner">
-    <div class="footer-brand"><a class="wordmark" href="/"><span class="wordmark-mark" aria-hidden="true">L</span><span>Leichty Family</span></a><p>A lasting home for family history, photographs, stories, and reunions.</p></div>
+    <div class="footer-brand"><a class="wordmark" href="/"><span class="wordmark-mark" aria-hidden="true">L</span><span>Leichty Family</span></a></div>
     <nav class="footer-links" aria-label="Footer navigation">${site.navigation.map((item) => `<a href="${item.href}">${item.label}</a>`).join('')}</nav>
     <div class="footer-meta">Made for the Leichty family · <span id="year">${new Date().getUTCFullYear()}</span></div>
   </div></footer>`;
@@ -639,8 +618,8 @@ ${robots}    <link rel="canonical" href="${canonical}">
     <meta name="twitter:title" content="${title}">
     <meta name="twitter:description" content="${page.description}">
     <meta name="twitter:image" content="${site.canonicalOrigin}/assets/og.png">
-${imagePreload}    <link rel="stylesheet" href="/assets/styles.css?v=20260907f">
-    <script src="/assets/site.js?v=20260907f" defer></script>
+${imagePreload}    <link rel="stylesheet" href="/assets/styles.css?v=20260907g">
+    <script src="/assets/site.js?v=20260907g" defer></script>
   </head>
   <body>
     <a class="skip-link" href="#main">Skip to main content</a>

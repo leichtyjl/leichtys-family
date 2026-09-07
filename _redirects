@@ -2,6 +2,9 @@
 /family/clans/* /family/branches/:splat 301
 /family/clans/  /family/branches/        301
 
+# Old RSVP route redirects to the RSVP page
+/reunion/rsvp/   /rsvp/         301
+
 # Reunion 2027 is the canonical landing page — old reunion routes redirect
 /reunion/*       /reunion2027/  301
 /reunion/        /reunion2027/  301
