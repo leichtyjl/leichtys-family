@@ -49,6 +49,7 @@ const pages = [
     title: 'Next Family Reunion',
     description: 'Plans and updates for the next Leichty family reunion.',
     active: 'reunions',
+    socialImage: true,
     body: `
       <section class="section section-paper reunion2027-hero" aria-labelledby="reunion2027-title">
         <div class="reunion-overview">
@@ -609,14 +610,23 @@ ${robots}    <link rel="canonical" href="${canonical}">
     <meta property="og:title" content="${title}">
     <meta property="og:description" content="${page.description}">
     <meta property="og:url" content="${canonical}">
+    ${page.socialImage ? `
+    <meta property="og:image" content="${site.canonicalOrigin}/assets/reunion-centerpiece-social.jpg">
+    <meta property="og:image:secure_url" content="${site.canonicalOrigin}/assets/reunion-centerpiece-social.jpg">
+    <meta property="og:image:type" content="image/jpeg">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:image:alt" content="Historic Leichty family photograph: John Leichty seated on a longhorn steer beside Salome Leichty">` : `
     <meta property="og:image" content="${site.canonicalOrigin}/assets/og.png">
     <meta property="og:image:width" content="1200">
     <meta property="og:image:height" content="630">
-    <meta property="og:image:alt" content="Leichty Family — History, stories and reunions">
+    <meta property="og:image:alt" content="Leichty Family — History, stories and reunions">`}
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="${title}">
     <meta name="twitter:description" content="${page.description}">
-    <meta name="twitter:image" content="${site.canonicalOrigin}/assets/og.png">
+    ${page.socialImage
+      ? `<meta name="twitter:image" content="${site.canonicalOrigin}/assets/reunion-centerpiece-social.jpg">`
+      : `<meta name="twitter:image" content="${site.canonicalOrigin}/assets/og.png">`}
 ${imagePreload}    <link rel="stylesheet" href="/assets/styles.css?v=20260907o">
     <script src="/assets/site.js?v=20260907o" defer></script>
   </head>
