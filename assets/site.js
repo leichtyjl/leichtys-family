@@ -70,10 +70,17 @@ if (contactForm) {
     const errs = [];
     if (!name) errs.push('Please enter your name.');
     if (!email || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) errs.push('Please enter a valid email address.');
-    if (!message || message.length < 10) errs.push('Please enter a message.');
-    if (errs.length) { setStatus(errs.join(' '), 'error'); return;
+    if (!message || message.length < 2) errs.push('Please enter a message.');
+    if (errs.length) {
+      setStatus(errs.join(' '), 'error');
+      const firstBad = !name ? '[name="name"]' : (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email) ? '[name="email"]' : '[name="message"]');
+      const el = contactForm.querySelector(firstBad);
+      if (el) el.focus();
+      return;
     }
     if (submitBtn) submitBtn.disabled = true;
+    if (contactForm.dataset.sending) return;
+    contactForm.dataset.sending = '1';
     setStatus('Sending…', 'info');
     try {
 
@@ -104,6 +111,7 @@ if (contactForm) {
     } catch (e) {
       setStatus('Your message could not be sent right now. Please try again in a few minutes.', 'error');
     } finally {
+      delete contactForm.dataset.sending;
 if (submitBtn) submitBtn.disabled = false;
     }
   });
