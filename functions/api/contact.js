@@ -38,7 +38,7 @@ export async function onRequestPost({ request, env }) {
   const safe = (s) => s.replace(/[\r\n]+/g, ' ');
   const subject = safe('Reunion 2027 Website Contact from ' + name);
   const text = 'Name: ' + name + '\nEmail: ' + email + '\n\nMessage:\n' + message;
-  if (!env.MAILER) return j(503, { ok:false, message:'The email service is not configured yet. Please try again soon.' });
+  if (!env.MAILER) return j(503, { ok:false, message:'The email service is not configured yet. env=[' + Object.keys(env||{}).join(',') + ']' });
   const recipients = [
     'leichtyjl@gmail.com'
   ];
