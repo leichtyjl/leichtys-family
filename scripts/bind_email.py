@@ -15,11 +15,12 @@ def api(method, data=None):
         headers={'Authorization': 'Bearer ' + TOKEN, 'Content-Type': 'application/json'})
     return json.load(urllib.request.urlopen(req))
 
-binding = {"type": "send_email", "name": "CONTACT_EMAIL", "destination_address": "leichtyjl@gmail.com"}
-r = api('PATCH', {"deployment_configs": {"production": {"bindings": [binding]}, "preview": {"bindings": [binding]}}})
+svc = {"binding": "MAILER", "service": "contact-mailer", "environment": "production"}
+r = api('PATCH', {"deployment_configs": {"production": {"services": [svc]}, "preview": {"services": [svc]}}})
 print('patch success:', r.get('success'), r.get('errors'))
 
 proj = api('GET')
-b = proj['result']['deployment_configs']['production'].get('bindings')
-print('bindings now:', json.dumps(b))
+d = proj['result']['deployment_configs']['production']
+print('services now:', json.dumps(d.get('services')))
+print('bindings now:', json.dumps(d.get('bindings')))
 print('latest deployment:', proj['result'].get('latest_deployment', {}).get('created_on'))
