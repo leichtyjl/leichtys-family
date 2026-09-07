@@ -1,7 +1,6 @@
 # Renamed "Clan" terminology to "Branch" — permanent 301 redirects for any external links.
 /family/clans/* /family/branches/:splat 301
 /family/clans/  /family/branches/        301
-/rounding_up_the_leichty_clan_agenda.pdf /rounding_up_the_leichty_family_agenda.pdf 301
 
 # Reunion 2027 is the canonical landing page — old reunion routes redirect
 /reunion/*       /reunion2027/  301

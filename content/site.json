@@ -15,7 +15,6 @@
     "mapUrl": "https://www.google.com/maps/search/?api=1&query=Shanklin+Park+Indoor+Pavilion,+417+W.+Plymouth+Ave,+Goshen,+Indiana",
     "directionsUrl": "https://www.google.com/maps/dir/?api=1&destination=Shanklin+Park+Indoor+Pavilion,+417+W.+Plymouth+Ave,+Goshen,+Indiana",
     "tagline": "Reconnecting · Seven Generations Strong",
-    "agendaPdf": "rounding_up_the_leichty_family_agenda.pdf",
     "schedule": [
       {
         "time": "11:30 AM",
@@ -208,19 +207,9 @@
   },
   "navigation": [
     {
-      "label": "History",
-      "href": "/history/",
-      "key": "history"
-    },
-    {
       "label": "Our Family",
       "href": "/family/",
       "key": "family"
-    },
-    {
-      "label": "Photos",
-      "href": "/photos/",
-      "key": "photos"
     },
     {
       "label": "Reunion 2027",

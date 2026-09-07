@@ -7,8 +7,7 @@ const root = join(dirname(fileURLToPath(import.meta.url)), '..');
 const site = JSON.parse(await readFile(join(root, 'content/site.json'), 'utf8'));
 const family = JSON.parse(await readFile(join(root, 'content/family.json'), 'utf8'));
 const peopleById = new Map(family.persons.map((person) => [person.id, person]));
-const agendaPdf = site.reunion.agendaPdf ? site.reunion.agendaPdf : null;
-const hasAgenda = !!agendaPdf && existsSync(join(root, agendaPdf));
+
 
 const pages = [
   {
@@ -19,14 +18,16 @@ const pages = [
     body: `
       <section class="artwork-hero" aria-labelledby="hero-title">
         <div class="hero-content">
-          <p class="eyebrow">Save the date</p>
+          <p class="eyebrow">Leichty Family</p>
           <h1 id="hero-title">Leichty Family Reunion 2027</h1>
           <dl class="hero-details" aria-label="Reunion date and location">
             <div><dt>When</dt><dd>${site.reunion.date} · ${site.reunion.time}</dd></div>
             <div><dt>Where</dt><dd>${site.reunion.location}</dd></div>
           </dl>
+          <p class="tagline">${site.reunion.tagline}</p>
           <div class="hero-actions">
-            <a class="button" href="/reunion2027/">Reunion details</a>
+            <a class="button" href="/reunion2027/">Reunion 2027</a>
+            <a class="button button-light" href="/rsvp/">RSVP</a>
           </div>
         </div>
         <figure class="reunion-artwork">
@@ -34,86 +35,12 @@ const pages = [
         </figure>
       </section>
 
-      <aside class="quick-strip" aria-label="Reunion quick information">
-        <div class="quick-strip-inner">
-          <div><span class="ribbon-label">Reunion</span><span class="ribbon-value">2027 family gathering</span></div>
-          <div><span class="ribbon-label">Date</span><span class="ribbon-value">June 12, 2027</span></div>
-          <div><span class="ribbon-label">Place</span><span class="ribbon-value">${site.reunion.locationShort}</span></div>
-          <a class="button button-light" href="/reunion2027/">Plan your visit</a>
-        </div>
-      </aside>
-
-      <section class="section" aria-labelledby="welcome-title">
-        <div class="home-intro">
-          <p class="eyebrow">The Leichty family</p>
-          <h2 id="welcome-title">One family. Seven generations.</h2>
-          <p class="tagline">${site.reunion.tagline}</p>
-          <p class="section-lead">It all reaches back to John and Salome Leichty — through their four children, three descendant branches, and the generations gathering this June. Whatever brings you here, there’s a place for you.</p>
-          <div class="hero-actions">
-            <a class="button" href="/family/">Explore the family</a>
-            <a class="text-link" href="/reunion2027/">2027 reunion details <span aria-hidden="true">→</span></a>
-          </div>
-        </div>
-      </section>
-
-      <section class="section section-paper" aria-labelledby="john-salome-title">
-        <div class="origin-story">
-          <div>
-            <p class="eyebrow">Where our story begins</p>
-            <h2 id="john-salome-title">John + Salome Leichty</h2>
-            <p class="section-lead">John Leichty and Salome (Chupp) Leichty are the foundation of this family. Their four children — Simon, Iona, Jacob, and Carl — branch into the three descendant branches gathering today.</p>
-            <a class="text-link" href="/family/john-and-salome/">Meet John and Salome <span aria-hidden="true">→</span></a>
-          </div>
-        </div>
-      </section>
-
-      <section class="section section-forest family-origin-section" aria-labelledby="family-origin-title">
+      <section class="section section-forest" aria-labelledby="family-title">
         <div class="section-heading">
-          <p class="eyebrow">Meet the family</p>
-          <h2 id="family-origin-title">Four children. Three descendant branches.</h2>
-          <p class="section-lead">John and Salome’s four children all belong in the family story. Today’s descendants continue through Simon, Jacob, and Carl.</p>
-        </div>
-        ${homeFamilyGrid()}
-      </section>
-
-            <section class="section section-paper" aria-labelledby="years-title">
-        <div class="section-heading">
-          <p class="eyebrow">Seven generations strong</p>
-          <h2 id="years-title">The faces behind the stories.</h2>
-          <p class="section-lead">Photographs carry the moments words can’t quite hold. A beloved Leichty family photograph anchors this year’s reunion artwork — and it’s only the beginning of a story worth keeping.</p>
-          <a class="button" href="/photos/">View family photographs</a>
-        </div>
-      </section>
-
-      <section class="section" aria-labelledby="explore-title">
-        <div class="section-heading">
-          <p class="eyebrow">Family archive</p>
-          <h2 id="explore-title">Many lives. One family story.</h2>
-          <p class="section-lead">Explore the people, photographs, voices, and gatherings that connect the Leichty family.</p>
-        </div>
-        <div class="card-grid">
-          <a class="archive-card" href="/family/"><span class="card-number">01 · OUR FAMILY</span><div><h3>Our people</h3><p>Begin with John and Salome, their four children, and the three descendant branches.</p></div><span class="card-arrow" aria-hidden="true">↗</span></a>
-          <a class="archive-card" href="/history/"><span class="card-number">02 · HISTORY</span><div><h3>Our story</h3><p>The places, documents, and stories that give the family meaning.</p></div><span class="card-arrow" aria-hidden="true">↗</span></a>
-          <a class="archive-card" href="/photos/"><span class="card-number">03 · PHOTOGRAPHS</span><div><h3>Our faces</h3><p>Treasured images shared and remembered, generation to generation.</p></div><span class="card-arrow" aria-hidden="true">↗</span></a>
-        </div>
-        <div class="archive-contribute">
-          <p class="section-lead">Have a Leichty family photograph or story to share?</p>
-          <a class="button button-light" href="/photos/">Contribute to the family archive</a>
-        </div>
-      </section>
-
-      <section class="section section-forest" aria-labelledby="reunion-title">
-        <div class="reunion-cta">
-          <div>
-            <p class="eyebrow">Save the date</p>
-            <h2 id="reunion-title">See you in Goshen.</h2>
-            <p class="section-lead">Join every branch and generation on ${site.reunion.dateShort} at Shanklin Park. Doors open at ${site.reunion.doorsOpen}, and lunch is on us.</p>
-            <div class="hero-actions"><a class="button button-light" href="/reunion2027/">Reunion details</a></div>
-          </div>
-          <ul class="details-list" aria-label="Current reunion details">
-            <li><strong>Date</strong>${site.reunion.date}</li>
-            <li><strong>Doors open</strong>${site.reunion.doorsOpen}</li>
-          </ul>
+          <p class="eyebrow">Our Family</p>
+          <h2 id="family-title">John and Salome Leichty are at the heart of the reunion.</h2>
+          <p class="section-lead">Their family gathers on June  ​​​​12, ​​​​2027 to reconnect, remember, and celebrate seven generations strong.</p>
+          <a class="button button-light" href="/family/">Meet the Family</a>
         </div>
       </section>`
   },
@@ -126,7 +53,7 @@ const pages = [
       <section class="section section-paper reunion2027-hero" aria-labelledby="reunion2027-title">
         <div class="reunion-overview">
           <div>
-            <p class="eyebrow">Reconnecting</p>
+            <p class="eyebrow">Save the date</p>
             <h1 id="reunion2027-title">Leichty Family Reunion 2027</h1>
             <p class="tagline">${site.reunion.tagline}</p>
             <dl class="event-facts" aria-label="Reunion at a glance">
@@ -134,10 +61,9 @@ const pages = [
               <div><dt>Where</dt><dd>${site.reunion.venue}<br><span class="event-address">${site.reunion.address}</span>${site.reunion.mapUrl ? `<span class="event-links"><a href="${site.reunion.mapUrl}" rel="noopener" target="_blank">View map ↗</a><a href="${site.reunion.directionsUrl}" rel="noopener" target="_blank">Get directions ↗</a></span>` : ''}</dd></div>
               <div><dt>Doors open</dt><dd>${site.reunion.doorsOpen}</dd></div>
             </dl>
-            ${hasAgenda ? `<p class="agenda-row"><a class="button" href="/${agendaPdf}" download>View / Download the Reunion Agenda</a></p>` : ''}
             <div class="hero-actions"><a class="button button-light-forest" href="/rsvp/">RSVP</a><a class="text-link" href="#schedule">See the schedule <span aria-hidden="true">↓</span></a></div>
           </div>
-          <figure class="reunion-page-artwork reunion-page-photo"><img src="/assets/reunion-centerpiece.webp" width="1087" height="1447" alt="Historic Leichty family photograph:John Leichty seated on a longhorn steer beside Salome Leichty"><figcaption>A Leichty family photograph · John & Salome</figcaption></figure>
+          <figure class="reunion-page-photo"><img src="/assets/reunion-centerpiece.webp" width="1087" height="1447" alt="Historic Leichty family photograph:John Leichty seated on a longhorn steer beside Salome Leichty"><figcaption>A Leichty family photograph · John & Salome</figcaption></figure>
         </div>
       </section>
 
@@ -283,10 +209,10 @@ const pages = [
     body: `
       <section class="section section-paper">
         <div class="rsvp-card">
-          <p class="eyebrow">Reunion 2027</p>
-          <h1>RSVP for the Leichty Family Reunion 2027</h1>
-          <p class="section-lead">Please RSVP by May 12, 2027. Online RSVP will be available here.</p>
-          <p class="rsvp-support">Your response will help us plan seating, catering,and reunion activities.</p>
+          <p class="eyebrow">RSVP</p>
+          <h1>Leichty Family Reunion 2027</h1>
+          <p class="section-lead">Online RSVPs are not open yet. We&#8217;ll begin collecting RSVPs here at a later date. Please check back when registration opens.</p>
+          <p class="rsvp-support">Please RSVP by May 12, 2027. Your RSVP will help us plan seating, lunch, and reunion activities.</p>
           <a class="button" href="/reunion2027/">Back to Reunion 2027</a>
         </div>
       </section>
@@ -316,28 +242,30 @@ const pages = [
   {
     path: '/family/',
     title: 'Our Family',
-    description: 'John and Salome Leichty, their four children, and the three Leichty descendant branches.',
+    description: 'John and Salome Leichty and their four children: Simon, Iona, Jacob,and Carl.',
     active: 'family',
     body: `
-      ${pageHero('Our family', 'Four children. Three descendant branches.', 'John Leichty and Salome (Chupp) Leichty are the foundation of this family story. Their four children were Simon, Iona, Jacob, and Carl; today’s descendants continue through Simon, Jacob, and Carl.')}
-      <section class="section section-forest family-origin-section" aria-labelledby="family-map-title">
-        <div class="section-heading">
-          <p class="eyebrow">Where our story begins</p>
-          <h2 id="family-map-title">From John and Salome to today.</h2>
-          <p class="section-lead">This overview keeps the immediate family and the present-day branch structure distinct, visible, and historically accurate.</p>
+      ${pageHero('Our family', 'John & Salome Leichty.', 'John Leichty and Salome (Chupp) Leichty are the parents of Simon, Iona, Jacob,and Carl. Their family gathers for the reunion on June  ​​​12, ​​​2027.')}
+      <section class="section section-paper">
+        <div class="family-simple-lede">
+          <figure class="reunion-page-photo"><img src="/assets/reunion-centerpiece.webp" width="1087" height="1447" alt="Historic Leichty family photograph:John Leichty seated on a longhorn steer beside Salome Leichty"><figcaption>John & Salome Leichty</figcaption></figure>
+          <div>
+            <p class="tagline">Four children. Three descendant branches.</p>
+            <p class="section-lead">John and Salome are the parents of four children — Simon, Iona, Jacob,and Carl. Their descendants gather for the family reunion on June  ​​​12, ​​​2027.</p>
+          </div>
         </div>
-        ${familyStructure()}
       </section>
-      <section class="section section-paper" aria-labelledby="family-explore-title">
+      <section class="section" aria-labelledby="kids-title">
         <div class="section-heading">
-          <p class="eyebrow">Explore the family</p>
-          <h2 id="family-explore-title">Begin with the people, then follow the branches.</h2>
+          <p class="eyebrow">Their children</p>
+          <h2 id="kids-title">Four children.</h2>
         </div>
-        <div class="feature-grid">
-          ${linkedFeatureCard('John & Salome', 'The founding couple at the center of the family story.', '/family/john-and-salome/', 'Meet John and Salome')}
-          ${linkedFeatureCard('Their Four Children', 'Simon, Iona, Jacob, and Carl—each presented as part of the immediate family.', '/family/children/', 'Meet their children')}
-          ${linkedFeatureCard('The Three Branches', 'Explore the descendant families of Simon, Jacob, and Carl.', '/family/branches/', 'Explore the branches')}
-        </div>
+        <ul class="simple-children">
+          <li>Simon Leichty<span>1915–1992</span></li>
+          <li>Iona Leichty<span>1917–1920</span></li>
+          <li>Jacob Leichty<span>1920–2012</span></li>
+          <li>Carl Leichty<span>1925–2007</span></li>
+        </ul>
       </section>`
   },
   {
@@ -504,7 +432,7 @@ const pages = [
       ${pageHero('Family photographs', 'The faces behind the stories.', 'Treasured images last longer when they carry the names, dates, places, and stories that make them family history.')}
       <section class="section section-paper">
         <div class="photo-grid photo-grid-authentic" aria-label="Leichty family photographs">
-          <figure class="family-photo-card"><img src="/assets/reunion-centerpiece.webp" width="1087" height="1447" alt="Colorized vintage family photograph of a man seated on a longhorn steer beside a woman in a blue dress"><figcaption><strong>A Leichty family photograph</strong><span>The centerpiece of the 2027 reunion artwork</span></figcaption></figure>
+          <figure class="family-photo-card"><img src="/assets/reunion-centerpiece.webp" width="1087" height="1447" alt="Colorized vintage family photograph of a man seated on a longhorn steer beside a woman in a blue dress"><figcaption><strong>A Leichty family photograph</strong><span>John & Salome Leichty</span></figcaption></figure>
         </div>
       </section>
       <section class="section" aria-labelledby="photo-care-title">

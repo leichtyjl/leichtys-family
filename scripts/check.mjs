@@ -71,10 +71,10 @@ try {
 }
 
 const home = await readFile(join(root, 'index.html'), 'utf8');
-for (const fragment of ['Four children. Three descendant branches.', 'John + Salome Leichty', 'Simon Leichty', 'Iona Leichty', 'Jacob Leichty', 'Carl Leichty', 'Three Descendant Branches', 'href="/family/branches/simon/"']) {
+for (const fragment of ['Leichty Family Reunion 2027', 'Reunion 2027', 'John and Salome Leichty', 'href="/family/"']) {
   if (!home.includes(fragment)) failures.push(`Homepage is missing ${fragment}`);
 }
-for (const fragment of ['Leichty Family Reunion 2027', '/assets/reunion-centerpiece.webp', 'Seven Generations Strong', 'href="/family/"']) {
+for (const fragment of ['Leichty Family Reunion 2027', '/assets/reunion-centerpiece.webp']) {
   if (!home.includes(fragment)) failures.push(`Homepage is missing ${fragment}`);
 }
 
@@ -89,3 +89,4 @@ if (failures.length) {
 }
 
 console.log(`Checked ${pages.length} pages, ${requiredAssets.length} required assets, four children, and three branches.`);
+
