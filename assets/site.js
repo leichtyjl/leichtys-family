@@ -36,6 +36,20 @@ if (toggle && menu) {
 // ---- Reunion 2027 contact form ----
 const contactForm = document.querySelector('#contactForm');
 const contactStatus = document.querySelector('[data-contact-status]');
+let tsWidgetId = null;
+
+(function initTurnstile() {
+  const holder = document.querySelector('.cf-turnstile');
+  if (!holder) return;
+  fetch('/api/contact').then((r) => r.json()).then((data) => {
+    const key = data && data.siteKey;
+    if (!key) return;
+    holder.dataset.sitekey = key;
+    const start = () => { tsWidgetId = window.turnstile.render(holder, { sitekey: key, theme: 'light' }); };
+    if (window.turnstile) start();
+    else window.addEventListener('load', () => { if (window.turnstile) start(); });
+  }).catch(() => {});
+})();
 
 function setStatus(message, kind = 'info') {
   if (!contactStatus) return;
@@ -64,13 +78,14 @@ if (contactForm) {
     try {
 
       let token = '';
-if (window.turnstile && document.querySelector('.cf-turnstile')) {
-        token = (window.turnstile.getResponse()) || '';
+      if (tsWidgetId !== null && window.turnstile) {
+        token = window.turnstile.getResponse(tsWidgetId) || '';
+        if (!token) { setStatus('Please complete the verification check.', 'error'); if (submitBtn) submitBtn.disabled = false; return; }
       }
       const res = await fetch('/api/contact', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ name, email, message, 'company': company, token })
+        body: JSON.stringify({ name, email, message, 'company': company, turnstileToken: token })
       });
       const data = await res.json().catch(() => ({}));
       if (res.ok && data.ok) {
