@@ -1,0 +1,27 @@
+For website verification, minimize token and model cost.
+
+Prefer chrome-devtools DOM/accessibility snapshots, DOM inspection, console messages, and network inspection over screenshots.
+
+Do not take screenshots routinely.
+
+Only use screenshots when the task specifically requires visual verification, such as:
+- layout
+- spacing
+- typography
+- responsive behavior
+- image positioning
+- comparison against a supplied reference image
+
+For content, links, forms, navigation, element presence, text correctness, JavaScript errors, and network failures, inspect the DOM and DevTools data without screenshot analysis.
+
+When a task involves the live website, use the chrome-devtools MCP server rather than curl, wget, cached search results, or assumptions about the deployed page.
+
+After making website changes:
+1. Open or refresh the relevant page using chrome-devtools.
+2. Inspect the DOM/accessibility snapshot.
+3. Check console errors when relevant.
+4. Check failed network requests when relevant.
+5. Use a screenshot only if visual verification is necessary.
+6. Verify the requested change before completing the task.
+
+Prefer the least expensive verification method that can reliably confirm the result.

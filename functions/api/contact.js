@@ -38,27 +38,20 @@ export async function onRequestPost({ request, env }) {
   const safe = (s) => s.replace(/[\r\n]+/g, ' ');
   const subject = safe('Reunion 2027 Website Contact from ' + name);
   const text = 'Name: ' + name + '\nEmail: ' + email + '\n\nMessage:\n' + message;
-  const mime = [
-    'From: ' + from,
-    'Reply-To: ' + safe(email),
-    'Subject: ' + subject,
-    'Content-Type: text/plain; charset=utf-8',
-    '',
-    text,
-    ''
-  ].join('\r\n');
-  const { EmailMessage } = await import('cloudflare:email');
+  if (!env.MAILER) return j(503, { ok:false, message:'The email service is not configured yet. Please try again soon.' });
   const recipients = [
-    'leichtyjl@gmail.com',
-    'leichtyml@yahoo.com',
-    'philip.leichty@gmail.com',
-    'virginia.leichty@gmail.com'
+    'leichtyjl@gmail.com'
   ];
   let sent = 0;
   for (const to of recipients) {
     try {
-      await env.CONTACT_EMAIL.send(new EmailMessage(from, to, mime));
-      sent += 1;
+      const r = await env.MAILER.fetch('https://mailer/send', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ to, from, replyTo: email, subject, text })
+      });
+      if (r.ok) sent += 1;
+      else console.error('mailer failed', to, r.status, await r.text().catch(() => ''));
     } catch (e) {
       console.error('send failed', to, e && e.message);
     }

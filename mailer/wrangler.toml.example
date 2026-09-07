@@ -1,0 +1,9 @@
+name = "contact-mailer"
+main = "src/worker.js"
+compatibility_date = "2026-09-06"
+
+# Copy this file to wrangler.toml (gitignored) and set the real destination.
+# The destination address must be verified in the zone's Email Routing settings.
+[[send_email]]
+name = "CONTACT_EMAIL"
+destination_address = "you@example.com"

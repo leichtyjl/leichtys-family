@@ -11,3 +11,4 @@ CLOUDFLARE_ACCOUNT_ID
 node_modules/
 .wrangler/
 wrangler.toml
+mailer/wrangler.toml
