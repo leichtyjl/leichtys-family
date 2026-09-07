@@ -6,7 +6,6 @@ const root = join(dirname(fileURLToPath(import.meta.url)), '..');
 const pages = [
   'index.html',
   'reunion/index.html',
-  'reunion/rsvp/index.html',
   'history/index.html',
   'family/index.html',
   'family/john-and-salome/index.html',

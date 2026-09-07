@@ -597,6 +597,9 @@ h3 { margin: 0 0 10px; font-size: 1.55rem; font-weight: 600; line-height: 1.15; 
 .event-facts div { padding: 18px 20px; background: var(--cream); }
 .event-facts dt { color: var(--rust); font-size: .7rem; font-weight: 800; letter-spacing: .14em; text-transform: uppercase; }
 .event-facts dd { margin: 3px 0 0; font-family: var(--serif); font-size: 1.2rem; }
+.event-links { display: block; margin-top: 8px; }
+.event-links a { margin-right: 16px; font-family: var(--sans); font-size: .84rem; font-weight: 800; color: var(--rust); text-decoration: underline; text-underline-offset: 2px; }
+.event-links a:hover { color: var(--rust-dark); }
 .reunion-page-artwork { width: min(100%, 480px); margin: 0 auto; }
 .reunion-page-artwork img { width: 100%; height: auto; display: block; }
 .logistics-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 18px; }
@@ -705,6 +708,9 @@ h3 { margin: 0 0 10px; font-size: 1.55rem; font-weight: 600; line-height: 1.15; 
 .plain-list li strong { display: block; font-family: var(--serif); font-size: 1.08rem; }
 .plain-list li span { display: block; margin-top: 2px; color: var(--ink-soft); }
 .lodging-list { max-width: 720px; }
+.lodging-link { display: block; color: inherit; text-decoration: none; }
+.lodging-link:hover strong { text-decoration: underline; }
+.lodging-meta { font-family: var(--sans); font-size: .84rem; font-weight: 700; color: var(--rust); }
 .two-col-list { display: grid; grid-template-columns: 1fr 1fr; gap: 0 32px; }
 .airport-list li { border-bottom: 0; padding: 4px 0; }
 .top-picks { margin: 0; padding: 0 0 0 20px; }

@@ -26,8 +26,7 @@ const pages = [
             <div><dt>Where</dt><dd>${site.reunion.location}</dd></div>
           </dl>
           <div class="hero-actions">
-            <a class="button" href="/reunion/rsvp/">RSVP information</a>
-            <a class="text-link" href="/reunion/">Reunion details <span aria-hidden="true">→</span></a>
+            <a class="button" href="/reunion/">Reunion details</a>
           </div>
         </div>
         <figure class="reunion-artwork">
@@ -96,10 +95,9 @@ const pages = [
           <a class="archive-card" href="/family/"><span class="card-number">01 · OUR FAMILY</span><div><h3>Our people</h3><p>Begin with John and Salome, their four children, and the three descendant branches.</p></div><span class="card-arrow" aria-hidden="true">↗</span></a>
           <a class="archive-card" href="/history/"><span class="card-number">02 · HISTORY</span><div><h3>Our story</h3><p>The places, documents, and stories that give the family meaning.</p></div><span class="card-arrow" aria-hidden="true">↗</span></a>
           <a class="archive-card" href="/photos/"><span class="card-number">03 · PHOTOGRAPHS</span><div><h3>Our faces</h3><p>Treasured images shared and remembered, generation to generation.</p></div><span class="card-arrow" aria-hidden="true">↗</span></a>
-          <a class="archive-card" href="/videos/"><span class="card-number">04 · FILMS</span><div><h3>Our voices</h3><p>Home movies and interviews keep the family’s voices alive.</p></div><span class="card-arrow" aria-hidden="true">↗</span></a>
         </div>
         <div class="archive-contribute">
-          <p class="section-lead">Have a Leichty family photograph, home movie, or story to share?</p>
+          <p class="section-lead">Have a Leichty family photograph or story to share?</p>
           <a class="button button-light" href="/photos/">Contribute to the family archive</a>
         </div>
       </section>
@@ -110,7 +108,7 @@ const pages = [
             <p class="eyebrow">Save the date</p>
             <h2 id="reunion-title">See you in Goshen.</h2>
             <p class="section-lead">Join every branch and generation on ${site.reunion.dateShort} at Shanklin Park. Doors open at ${site.reunion.doorsOpen}, and lunch is on us.</p>
-            <div class="hero-actions"><a class="button button-light" href="/reunion/">Reunion details</a><a class="text-link" href="/reunion/rsvp/">RSVP information <span aria-hidden="true">→</span></a></div>
+            <div class="hero-actions"><a class="button button-light" href="/reunion/">Reunion details</a></div>
           </div>
           <ul class="details-list" aria-label="Current reunion details">
             <li><strong>Date</strong>${site.reunion.date}</li>
@@ -134,11 +132,11 @@ const pages = [
             <p class="tagline">${site.reunion.tagline}</p>
             <dl class="event-facts" aria-label="Reunion at a glance">
               <div><dt>When</dt><dd>${site.reunion.date} · ${site.reunion.time}</dd></div>
-              <div><dt>Where</dt><dd>${site.reunion.venue}<br><span class="event-address">${site.reunion.address}</span></dd></div>
+              <div><dt>Where</dt><dd>${site.reunion.venue}<br><span class="event-address">${site.reunion.address}</span>${site.reunion.mapUrl ? `<span class="event-links"><a href="${site.reunion.mapUrl}" rel="noopener" target="_blank">View map ↗</a><a href="${site.reunion.directionsUrl}" rel="noopener" target="_blank">Get directions ↗</a></span>` : ''}</dd></div>
               <div><dt>Doors open</dt><dd>${site.reunion.doorsOpen}</dd></div>
             </dl>
             ${hasAgenda ? `<p class="agenda-row"><a class="button" href="/${agendaPdf}" download>View / Download the Reunion Agenda</a></p>` : ''}
-            <div class="hero-actions"><a class="button button-light-forest" href="/reunion/rsvp/">RSVP information</a><a class="text-link" href="#schedule">See the schedule <span aria-hidden="true">↓</span></a></div>
+            <div class="hero-actions"><a class="text-link" href="#schedule">See the schedule <span aria-hidden="true">↓</span></a></div>
           </div>
           <figure class="reunion-page-artwork"><img src="/assets/reunion-artwork.webp" width="1222" height="1287" alt="Official 2027 Leichty Family Reunion artwork"></figure>
         </div>
@@ -154,7 +152,7 @@ const pages = [
           <ul class="arrival-times" aria-label="Key reunion times">
             <li><strong>Doors open</strong><span>11:30 AM</span></li>
             <li><strong>Family photo</strong><span>12:00 PM</span></li>
-            <li><strong>Catered lunch</strong><span>12:15 PM</span></li>
+            <li><strong>Catered lunch</strong><span>12:30 PM</span></li>
           </ul>
         </div>
       </section>
@@ -179,24 +177,24 @@ const pages = [
       <section class="section section-paper" aria-labelledby="bring-title">
         <div class="section-heading">
           <p class="eyebrow">What to bring</p>
-          <h2 id="bring-title">Just three things.</h2>
-          <p class="section-lead">Lunch is catered, so all you need to bring is what matters most.</p>
+          <h2 id="bring-title">Just bring yourself.</h2>
+          <p class="section-lead">Lunch is catered, so there is nothing you need to bring. You’re welcome to bring family photographs, keepsakes, or a favorite memory to share.</p>
         </div>
         <div class="bring-grid">${site.reunion.whatToBring.map(bringCard).join('')}</div>
       </section>
 
       <section class="section" aria-labelledby="visiting-title">
         <div class="section-heading">
-          <p class="eyebrow">Visiting Goshen</p>
-          <h2 id="visiting-title">Planning your trip.</h2>
-          <p class="section-lead">A few practical notes to help family coming in from out of town.</p>
+          <p class="eyebrow">Travel & lodging</p>
+          <h2 id="visiting-title">Planning your travel.</h2>
+          <p class="section-lead">Practical info to help family coming in from out of town plan their trip.</p>
         </div>
 
         <div class="visit-block">
           <h3 class="visit-kicker">Lodging</h3>
-          <p class="visit-intro">Everyone is welcome to make their own lodging arrangements for the weekend of our family reunion in Goshen, Indiana, on ${site.reunion.date}. Here are a few options to consider:</p>
+          <p class="visit-intro">Everyone is welcome to make their own lodging arrangements for the weekend of our family reunion in Goshen, Indiana, on ${site.reunion.date}. Here are a few options to consider (each opens in Google Maps):</p>
           <ul class="plain-list lodging-list">
-            ${site.reunion.lodging.map((l) => `<li><strong>${l.name}</strong><span>${l.detail}</span></li>`).join('')}
+            ${site.reunion.lodging.map((l) => `<li><a class="lodging-link" href="${l.url}" rel="noopener" target="_blank"><strong>${l.name}</strong><span class="lodging-meta">${l.distance} · ${l.address} · ${l.phone}</span><span>${l.detail}</span></a></li>`).join('')}
           </ul>
           <p class="visit-note">You can also check <a href="https://www.airbnb.com/" rel="noopener" target="_blank">Airbnb</a> for vacation rentals or use Google to search for additional hotels and lodging options in the Goshen area. Please choose whichever option works best for your family — these are suggestions only, with no reserved room blocks or special rates.</p>
         </div>
@@ -254,34 +252,9 @@ const pages = [
             <p class="eyebrow">Questions?</p>
             <h2 id="contact-title">We’re here to help.</h2>
             <p class="section-lead">Please reach out to <strong>${site.reunion.contactName}</strong> at <a class="contact-link" href="mailto:${site.reunion.contactEmail}">${site.reunion.contactEmail}</a> or ${site.reunion.contactPhone}, or ask at the welcome table when you arrive.</p>
-            <a class="button button-light" href="/reunion/rsvp/">RSVP information</a>
             <p class="closing-line">Looking forward to seeing everyone on ${site.reunion.dateShort}!</p>
           </div>
           <aside class="reunion-note" aria-label="Good to know"><p><strong>Lunch is catered.</strong>There’s no need to bring a main dish or worry about heating or serving food. Let ${site.reunion.contactName} know ahead of time about any dietary needs.</p></aside>
-        </div>
-      </section>`
-  },
-  {
-    path: '/reunion/rsvp/',
-    title: 'Reunion RSVP',
-    description: 'Registration information for the next Leichty family reunion.',
-    active: 'reunions',
-    noindex: true,
-    body: `
-      ${pageHero('Reunion registration', 'RSVP for 2027.', 'Registration has not opened yet. This page will hold the family’s private household RSVP when it is ready.')}
-      <section class="section section-paper">
-        <div class="rsvp-card">
-          <p class="eyebrow">Registration status</p>
-          <h2>Registration has not opened.</h2>
-          <p class="section-lead">The family will announce when it is time to RSVP. No personal information is being collected here today.</p>
-          <h3>When registration opens, you’ll be able to:</h3>
-          <ul class="check-list">
-            <li>Respond once for your household</li>
-            <li>Add each attending family member</li>
-            <li>Share dietary or accessibility needs privately</li>
-            <li>Review your information before submitting</li>
-          </ul>
-          <a class="button" href="/reunion/">Return to reunion details</a>
         </div>
       </section>`
   },
@@ -444,7 +417,7 @@ const pages = [
         <section class="section" aria-labelledby="branch-contribute-${branch.id}">
           <div class="preservation-cta">
             <div><p class="eyebrow">The ${branch.name}</p><h2 id="branch-contribute-${branch.id}">Descendants of ${founder.name}.</h2><p class="section-lead">Have photographs, stories, or memories from this branch of the family? Bring them to the reunion and share them around the family table.</p></div>
-            <a class="button" href="/reunion/rsvp/">Share at the reunion</a>
+            <a class="button" href="/reunion/">Reunion details</a>
           </div>
         </section>`
     };
@@ -502,7 +475,7 @@ const pages = [
       <section class="section" aria-labelledby="photo-care-title">
         <div class="preservation-cta">
           <div><p class="eyebrow">Share a memory</p><h2 id="photo-care-title">Have a photograph to share?</h2><p class="section-lead">A Leichty family photograph, album, or scrapbook deserves a place here. When you share one, note who appears in it, when and where it was taken, and anything the family remembers about the moment.</p></div>
-          <a class="button" href="/reunion/rsvp/">Bring it to the reunion</a>
+          <a class="button" href="/reunion/">Bring it to the reunion</a>
         </div>
       </section>`
   },
@@ -517,7 +490,7 @@ const pages = [
         <div class="notice"><p><strong>Have a family video or recording?</strong>Reunion films, oral histories, and home movies are worth keeping. If you have one to share, note the people, date, and place — those details give a cherished clip its meaning.</p></div>
         <div class="archive-contribute">
           <p class="section-lead">Your memories of a favorite story, or a clip from a past gathering, would mean a great deal to the family.</p>
-          <a class="button" href="/reunion/rsvp/">Bring it to the reunion</a>
+          <a class="button" href="/reunion/">Bring it to the reunion</a>
         </div>
         <p class="video-note">When home movies are shared for the site, they will appear here for the whole family.</p>
       </section>`
@@ -544,7 +517,7 @@ const pages = [
       <section class="section" aria-labelledby="reunion-contribute-title">
         <div class="preservation-cta">
           <div><p class="eyebrow">Help keep gatherings close</p><h2 id="reunion-contribute-title">Do you have reunion photographs?</h2><p class="section-lead">Old reunion photographs and stories are a treasure to revisit. Bring them along to share, or let the family know what you have.</p></div>
-          <a class="button" href="/reunion/rsvp/">Share with the family</a>
+          <a class="button" href="/reunion/">Reunion details</a>
         </div>
       </section>`
   },
@@ -677,7 +650,7 @@ function navigation(active, mobile = false) {
     return `<a href="${item.href}"${current}>${item.label}</a>`;
   }).join('');
   if (!mobile) return `<nav class="desktop-nav" aria-label="Main navigation">${links}</nav>`;
-  return `<nav class="mobile-menu" id="mobile-menu" data-mobile-menu aria-label="Mobile navigation" hidden>${links}<a href="/reunion/rsvp/">RSVP</a></nav>`;
+  return `<nav class="mobile-menu" id="mobile-menu" data-mobile-menu aria-label="Mobile navigation" hidden>${links}</nav>`;
 }
 
 function header(active) {
@@ -685,7 +658,6 @@ function header(active) {
     <a class="wordmark" href="/" aria-label="Leichty Family home"><span class="wordmark-mark" aria-hidden="true">L</span><span>Leichty Family</span></a>
     ${navigation(active)}
     <div class="header-actions">
-      <a class="button button-small" href="/reunion/rsvp/">RSVP</a>
       <button class="menu-toggle" type="button" aria-label="Open navigation" aria-controls="mobile-menu" aria-expanded="false" data-menu-toggle><span aria-hidden="true"></span></button>
     </div>
     ${navigation(active, true)}
@@ -695,7 +667,7 @@ function header(active) {
 function footer() {
   return `<footer class="site-footer"><div class="footer-inner">
     <div class="footer-brand"><a class="wordmark" href="/"><span class="wordmark-mark" aria-hidden="true">L</span><span>Leichty Family</span></a><p>A lasting home for family history, photographs, stories, and reunions.</p></div>
-    <nav class="footer-links" aria-label="Footer navigation">${site.navigation.map((item) => `<a href="${item.href}">${item.label}</a>`).join('')}<a href="/reunion/rsvp/">RSVP</a></nav>
+    <nav class="footer-links" aria-label="Footer navigation">${site.navigation.map((item) => `<a href="${item.href}">${item.label}</a>`).join('')}</nav>
     <div class="footer-meta">Made for the Leichty family · <span id="year">${new Date().getUTCFullYear()}</span></div>
   </div></footer>`;
 }
