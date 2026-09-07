@@ -82,13 +82,19 @@ if (contactForm) {
         token = window.turnstile.getResponse(tsWidgetId) || '';
         if (!token) { setStatus('Please complete the verification check.', 'error'); if (submitBtn) submitBtn.disabled = false; return; }
       }
+      let idem = contactForm.dataset.idemKey;
+      if (!idem) {
+        idem = (window.crypto && crypto.randomUUID) ? crypto.randomUUID() : 'k' + Date.now() + '-' + Math.random().toString(36).slice(2);
+        contactForm.dataset.idemKey = idem;
+      }
       const res = await fetch('/api/contact', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ name, email, message, 'company': company, turnstileToken: token })
+        body: JSON.stringify({ name, email, message, 'company': company, turnstileToken: token, idempotencyKey: idem })
       });
       const data = await res.json().catch(() => ({}));
       if (res.ok && data.ok) {
+        delete contactForm.dataset.idemKey;
         try { contactForm.reset(); } catch {}
         if (tsWidgetId !== null && window.turnstile) { try { window.turnstile.reset(tsWidgetId); } catch {} }
         setStatus('Thanks — your message has been received and forwarded. Please allow up to one week for a response before submitting another message.', 'success');
