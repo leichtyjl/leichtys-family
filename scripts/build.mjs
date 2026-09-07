@@ -618,8 +618,8 @@ ${robots}    <link rel="canonical" href="${canonical}">
     <meta name="twitter:title" content="${title}">
     <meta name="twitter:description" content="${page.description}">
     <meta name="twitter:image" content="${site.canonicalOrigin}/assets/og.png">
-${imagePreload}    <link rel="stylesheet" href="/assets/styles.css?v=20260907h">
-    <script src="/assets/site.js?v=20260907h" defer></script>
+${imagePreload}    <link rel="stylesheet" href="/assets/styles.css?v=20260907i">
+    <script src="/assets/site.js?v=20260907i" defer></script>
   </head>
   <body>
     <a class="skip-link" href="#main">Skip to main content</a>
