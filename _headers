@@ -6,4 +6,4 @@
   X-Frame-Options: DENY
 
 /assets/*
-  Cache-Control: public, max-age=86400
+  Cache-Control: public, max-age=300, must-revalidate
