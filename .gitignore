@@ -13,3 +13,4 @@ node_modules/
 wrangler.toml
 mailer/wrangler.toml
 .resend.txt
+handoff.md
