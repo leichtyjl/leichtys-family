@@ -38,12 +38,11 @@ const contactForm = document.querySelector('#contactForm');
 const contactStatus = document.querySelector('[data-contact-status]');
 
 function setStatus(message, kind = 'info') {
-keras {
   if (!contactStatus) return;
   contactStatus.textContent = message;
   contactStatus.hidden = false;
   contactStatus.dataset.kind = kind;
-  contactStatus.className = 'form-status' + (kind ? ' is-' + kind : '';
+  contactStatus.className = 'form-status' + (kind ? ' is-' + kind : '');
 }
 
 if (contactForm) {
