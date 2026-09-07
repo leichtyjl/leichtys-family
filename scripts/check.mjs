@@ -27,7 +27,7 @@ const failures = [];
 const family = JSON.parse(await readFile(join(root, 'content/family.json'), 'utf8'));
 const publicRoutes = new Set(pages.filter((page) => page !== '404.html').map((page) => page === 'index.html' ? '/' : `/${page.replace(/index\.html$/, '')}`));
 
-for (const file of [...pages, ...requiredAssets, 'sitemap.xml', 'robots.txt', '_headers']) {
+for (const file of [...pages, ...requiredAssets, 'sitemap.xml', 'robots.txt', '_headers', '_redirects']) {
   try { await access(join(root, file)); } catch { failures.push(`Missing ${file}`); }
 }
 
