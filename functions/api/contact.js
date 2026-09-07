@@ -42,8 +42,8 @@ function duplicate(key) {
   return false;
 }
 
-export async function onRequestGet() {
-  return j(200, { ok: true, siteKey: '' });
+export async function onRequestGet({ env }) {
+  return j(200, { ok: true, siteKey: env.TURNSTILE_SITE_KEY || '' });
 }
 
 export async function onRequestPost({ request, env }) {
@@ -52,6 +52,12 @@ export async function onRequestPost({ request, env }) {
   if (raw.length > 8192) return j(413, { ok: false, message: 'too big' });
   const body = (() => { try { return JSON.parse(raw); } catch { return null; } })();
   if (!body || typeof body.name !== 'string' || typeof body.email !== 'string' || typeof body.message !== 'string') return j(400, { ok: false, message: 'fields' });
+  // Honeypot: the hidden "company" field must stay empty. Bots fill it, so we
+  // answer with a normal success and silently drop the message (reveals nothing).
+  if (typeof body.company === 'string' && body.company.trim() !== '') {
+    console.log('honeypot hit - dropped');
+    return j(200, { ok: true, message: 'received' });
+  }
   const emailRe = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/;
   const name = body.name.trim().slice(0, 120);
   const email = body.email.trim().slice(0, 200).toLowerCase();

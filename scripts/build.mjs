@@ -63,16 +63,15 @@ const pages = [
             </dl>
             <div class="hero-actions"><a class="button button-light-forest" href="/rsvp/">RSVP</a><a class="text-link" href="#schedule">See the schedule <span aria-hidden="true">↓</span></a></div>
           </div>
-          <figure class="reunion-page-photo"><img src="/assets/reunion-centerpiece.webp" width="1087" height="1447" alt="Historic Leichty family photograph:John Leichty seated on a longhorn steer beside Salome Leichty"><figcaption>A Leichty family photograph · John & Salome</figcaption></figure>
+          <figure class="reunion-page-photo"><img src="/assets/reunion-centerpiece.webp" width="1087" height="1447" alt="Historic Leichty family photograph:John Leichty seated on a longhorn steer beside Salome Leichty"><figcaption>A Leichty family photograph · John &amp; Salome - estimated taken early 1950s</figcaption></figure>
         </div>
       </section>
 
-      <section class="arrival-banner" aria-labelledby="arrival-title">
+      <section class="arrival-banner" aria-label="Plan your arrival">
         <div class="arrival-banner-inner">
           <div class="arrival-callout">
             <p class="eyebrow">Plan your arrival</p>
-            <h2 id="arrival-title">Please arrive by noon.</h2>
-            <p class="section-lead">Our all-family photograph is taken promptly at 12:00 PM — every branch and generation together — so please check in, grab your nametag, and find your seat by then.</p>
+            <p class="section-lead">Our all-family photograph is taken promptly at 12:00 PM, so please check in, grab your nametag, and find your seat by then.</p>
           </div>
           <ul class="arrival-times" aria-label="Key reunion times">
             <li><strong>Doors open</strong><span>11:30 AM</span></li>
@@ -95,7 +94,7 @@ const pages = [
         <div class="section-heading">
           <p class="eyebrow">What to Bring</p>
           <h2 id="bring-title">Just bring yourself.</h2>
-          <p class="section-lead">Lunch is catered, so there is nothing you need to bring. If you’d like, you’re welcome to bring family photographs, albums, keepsakes, or a favorite memory of John and Salome to share with each other.</p>
+          <p class="section-lead">Lunch is catered, so there is nothing you need to bring. If you’d like, you’re welcome to bring family photographs, albums, keepsakes, or a favorite family memory to share with each other.</p>
         </div>
       </section>
 
@@ -118,6 +117,7 @@ const pages = [
         <details class="visit-details">
           <summary>Travel by air</summary>
           <p class="visit-primary-airport"><strong>${site.reunion.airports.primary.code}</strong> — ${site.reunion.airports.primary.detail}</p>
+          <p class="visit-primary-airport"><strong>${site.reunion.airports.secondary.code}</strong> — ${site.reunion.airports.secondary.detail}</p>
           <p class="visit-intro">Other options to check include:</p>
           <ul class="plain-list airport-list">
             ${site.reunion.airports.others.map((a) => `<li>${a}</li>`).join('')}
@@ -126,18 +126,18 @@ const pages = [
         </details>
 
         <details class="visit-details">
-          <summary>Dining nearby</summary>
-          <p class="visit-intro">${site.reunion.restaurants.intro}</p>
-          <ul class="plain-list two-col-list">
-            ${site.reunion.restaurants.goshen.map((r) => `<li><strong>${r.name}</strong><span>${r.detail}</span></li>`).join('')}
+          <summary>Local restaurant recommendations</summary>
+          <ul class="restaurant-list">
+            ${site.reunion.restaurants.local.map((r) => `
+            <li class="restaurant-card">
+              <h3 class="restaurant-name">${r.url ? `<a href="${r.url}" rel="noopener" target="_blank">${r.name}</a>` : r.name}</h3>
+              <p class="restaurant-desc">${r.description}</p>
+              <ul class="restaurant-hours">
+                ${r.hours.map((h) => `<li>${h}</li>`).join('')}
+              </ul>
+            </li>`).join('')}
           </ul>
-          <ul class="plain-list">
-            ${site.reunion.restaurants.breakfast.map((r) => `<li><strong>${r.name}</strong><span>${r.detail}</span></li>`).join('')}
-          </ul>
-          <ul class="plain-list">
-            ${site.reunion.restaurants.amish.map((r) => `<li><strong>${r.name}</strong><span>${r.detail}</span></li>`).join('')}
-          </ul>
-          <p class="visit-note">${site.reunion.restaurants.tip}</p>
+          <p class="visit-note">${site.reunion.restaurants.note}</p>
         </details>
       </section>
 
@@ -183,11 +183,10 @@ const pages = [
           <p class="eyebrow">RSVP</p>
           <h1>Leichty Family Reunion 2027</h1>
           <p class="section-lead">Online RSVPs are not open yet. We&#8217;ll begin collecting RSVPs here at a later date. Please check back when registration opens.</p>
-          <p class="rsvp-support">Please RSVP by May 12, 2027. Your RSVP will help us plan seating, lunch, and reunion activities.</p>
           <a class="button" href="/reunion2027/">Back to Reunion 2027</a>
         </div>
       </section>
-      <!-- TODO: Implement Reunion 2027 RSVP form. Submission destination: Google Sheet. RSVP deadline: May 12,  ​​2027. -->
+      <!-- TODO: Implement Reunion 2027 RSVP form. Submission destination: Google Sheet. -->
     `
   },
   {
@@ -618,8 +617,8 @@ ${robots}    <link rel="canonical" href="${canonical}">
     <meta name="twitter:title" content="${title}">
     <meta name="twitter:description" content="${page.description}">
     <meta name="twitter:image" content="${site.canonicalOrigin}/assets/og.png">
-${imagePreload}    <link rel="stylesheet" href="/assets/styles.css?v=20260907n">
-    <script src="/assets/site.js?v=20260907n" defer></script>
+${imagePreload}    <link rel="stylesheet" href="/assets/styles.css?v=20260907o">
+    <script src="/assets/site.js?v=20260907o" defer></script>
   </head>
   <body>
     <a class="skip-link" href="#main">Skip to main content</a>

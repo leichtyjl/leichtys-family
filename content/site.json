@@ -19,7 +19,7 @@
       {
         "time": "11:30 AM",
         "event": "Doors Open & Arrival",
-        "detail": "Welcome, name tags, sign-in, and getting settled.",
+        "detail": "Welcome, name tags, and getting settled.",
         "featured": false
       },
       {
@@ -133,76 +133,123 @@
         "detail": "The closest airport with regular commercial flights, approximately 30–40 miles from Goshen. This is probably the easiest airport for most family members flying in."
       },
       "others": [
-        "Fort Wayne International (FWA)",
-        "Kalamazoo/Battle Creek (AZO)",
-        "Grand Rapids (GRR)",
-        "Chicago Midway (MDW)",
-        "Chicago O’Hare (ORD)"
+        "Kalamazoo/Battle Creek International Airport (AZO)",
+        "Gerald R. Ford International Airport in Grand Rapids (GRR)",
+        "Chicago Midway International Airport (MDW)",
+        "Chicago O’Hare International Airport (ORD)"
       ],
-      "tip": "Check flight prices and schedules for SBN first, but it may be worth comparing the other airports for better fares or nonstop flights."
+      "tip": "Check flight prices and schedules for SBN first, followed by FWA. It may also be worth comparing the other airports for better fares or nonstop flights.",
+      "secondary": {
+        "code": "Fort Wayne International Airport (FWA)",
+        "detail": "The second-best airport option after South Bend International Airport."
+      }
     },
     "restaurants": {
-      "intro": "There are lots of great places to eat in and around Goshen! Here are some recommendations for the reunion weekend:",
-      "goshen": [
-        {
-          "name": "Venturi",
-          "detail": "Award-winning, authentic Neapolitan pizza in downtown Goshen. A great choice for dinner."
-        },
-        {
-          "name": "The Table at 108",
-          "detail": "Italian-inspired food in a comfortable, family-friendly setting."
-        },
-        {
-          "name": "Goshen Brewing Company",
-          "detail": "Casual atmosphere with American-style food."
-        },
-        {
-          "name": "Hoppers Pike Street Grill",
-          "detail": "Casual American dining with generous portions."
-        },
+      "local": [
         {
           "name": "Biebs & Ash",
-          "detail": "Burgers, sandwiches and fries in downtown Goshen."
-        },
-        {
-          "name": "Universal Tamal",
-          "detail": "Great choice for Mexican food and homemade tamales."
-        },
-        {
-          "name": "Maple Indian Cuisine",
-          "detail": "A flavorful option for Indian food."
-        }
-      ],
-      "breakfast": [
-        {
-          "name": "The Tipsy Biscuit",
-          "detail": "Popular spot for breakfast and brunch."
+          "description": "Great smashburgers and loaded fries in downtown Goshen.",
+          "url": "https://www.biebsandash.com/",
+          "hours": [
+            "Tuesday: 4–9pm",
+            "Wednesday: 4–9pm",
+            "Thursday: 11am–2pm, 4–9pm",
+            "Friday: 11am–2pm, 4–9pm",
+            "Saturday: 11am–2pm, 4–9pm",
+            "Sunday–Monday: Closed"
+          ]
         },
         {
           "name": "Olympia Candy Kitchen",
-          "detail": "A historic downtown favorite for breakfast, lunch and homemade candy."
+          "description": "A historic Goshen diner and soda fountain with handmade chocolates and candy.",
+          "url": "https://olympiacandykitchen.com/",
+          "hours": [
+            "Monday: 7am–2pm",
+            "Tuesday: 7am–2pm",
+            "Wednesday: Closed",
+            "Thursday: 7am–2pm",
+            "Friday: 7am–2pm",
+            "Saturday: 7am–2pm",
+            "Sunday: Closed"
+          ]
         },
         {
-          "name": "South Side Soda Shop",
-          "detail": "A fun, old-fashioned diner and soda fountain."
-        }
-      ],
-      "amish": [
+          "name": "The Fold",
+          "description": "New York-style pizza by the slice or whole pizza. Dining room and patio are 21+; carryout is available for all ages.",
+          "url": "https://thefoldgoshen.com/",
+          "hours": [
+            "Sunday: 4–10pm",
+            "Monday: 4–11pm",
+            "Tuesday: Closed",
+            "Wednesday: 4–11pm",
+            "Thursday: 4–11pm",
+            "Friday: 11:30am–1:30pm, 4pm–12am",
+            "Saturday: 12pm–12am"
+          ]
+        },
         {
-          "name": "Blue Gate Restaurant & Bakery",
-          "detail": "In Shipshewana. A great place to experience classic Amish-country cooking and homemade bakery treats."
+          "name": "Goshen Brewing Company",
+          "description": "Family-friendly local brewpub with house-made beer and scratch-made food.",
+          "url": "https://goshenbrewing.com/",
+          "hours": [
+            "Sunday: 10am–8pm",
+            "Brunch + kids’ menu: 10am–2pm",
+            "Kitchen: 3–7pm",
+            "Monday: Closed",
+            "Tuesday–Thursday: 3–10pm",
+            "Kitchen: 4–9pm",
+            "Tuesday food is Pad Thai + kids’ menu only",
+            "Friday: 3–10pm",
+            "Kitchen: 4–9pm",
+            "Saturday: 12–10pm",
+            "Kitchen until 9pm"
+          ]
+        },
+        {
+          "name": "Cortado",
+          "description": "Downtown café with coffee, breakfast and lunch, including gluten-free and vegan options.",
+          "url": "https://www.cortadogoshen.com/",
+          "hours": [
+            "Monday–Friday: 7am–5pm",
+            "Saturday: 8am–2pm",
+            "Sunday: Closed"
+          ]
+        },
+        {
+          "name": "El Rancho Viejo",
+          "description": "Mexican restaurant near Menards.",
+          "url": null,
+          "hours": [
+            "Sunday–Thursday: 11am–9pm",
+            "Friday–Saturday: 11am–10pm"
+          ]
+        },
+        {
+          "name": "The Table @108",
+          "description": "Italian-inspired food with locally sourced ingredients in downtown Goshen.",
+          "url": "https://thetable108.com/",
+          "hours": [
+            "Tuesday–Saturday: 4:30–9pm",
+            "Sunday–Monday: Closed"
+          ]
         },
         {
           "name": "Das Dutchman Essenhaus",
-          "detail": "In Middlebury. Family-style Amish cooking, homemade noodles, chicken and delicious pies."
+          "description": "A short drive to Middlebury for Amish-country cooking, homemade baked goods and a classic northern Indiana experience.",
+          "url": "https://dhgroup.com/",
+          "hours": [
+            "Restaurant:",
+            "Tuesday–Thursday: 7am–7pm",
+            "Friday–Saturday: 7am–8pm",
+            "Sunday–Monday: Closed",
+            "Bakery:",
+            "Tuesday–Thursday: 6:30am–7pm",
+            "Friday–Saturday: 6:30am–8pm",
+            "Sunday–Monday: Closed"
+          ]
         }
       ],
-      "top": [
-        "Venturi",
-        "Blue Gate Restaurant & Bakery",
-        "Das Dutchman Essenhaus"
-      ],
-      "tip": "Check Google for current hours, menus, reviews and directions before visiting, as hours can change."
+      "note": "Hours are current as of September 2026 and may change before the reunion. Please check the restaurant’s website or call before visiting."
     }
   },
   "navigation": [
