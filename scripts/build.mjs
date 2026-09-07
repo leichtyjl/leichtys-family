@@ -46,7 +46,7 @@ const pages = [
   },
   {
     path: '/reunion2027/',
-    title: 'Next Family Reunion',
+    title: 'Reunion 2027',
     description: 'Plans and updates for the next Leichty family reunion.',
     active: 'reunions',
     socialImage: true,
