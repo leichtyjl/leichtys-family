@@ -823,3 +823,26 @@ h3 { margin: 0 0 10px; font-size: 1.55rem; font-weight: 600; line-height: 1.15; 
   html { scroll-behavior: auto; }
   *, *::before, *::after { transition-duration: .01ms !important; }
 }
+/* Reunion 2027 additions */
+.screen-reader-only { position:absolute; width:1px; height:1px; overflow:hidden; clip:rect(0 0 0 0); white-space:nowrap; }
+.reunion2027-hero .tagline { margin-top:-18px; }
+.reunion-page-photo img { width:100%; height:auto; display:block; }
+.reunion-page-photo figcaption { margin-top:10px; font-size:.9rem; color:var(--ink-soft); font-style:italic; }
+.section-heading-light { color:var(--ink); }
+.section-heading-light .eyebrow { color:var(--gold); }
+..rsvp-support { font-family:var(--serif); font-size:1.1rem; color:var(--ink-soft); margin-top:-10px; }
+..rsvp-card a.button { margin-top:24px; }
+
+/* Contact form */
+.contact-form { max-width:680px; margin:28px auto 0; display:grid; gap:20px; }
+.contact-form .field { display:flex; flex-direction:column; gap:6px; }
+.contact-form label { font-size:.82rem; font-weight:700; letter-spacing:.04em; }
+.contact-form .cf-turnstile-wrap { min-height:65px; }
+.contact-form input,.contact-form textarea { font-family:inherit; font-size:1rem; padding:11px 14px; border:1px solid var(--line); border-radius:8px; background:rgba(255,255,255,.06); color:var(--ink); }
+.contact-form input:focus,.contact-form textarea:focus { outline:2px solid var(--gold); outline-offset:1px; }
+.hp { position:absolute; left:-9999px; width:1px; height:1px; overflow:hidden; }
+.form-status { padding:12px 16px; border-radius:8px; font-weight:700; }
+.form-status.is-success { background:rgba(76,175,80,.14); color:#eaffea; border:1px solid rgba(76,175,80,.5); }
+.form-status.is-error { background:rgba(229,57,53,.16); color:#ffe9e6; border:1px solid rgba(229,57,53,.5); }
+.form-status.is-info { background:rgba(255,255,255,.08); color:var(--ink); }
+.contact-closing { color:white; }

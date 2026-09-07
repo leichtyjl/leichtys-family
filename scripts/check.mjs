@@ -5,7 +5,8 @@ import { fileURLToPath } from 'node:url';
 const root = join(dirname(fileURLToPath(import.meta.url)), '..');
 const pages = [
   'index.html',
-  'reunion/index.html',
+  'reunion2027/index.html',
+  'rsvp/index.html',
   'history/index.html',
   'family/index.html',
   'family/john-and-salome/index.html',
@@ -18,7 +19,6 @@ const pages = [
   'family-tree/index.html',
   'photos/index.html',
   'videos/index.html',
-  'reunions/index.html',
   '404.html'
 ];
 const requiredAssets = ['assets/styles.css', 'assets/site.js', 'assets/og.png', 'assets/favicon-32.png', 'assets/apple-touch-icon.png', 'assets/reunion-artwork.webp', 'assets/reunion-centerpiece.webp'];
@@ -74,7 +74,7 @@ const home = await readFile(join(root, 'index.html'), 'utf8');
 for (const fragment of ['Four children. Three descendant branches.', 'John + Salome Leichty', 'Simon Leichty', 'Iona Leichty', 'Jacob Leichty', 'Carl Leichty', 'Three Descendant Branches', 'href="/family/branches/simon/"']) {
   if (!home.includes(fragment)) failures.push(`Homepage is missing ${fragment}`);
 }
-for (const fragment of ['Leichty Family Reunion 2027', '/assets/reunion-artwork.webp', 'Seven generations strong', 'href="/family/"']) {
+for (const fragment of ['Leichty Family Reunion 2027', '/assets/reunion-centerpiece.webp', 'Seven Generations Strong', 'href="/family/"']) {
   if (!home.includes(fragment)) failures.push(`Homepage is missing ${fragment}`);
 }
 

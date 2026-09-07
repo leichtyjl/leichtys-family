@@ -2,3 +2,9 @@
 /family/clans/* /family/branches/:splat 301
 /family/clans/  /family/branches/        301
 /rounding_up_the_leichty_clan_agenda.pdf /rounding_up_the_leichty_family_agenda.pdf 301
+
+# Reunion 2027 is the canonical landing page — old reunion routes redirect
+/reunion/*       /reunion2027/  301
+/reunion/        /reunion2027/  301
+/reunions/*      /reunion2027/  301
+/reunions/       /reunion2027/  301

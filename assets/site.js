@@ -32,3 +32,59 @@ if (toggle && menu) {
     if (window.innerWidth > 900) closeMenu();
   });
 }
+
+// ---- Reunion 2027 contact form ----
+const contactForm = document.querySelector('#contactForm');
+const contactStatus = document.querySelector('[data-contact-status]');
+
+function setStatus(message, kind = 'info') {
+keras {
+  if (!contactStatus) return;
+  contactStatus.textContent = message;
+  contactStatus.hidden = false;
+  contactStatus.dataset.kind = kind;
+  contactStatus.className = 'form-status' + (kind ? ' is-' + kind : '';
+}
+
+if (contactForm) {
+  contactForm.addEventListener('submit', async (event) => {
+    event.preventDefault();
+    const name = contactForm.querySelector('[name="name"]').value.trim();
+    const email = contactForm.querySelector('[name="email"]').value.trim();
+    const message = contactForm.querySelector('[name="message"]').value.trim();
+    const company = contactForm.querySelector('[name="company"]').value.trim(); // honeypot
+    const submitBtn = contactForm.querySelector('button[type="submit"]');
+    const errs = [];
+    if (!name) errs.push('Please enter your name.');
+    if (!email || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) errs.push('Please enter a valid email address.');
+    if (!message || message.length < 10) errs.push('Please enter a message.');
+    if (errs.length) { setStatus(errs.join(' '), 'error'); return;
+    }
+    if (submitBtn) submitBtn.disabled = true;
+    setStatus('Sending…', 'info');
+    try {
+
+      let token = '';
+if (window.turnstile && document.querySelector('.cf-turnstile')) {
+        token = (window.turnstile.getResponse()) || '';
+      }
+      const res = await fetch('/api/contact', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ name, email, message, 'company': company, token })
+      });
+      const data = await res.json().catch(() => ({}));
+      if (res.ok && data.ok) {
+        setStatus('Thanks — your message has been received and forwarded. Please allow up to one week for a response before submitting another message.', 'success');
+        contactForm.reset();
+        if (window.turnstile) window.turnstile.reset();
+      } else {
+        setStatus(data.message || 'Your message could not be sent right now. Please try again in a few minutes.', 'error');
+      }
+    } catch (e) {
+      setStatus('Your message could not be sent right now. Please try again in a few minutes.', 'error');
+    } finally {
+if (submitBtn) submitBtn.disabled = false;
+    }
+  });
+}

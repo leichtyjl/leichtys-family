@@ -3,7 +3,7 @@
   "canonicalOrigin": "https://www.leichtys.com",
   "description": "A gathering place for Leichty family history, photographs, stories, and reunions.",
   "reunion": {
-    "label": "Rounding Up the Leichty Family · Leichty Family Reunion",
+    "label": "Leichty Family Reunion 2027",
     "date": "Saturday, June 12, 2027",
     "dateShort": "June 12, 2027",
     "time": "11:30 AM – 4:00 PM",
@@ -14,38 +14,119 @@
     "locationShort": "Shanklin Park, Goshen, Indiana",
     "mapUrl": "https://www.google.com/maps/search/?api=1&query=Shanklin+Park+Indoor+Pavilion,+417+W.+Plymouth+Ave,+Goshen,+Indiana",
     "directionsUrl": "https://www.google.com/maps/dir/?api=1&destination=Shanklin+Park+Indoor+Pavilion,+417+W.+Plymouth+Ave,+Goshen,+Indiana",
-    "tagline": "Celebrating seven generations of heritage, storytelling, and family connection.",
-    "contactName": "Philip Leichty",
-    "contactEmail": "philip.leichty@example.com",
-    "contactPhone": "(555) 010-2027",
+    "tagline": "Reconnecting · Seven Generations Strong",
     "agendaPdf": "rounding_up_the_leichty_family_agenda.pdf",
     "schedule": [
-      { "time": "11:30 AM", "event": "Doors Open & Arrival", "detail": "Welcome, name tags, sign-in, and getting settled.", "featured": false },
-      { "time": "12:00 PM", "event": "Family Photo", "detail": "All-family group portrait gathered together before lunch.", "featured": true },
-      { "time": "12:30 – 1:15 PM", "event": "Catered Lunch", "detail": "Buffet service, blessing, and open family table seating.", "featured": false },
-      { "time": "1:15 – 2:15 PM", "event": "Family Stories & Memories", "detail": "A relaxed time to share family stories, memories, and connections.", "featured": false },
-      { "time": "2:00 – 3:45 PM", "event": "Family Connection & Games", "detail": "Yard & board games, memory sharing, photo browsing & visiting.", "featured": false },
-      { "time": "3:45 – 4:00 PM", "event": "Prizes & Wrap-Up", "detail": "Game winners announced, awards, and closing remarks.", "featured": false },
-      { "time": "4:00 PM", "event": "Family Farewells", "detail": "Warm goodbyes and safe travels. Cleanup begins afterward.", "featured": false }
+      {
+        "time": "11:30 AM",
+        "event": "Doors Open & Arrival",
+        "detail": "Welcome, name tags, sign-in, and getting settled.",
+        "featured": false
+      },
+      {
+        "time": "12:00 PM",
+        "event": "Family Photo",
+        "detail": "All-family group portrait gathered together before lunch.",
+        "featured": true
+      },
+      {
+        "time": "12:30 – 1:15 PM",
+        "event": "Catered Lunch",
+        "detail": "Buffet service, blessing, and open family table seating.",
+        "featured": false
+      },
+      {
+        "time": "1:15 – 2:15 PM",
+        "event": "Family Stories & Memories",
+        "detail": "A relaxed time to share family stories, memories, and connections.",
+        "featured": false
+      },
+      {
+        "time": "2:15 – 3:45 PM",
+        "event": "Games & Activities",
+        "detail": "Casual games, visiting, photo browsing, and family activities.",
+        "featured": false
+      },
+      {
+        "time": "3:45 – 4:00 PM",
+        "event": "Game Winners Announced & Closing Remarks",
+        "detail": "Game winners announcedand closing remarks.",
+        "featured": false
+      },
+      {
+        "time": "4:00 PM",
+        "event": "Family Farewells",
+        "detail": "Warm goodbyes and safe travels. Cleanup begins afterward.",
+        "featured": false
+      }
     ],
     "highlights": [
-      { "title": "Memory Tables", "detail": "Explore historic family photos, branch lineage trees, and heirloom keepsakes." },
-      { "title": "Yard & Table Games", "detail": "Friendly competition with cornhole, giant Jenga, board games, and trivia." },
-      { "title": "Family Guestbook", "detail": "Leave a personal note, favorite family recipe, or memory for our archives." }
+      {
+        "title": "Memory Tables",
+        "detail": "Explore historic family photos, branch lineage trees, and heirloom keepsakes."
+      },
+      {
+        "title": "Games & Activities",
+        "detail": "Casual games and activities for all ages."
+      },
+      {
+        "title": "Family Guestbook",
+        "detail": "Leave a personal note, favorite family recipe, or memory for our archives."
+      }
     ],
     "whatToBring": [
-      { "title": "Just bring yourself.", "detail": "Lunch is catered, so there is nothing you need to bring. If you’d like, you’re welcome to bring family photographs, albums, keepsakes, or a favorite memory of John and Salome to share with the family." }
+      {
+        "title": "Just bring yourself.",
+        "detail": "Lunch is catered, so there is nothing you need to bring. If you’d like, you’re welcome to bring family photographs, albums, keepsakes, or a favorite memory of John and Salome to share with the family."
+      }
     ],
     "reminders": [
-      { "title": "Family Photo at 12:00 PM", "detail": "Please be in the main pavilion hall so everyone is in the picture!" },
-      { "title": "Hospitality", "detail": "Refreshments, coffee, and water are available throughout the afternoon." },
-      { "title": "Questions & Contact", "detail": "Reach out to Philip Leichty with any questions about the day." }
+      {
+        "title": "Family Photo at 12:00 PM",
+        "detail": "Please be in the main pavilion hall so everyone is in the picture!"
+      },
+      {
+        "title": "Hospitality",
+        "detail": "Refreshments, coffee, and water are available throughout the afternoon."
+      },
+      {
+        "title": "Questions & Contact",
+        "detail": "Use the contact form below and we’ll make sure your question reaches the right person."
+      }
     ],
     "lodging": [
-      { "name": "Hampton Inn Goshen", "address": "1968 Lincolnway E", "phone": "574-533-8800", "distance": "3.6 miles", "url": "https://www.google.com/maps/search/?api=1&query=Hampton+Inn+Goshen,+1968+Lincolnway+E,+Goshen,+IN", "detail": "Comfortable hotel with breakfast, indoor pool, and fitness center." },
-      { "name": "Holiday Inn Express Hotel & Suites", "address": "1415 Lincolnway E", "phone": "574-535-9200", "distance": "2.1 miles", "url": "https://www.google.com/maps/search/?api=1&query=Holiday+Inn+Express+Hotel+%26+Suites,+1415+Lincolnway+E,+Goshen,+IN", "detail": "Family-friendly option with breakfast, indoor pool, and suites." },
-      { "name": "Fairfield Inn & Suites by Marriott", "address": "2110 Keystone Dr.", "phone": "574-538-8800", "distance": "2 miles", "url": "https://www.google.com/maps/search/?api=1&query=Fairfield+Inn+%26+Suites+by+Marriott,+2110+Keystone+Dr.,+Goshen,+IN", "detail": "A convenient hotel near the park with comfortable rooms." },
-      { "name": "The Inn on South 5th", "address": "320 S 5th St", "phone": "574-536-5998", "distance": "1.3 miles", "url": "https://www.google.com/maps/search/?api=1&query=The+Inn+on+South+5th,+320+S+5th+St,+Goshen,+IN", "detail": "Charming historic bed & breakfast in walking distance of downtown." }
+      {
+        "name": "Hampton Inn Goshen",
+        "address": "1968 Lincolnway E",
+        "phone": "574-533-8800",
+        "distance": "3.6 miles",
+        "url": "https://www.google.com/maps/search/?api=1&query=Hampton+Inn+Goshen,+1968+Lincolnway+E,+Goshen,+IN",
+        "detail": "Comfortable hotel with breakfast, indoor pool, and fitness center."
+      },
+      {
+        "name": "Holiday Inn Express Hotel & Suites",
+        "address": "1415 Lincolnway E",
+        "phone": "574-535-9200",
+        "distance": "2.1 miles",
+        "url": "https://www.google.com/maps/search/?api=1&query=Holiday+Inn+Express+Hotel+%26+Suites,+1415+Lincolnway+E,+Goshen,+IN",
+        "detail": "Family-friendly option with breakfast, indoor pool, and suites."
+      },
+      {
+        "name": "Fairfield Inn & Suites by Marriott",
+        "address": "2110 Keystone Dr.",
+        "phone": "574-538-8800",
+        "distance": "2 miles",
+        "url": "https://www.google.com/maps/search/?api=1&query=Fairfield+Inn+%26+Suites+by+Marriott,+2110+Keystone+Dr.,+Goshen,+IN",
+        "detail": "A convenient hotel near the park with comfortable rooms."
+      },
+      {
+        "name": "The Inn on South 5th",
+        "address": "320 S 5th St",
+        "phone": "574-536-5998",
+        "distance": "1.3 miles",
+        "url": "https://www.google.com/maps/search/?api=1&query=The+Inn+on+South+5th,+320+S+5th+St,+Goshen,+IN",
+        "detail": "Charming historic bed & breakfast in walking distance of downtown."
+      }
     ],
     "airports": {
       "primary": {
@@ -64,32 +145,92 @@
     "restaurants": {
       "intro": "There are lots of great places to eat in and around Goshen! Here are some recommendations for the reunion weekend:",
       "goshen": [
-        { "name": "Venturi", "detail": "Award-winning, authentic Neapolitan pizza in downtown Goshen. A great choice for dinner." },
-        { "name": "The Table at 108", "detail": "Italian-inspired food in a comfortable, family-friendly setting." },
-        { "name": "Goshen Brewing Company", "detail": "Casual atmosphere with American-style food." },
-        { "name": "Hoppers Pike Street Grill", "detail": "Casual American dining with generous portions." },
-        { "name": "Biebs & Ash", "detail": "Burgers, sandwiches and fries in downtown Goshen." },
-        { "name": "Universal Tamal", "detail": "Great choice for Mexican food and homemade tamales." },
-        { "name": "Maple Indian Cuisine", "detail": "A flavorful option for Indian food." }
+        {
+          "name": "Venturi",
+          "detail": "Award-winning, authentic Neapolitan pizza in downtown Goshen. A great choice for dinner."
+        },
+        {
+          "name": "The Table at 108",
+          "detail": "Italian-inspired food in a comfortable, family-friendly setting."
+        },
+        {
+          "name": "Goshen Brewing Company",
+          "detail": "Casual atmosphere with American-style food."
+        },
+        {
+          "name": "Hoppers Pike Street Grill",
+          "detail": "Casual American dining with generous portions."
+        },
+        {
+          "name": "Biebs & Ash",
+          "detail": "Burgers, sandwiches and fries in downtown Goshen."
+        },
+        {
+          "name": "Universal Tamal",
+          "detail": "Great choice for Mexican food and homemade tamales."
+        },
+        {
+          "name": "Maple Indian Cuisine",
+          "detail": "A flavorful option for Indian food."
+        }
       ],
       "breakfast": [
-        { "name": "The Tipsy Biscuit", "detail": "Popular spot for breakfast and brunch." },
-        { "name": "Olympia Candy Kitchen", "detail": "A historic downtown favorite for breakfast, lunch and homemade candy." },
-        { "name": "South Side Soda Shop", "detail": "A fun, old-fashioned diner and soda fountain." }
+        {
+          "name": "The Tipsy Biscuit",
+          "detail": "Popular spot for breakfast and brunch."
+        },
+        {
+          "name": "Olympia Candy Kitchen",
+          "detail": "A historic downtown favorite for breakfast, lunch and homemade candy."
+        },
+        {
+          "name": "South Side Soda Shop",
+          "detail": "A fun, old-fashioned diner and soda fountain."
+        }
       ],
       "amish": [
-        { "name": "Blue Gate Restaurant & Bakery", "detail": "In Shipshewana. A great place to experience classic Amish-country cooking and homemade bakery treats." },
-        { "name": "Das Dutchman Essenhaus", "detail": "In Middlebury. Family-style Amish cooking, homemade noodles, chicken and delicious pies." }
+        {
+          "name": "Blue Gate Restaurant & Bakery",
+          "detail": "In Shipshewana. A great place to experience classic Amish-country cooking and homemade bakery treats."
+        },
+        {
+          "name": "Das Dutchman Essenhaus",
+          "detail": "In Middlebury. Family-style Amish cooking, homemade noodles, chicken and delicious pies."
+        }
       ],
-      "top": ["Venturi", "Blue Gate Restaurant & Bakery", "Das Dutchman Essenhaus"],
+      "top": [
+        "Venturi",
+        "Blue Gate Restaurant & Bakery",
+        "Das Dutchman Essenhaus"
+      ],
       "tip": "Check Google for current hours, menus, reviews and directions before visiting, as hours can change."
     }
   },
-  "contactNote": "PROTOTYPE FOR FAMILY REVIEW: Philip Leichty's email and phone shown here are placeholders (philip.leichty@example.com / (555) 010-2027). Replace them with the real contact details before public launch.",
   "navigation": [
-    { "label": "History", "href": "/history/", "key": "history" },
-    { "label": "Our Family", "href": "/family/", "key": "family" },
-    { "label": "Photos", "href": "/photos/", "key": "photos" },
-    { "label": "Reunions", "href": "/reunions/", "key": "reunions" }
+    {
+      "label": "History",
+      "href": "/history/",
+      "key": "history"
+    },
+    {
+      "label": "Our Family",
+      "href": "/family/",
+      "key": "family"
+    },
+    {
+      "label": "Photos",
+      "href": "/photos/",
+      "key": "photos"
+    },
+    {
+      "label": "Reunion 2027",
+      "href": "/reunion2027/",
+      "key": "reunions"
+    },
+    {
+      "label": "RSVP",
+      "href": "/rsvp/",
+      "key": "rsvp"
+    }
   ]
 }

@@ -26,11 +26,11 @@ const pages = [
             <div><dt>Where</dt><dd>${site.reunion.location}</dd></div>
           </dl>
           <div class="hero-actions">
-            <a class="button" href="/reunion/">Reunion details</a>
+            <a class="button" href="/reunion2027/">Reunion details</a>
           </div>
         </div>
         <figure class="reunion-artwork">
-          <img src="/assets/reunion-artwork.webp" width="1222" height="1287" fetchpriority="high" alt="Official 2027 Leichty Family Reunion artwork featuring a family photograph of a man on a longhorn steer beside a woman">
+          <img src="/assets/reunion-centerpiece.webp" width="1087" height="1447" fetchpriority="high" alt="Historic Leichty family photograph:John Leichty seated on a longhorn steer beside Salome Leichty">
         </figure>
       </section>
 
@@ -39,7 +39,7 @@ const pages = [
           <div><span class="ribbon-label">Reunion</span><span class="ribbon-value">2027 family gathering</span></div>
           <div><span class="ribbon-label">Date</span><span class="ribbon-value">June 12, 2027</span></div>
           <div><span class="ribbon-label">Place</span><span class="ribbon-value">${site.reunion.locationShort}</span></div>
-          <a class="button button-light" href="/reunion/">Plan your visit</a>
+          <a class="button button-light" href="/reunion2027/">Plan your visit</a>
         </div>
       </aside>
 
@@ -51,7 +51,7 @@ const pages = [
           <p class="section-lead">It all reaches back to John and Salome Leichty — through their four children, three descendant branches, and the generations gathering this June. Whatever brings you here, there’s a place for you.</p>
           <div class="hero-actions">
             <a class="button" href="/family/">Explore the family</a>
-            <a class="text-link" href="/reunion/">2027 reunion details <span aria-hidden="true">→</span></a>
+            <a class="text-link" href="/reunion2027/">2027 reunion details <span aria-hidden="true">→</span></a>
           </div>
         </div>
       </section>
@@ -108,7 +108,7 @@ const pages = [
             <p class="eyebrow">Save the date</p>
             <h2 id="reunion-title">See you in Goshen.</h2>
             <p class="section-lead">Join every branch and generation on ${site.reunion.dateShort} at Shanklin Park. Doors open at ${site.reunion.doorsOpen}, and lunch is on us.</p>
-            <div class="hero-actions"><a class="button button-light" href="/reunion/">Reunion details</a></div>
+            <div class="hero-actions"><a class="button button-light" href="/reunion2027/">Reunion details</a></div>
           </div>
           <ul class="details-list" aria-label="Current reunion details">
             <li><strong>Date</strong>${site.reunion.date}</li>
@@ -118,17 +118,16 @@ const pages = [
       </section>`
   },
   {
-    path: '/reunion/',
+    path: '/reunion2027/',
     title: 'Next Family Reunion',
     description: 'Plans and updates for the next Leichty family reunion.',
     active: 'reunions',
     body: `
-      ${pageHero('Rounding Up the Leichty Family', 'Leichty Family Reunion.', `${site.reunion.date} · ${site.reunion.time} · ${site.reunion.location}`)}
-      <section class="section section-paper" aria-labelledby="overview-title">
+      <section class="section section-paper reunion2027-hero" aria-labelledby="reunion2027-title">
         <div class="reunion-overview">
           <div>
-            <p class="eyebrow">Save the date</p>
-            <h2 id="overview-title">Rounding Up the Leichty Family!</h2>
+            <p class="eyebrow">Reconnecting</p>
+            <h1 id="reunion2027-title">Leichty Family Reunion 2027</h1>
             <p class="tagline">${site.reunion.tagline}</p>
             <dl class="event-facts" aria-label="Reunion at a glance">
               <div><dt>When</dt><dd>${site.reunion.date} · ${site.reunion.time}</dd></div>
@@ -136,9 +135,9 @@ const pages = [
               <div><dt>Doors open</dt><dd>${site.reunion.doorsOpen}</dd></div>
             </dl>
             ${hasAgenda ? `<p class="agenda-row"><a class="button" href="/${agendaPdf}" download>View / Download the Reunion Agenda</a></p>` : ''}
-            <div class="hero-actions"><a class="text-link" href="#schedule">See the schedule <span aria-hidden="true">↓</span></a></div>
+            <div class="hero-actions"><a class="button button-light-forest" href="/rsvp/">RSVP</a><a class="text-link" href="#schedule">See the schedule <span aria-hidden="true">↓</span></a></div>
           </div>
-          <figure class="reunion-page-artwork"><img src="/assets/reunion-artwork.webp" width="1222" height="1287" alt="Official 2027 Leichty Family Reunion artwork"></figure>
+          <figure class="reunion-page-artwork reunion-page-photo"><img src="/assets/reunion-centerpiece.webp" width="1087" height="1447" alt="Historic Leichty family photograph:John Leichty seated on a longhorn steer beside Salome Leichty"><figcaption>A Leichty family photograph · John & Salome</figcaption></figure>
         </div>
       </section>
 
@@ -176,11 +175,10 @@ const pages = [
 
       <section class="section section-paper" aria-labelledby="bring-title">
         <div class="section-heading">
-          <p class="eyebrow">What to bring</p>
+          <p class="eyebrow">What to Bring</p>
           <h2 id="bring-title">Just bring yourself.</h2>
-          <p class="section-lead">Lunch is catered, so there is nothing you need to bring. You’re welcome to bring family photographs, keepsakes, or a favorite memory to share.</p>
+          <p class="section-lead">Lunch is catered, so there is nothing you need to bring. If you’d like, you’re welcome to bring family photographs, albums, keepsakes, or a favorite memory of John and Salome to share with each other.</p>
         </div>
-        <div class="bring-grid">${site.reunion.whatToBring.map(bringCard).join('')}</div>
       </section>
 
       <section class="section" aria-labelledby="visiting-title">
@@ -247,16 +245,53 @@ const pages = [
       </section>
 
       <section class="section section-forest" aria-labelledby="contact-title">
-        <div class="reunion-footer-cta">
-          <div>
-            <p class="eyebrow">Questions?</p>
-            <h2 id="contact-title">We’re here to help.</h2>
-            <p class="section-lead">Please reach out to <strong>${site.reunion.contactName}</strong> at <a class="contact-link" href="mailto:${site.reunion.contactEmail}">${site.reunion.contactEmail}</a> or ${site.reunion.contactPhone}, or ask at the welcome table when you arrive.</p>
-            <p class="closing-line">Looking forward to seeing everyone on ${site.reunion.dateShort}!</p>
-          </div>
-          <aside class="reunion-note" aria-label="Good to know"><p><strong>Lunch is catered.</strong>There’s no need to bring a main dish or worry about heating or serving food. Let ${site.reunion.contactName} know ahead of time about any dietary needs.</p></aside>
+        <div class="section-heading section-heading-light">
+          <p class="eyebrow">Questions?</p>
+          <h2 id="contact-title">We’re here to help.</h2>
+          <p class="section-lead">Have a question about the reunion? Send us a message and we’ll make sure it gets to the right person.</p>
         </div>
+        <form class="contact-form" id="contactForm" method="post" action="/api/contact" novalidate>
+          <div class="field">
+            <label for="contactName">Name *</label>
+            <input type="text" id="contactName" name="name" maxlength="120" required autocomplete="name">
+          </div>
+          <div class="field">
+            <label for="contactEmail">Email *</label>
+            <input type="email" id="contactEmail" name="email" maxlength="254" required autocomplete="email">
+          </div>
+          <div class="field">
+            <label for="contactMessage">Message *</label>
+            <textarea id="contactMessage" name="message" rows="5" maxlength="4000" required></textarea>
+          </div>
+          <div class="field cf-turnstile-wrap" data-contact-turnstile>
+            <!-- Turnstile widget; sitekey is injected via the Cloudflare Pages Turnstile_SITEKEY binding -->
+            <div class="cf-turnstile" data-sitekey="" data-theme="light" data-callback="onTurnstileSuccess"></div>
+          </div>
+          <label class="hp" aria-hidden="true">Leave this field empty <input type="text" name="company" tabindex="-1" autocomplete="off"></label>
+          <p class="form-status" data-contact-status role="status" aria-live="polite" hidden></p>
+          <button class="button" type="submit">Send message</button>
+          <script src="https://challenges.cloudflare.com/turnstile/v0/api.js?render=explicit" async defer></script>
+        </form>
+        <p class="closing-line contact-closing">Looking forward to seeing everyone on ${site.reunion.dateShort}!</p>
       </section>`
+  },
+  {
+    path: '/rsvp/',
+    title: 'Reunion RSVP',
+    description: 'RSVP placeholder for the Leichty family reunion.',
+    active: 'rsvp',
+    body: `
+      <section class="section section-paper">
+        <div class="rsvp-card">
+          <p class="eyebrow">Reunion 2027</p>
+          <h1>RSVP for the Leichty Family Reunion 2027</h1>
+          <p class="section-lead">Please RSVP by May 12, 2027. Online RSVP will be available here.</p>
+          <p class="rsvp-support">Your response will help us plan seating, catering,and reunion activities.</p>
+          <a class="button" href="/reunion2027/">Back to Reunion 2027</a>
+        </div>
+      </section>
+      <!-- TODO: Implement Reunion 2027 RSVP form. Submission destination: Google Sheet. RSVP deadline: May 12,  ​​2027. -->
+    `
   },
   {
     path: '/history/',
@@ -417,7 +452,7 @@ const pages = [
         <section class="section" aria-labelledby="branch-contribute-${branch.id}">
           <div class="preservation-cta">
             <div><p class="eyebrow">The ${branch.name}</p><h2 id="branch-contribute-${branch.id}">Descendants of ${founder.name}.</h2><p class="section-lead">Have photographs, stories, or memories from this branch of the family? Bring them to the reunion and share them around the family table.</p></div>
-            <a class="button" href="/reunion/">Reunion details</a>
+            <a class="button" href="/reunion2027/">Reunion details</a>
           </div>
         </section>`
     };
@@ -475,7 +510,7 @@ const pages = [
       <section class="section" aria-labelledby="photo-care-title">
         <div class="preservation-cta">
           <div><p class="eyebrow">Share a memory</p><h2 id="photo-care-title">Have a photograph to share?</h2><p class="section-lead">A Leichty family photograph, album, or scrapbook deserves a place here. When you share one, note who appears in it, when and where it was taken, and anything the family remembers about the moment.</p></div>
-          <a class="button" href="/reunion/">Bring it to the reunion</a>
+          <a class="button" href="/reunion2027/">Bring it to the reunion</a>
         </div>
       </section>`
   },
@@ -490,35 +525,9 @@ const pages = [
         <div class="notice"><p><strong>Have a family video or recording?</strong>Reunion films, oral histories, and home movies are worth keeping. If you have one to share, note the people, date, and place — those details give a cherished clip its meaning.</p></div>
         <div class="archive-contribute">
           <p class="section-lead">Your memories of a favorite story, or a clip from a past gathering, would mean a great deal to the family.</p>
-          <a class="button" href="/reunion/">Bring it to the reunion</a>
+          <a class="button" href="/reunion2027/">Bring it to the reunion</a>
         </div>
         <p class="video-note">When home movies are shared for the site, they will appear here for the whole family.</p>
-      </section>`
-  },
-  {
-    path: '/reunions/',
-    title: 'Family Reunions',
-    description: 'Current plans and memories from Leichty family reunions.',
-    active: 'reunions',
-    body: `
-      ${pageHero('Family reunions', 'Gatherings worth remembering.', 'Find plans for the next gathering and, over time, revisit the photographs and memories from reunions past.')}
-      <section class="section section-paper">
-        <div class="archive-year">
-          <time>Next</time>
-          <div><h3>${site.reunion.label}</h3><p>${site.reunion.date} · ${site.reunion.location} · Doors open ${site.reunion.doorsOpen}</p></div>
-          <a class="button" href="/reunion/">View plans</a>
-        </div>
-        <div class="archive-year">
-          <time>Coming</time>
-          <div><h3>Past reunions</h3><p>Photographs and memories from earlier Leichty reunions can be shared and preserved here as the family brings them together.</p></div>
-          <a class="text-link" href="/photos/">View family photos <span aria-hidden="true">→</span></a>
-        </div>
-      </section>
-      <section class="section" aria-labelledby="reunion-contribute-title">
-        <div class="preservation-cta">
-          <div><p class="eyebrow">Help keep gatherings close</p><h2 id="reunion-contribute-title">Do you have reunion photographs?</h2><p class="section-lead">Old reunion photographs and stories are a treasure to revisit. Bring them along to share, or let the family know what you have.</p></div>
-          <a class="button" href="/reunion/">Reunion details</a>
-        </div>
       </section>`
   },
   {
@@ -677,7 +686,7 @@ function shell(page) {
   const canonical = `${site.canonicalOrigin}${canonicalPath}`;
   const title = page.path === '/' ? page.title : `${page.title} · ${site.siteName}`;
   const robots = page.noindex ? '    <meta name="robots" content="noindex, follow">\n' : '';
-  const imagePreload = page.path === '/' ? '    <link rel="preload" as="image" href="/assets/reunion-artwork.webp" type="image/webp">\n' : '';
+  const imagePreload = page.path === '/' ? '    <link rel="preload" as="image" href="/assets/reunion-centerpiece.webp" type="image/webp">\n' : '';
   return `<!doctype html>
 <html lang="en">
   <head>
