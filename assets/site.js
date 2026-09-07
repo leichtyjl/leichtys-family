@@ -89,9 +89,9 @@ if (contactForm) {
       });
       const data = await res.json().catch(() => ({}));
       if (res.ok && data.ok) {
+        try { contactForm.reset(); } catch {}
+        if (tsWidgetId !== null && window.turnstile) { try { window.turnstile.reset(tsWidgetId); } catch {} }
         setStatus('Thanks — your message has been received and forwarded. Please allow up to one week for a response before submitting another message.', 'success');
-        contactForm.reset();
-        if (window.turnstile) window.turnstile.reset();
       } else {
         setStatus(data.message || 'Your message could not be sent right now. Please try again in a few minutes.', 'error');
       }
