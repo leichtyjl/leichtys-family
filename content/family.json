@@ -12,7 +12,7 @@
       "generation": 1,
       "biography": null,
       "photos": [],
-      "descendantClan": null,
+      "descendantBranch": null,
       "hasDescendants": true
     },
     {
@@ -25,7 +25,7 @@
       "generation": 1,
       "biography": null,
       "photos": [],
-      "descendantClan": null,
+      "descendantBranch": null,
       "hasDescendants": true
     },
     {
@@ -41,7 +41,7 @@
       "photo": "/assets/portraits/simon.jpeg",
       "photoWidth": 336,
       "photoHeight": 336,
-      "descendantClan": "simon",
+      "descendantBranch": "simon",
       "hasDescendants": true
     },
     {
@@ -57,7 +57,7 @@
       "photo": "/assets/portraits/iona.png",
       "photoWidth": 1086,
       "photoHeight": 1449,
-      "descendantClan": null,
+      "descendantBranch": null,
       "hasDescendants": false
     },
     {
@@ -73,7 +73,7 @@
       "photo": "/assets/portraits/jacob.jpg",
       "photoWidth": 250,
       "photoHeight": 339,
-      "descendantClan": "jacob",
+      "descendantBranch": "jacob",
       "hasDescendants": true
     },
     {
@@ -89,14 +89,14 @@
       "photo": "/assets/portraits/carl.png",
       "photoWidth": 1200,
       "photoHeight": 1600,
-      "descendantClan": "carl",
+      "descendantBranch": "carl",
       "hasDescendants": true
     }
   ],
-  "clans": [
+  "branches": [
     {
       "id": "simon",
-      "name": "Simon Clan",
+      "name": "Simon Branch",
       "foundingPerson": "simon-leichty",
       "description": "Descendants of Simon Leichty (1915–1992).",
       "photo": null,
@@ -104,7 +104,7 @@
     },
     {
       "id": "jacob",
-      "name": "Jacob Clan",
+      "name": "Jacob Branch",
       "foundingPerson": "jacob-leichty",
       "description": "Descendants of Jacob Leichty (1920–2012).",
       "photo": null,
@@ -112,7 +112,7 @@
     },
     {
       "id": "carl",
-      "name": "Carl Clan",
+      "name": "Carl Branch",
       "foundingPerson": "carl-leichty",
       "description": "Descendants of Carl Leichty (1925–2007).",
       "photo": null,

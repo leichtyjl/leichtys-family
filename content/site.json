@@ -3,7 +3,7 @@
   "canonicalOrigin": "https://www.leichtys.com",
   "description": "A gathering place for Leichty family history, photographs, stories, and reunions.",
   "reunion": {
-    "label": "Rounding Up the Leichty Clan · Leichty Family Reunion",
+    "label": "Rounding Up the Leichty Family · Leichty Family Reunion",
     "date": "Saturday, June 12, 2027",
     "dateShort": "June 12, 2027",
     "time": "11:30 AM – 4:00 PM",
@@ -17,7 +17,7 @@
     "contactEmail": "philip.leichty@example.com",
     "contactPhone": "(555) 010-2027",
     "registration": "Formal invitation and RSVP details will follow",
-    "agendaPdf": "rounding_up_the_leichty_clan_agenda.pdf",
+    "agendaPdf": "rounding_up_the_leichty_family_agenda.pdf",
     "schedule": [
       { "time": "11:30 AM", "event": "Doors Open & Arrival", "detail": "Welcome, name tags, sign-in, and getting settled.", "featured": false },
       { "time": "12:00 PM", "event": "Family Photo", "detail": "All-family group portrait gathered together before lunch.", "featured": true },

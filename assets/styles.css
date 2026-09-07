@@ -423,8 +423,8 @@ h3 { margin: 0 0 10px; font-size: 1.55rem; font-weight: 600; line-height: 1.15; 
 .child-years { margin-top: 3px; color: var(--rust); font-weight: 750; }
 .child-card-remembered .child-years { color: var(--gold); }
 .child-note { margin-top: 17px; font-size: .67rem; font-weight: 800; letter-spacing: .12em; text-transform: uppercase; }
-.clan-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; }
-.clan-card {
+.branch-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; }
+.branch-card {
   min-height: 118px;
   padding: 22px;
   display: grid;
@@ -437,13 +437,13 @@ h3 { margin: 0 0 10px; font-size: 1.55rem; font-weight: 600; line-height: 1.15; 
   text-align: left;
   text-decoration: none;
 }
-.clan-card:hover,
-.clan-card:focus-visible { border-color: var(--rust); transform: translateY(-2px); }
-.clan-card strong { display: block; font-family: var(--serif); font-size: 1.35rem; }
-.clan-card small { display: block; margin-top: 4px; color: var(--rust); font-size: .68rem; font-weight: 800; letter-spacing: .08em; text-transform: uppercase; }
-.clan-shell { display: grid; }
-.clan-card .clan-body small { color: var(--ink-soft); text-transform: none; letter-spacing: 0; font-weight: 600; font-size: .82rem; line-height: 1.4; }
-.clan-monogram { width: 52px; height: 52px; display: grid; place-items: center; color: var(--paper); background: var(--rust); border-radius: 50%; font-family: var(--serif); font-size: 1.45rem; font-weight: 700; }
+.branch-card:hover,
+.branch-card:focus-visible { border-color: var(--rust); transform: translateY(-2px); }
+.branch-card strong { display: block; font-family: var(--serif); font-size: 1.35rem; }
+.branch-card small { display: block; margin-top: 4px; color: var(--rust); font-size: .68rem; font-weight: 800; letter-spacing: .08em; text-transform: uppercase; }
+.branch-shell { display: grid; }
+.branch-card .branch-body small { color: var(--ink-soft); text-transform: none; letter-spacing: 0; font-weight: 600; font-size: .82rem; line-height: 1.4; }
+.branch-monogram { width: 52px; height: 52px; display: grid; place-items: center; color: var(--paper); background: var(--rust); border-radius: 50%; font-family: var(--serif); font-size: 1.45rem; font-weight: 700; }
 
 .reunion-cta {
   display: grid;
@@ -543,9 +543,9 @@ h3 { margin: 0 0 10px; font-size: 1.55rem; font-weight: 600; line-height: 1.15; 
 .profile-facts dt { color: var(--rust); font-size: .68rem; font-weight: 800; letter-spacing: .14em; text-transform: uppercase; }
 .profile-facts dd { margin: 5px 0 0; font-family: var(--serif); font-size: 1.14rem; }
 .profile-actions { margin-top: 34px; display: flex; align-items: center; gap: 28px; flex-wrap: wrap; }
-.clan-directory .clan-card { min-height: 180px; background: var(--cream); }
-.clan-profile { display: grid; grid-template-columns: minmax(180px, .5fr) minmax(0, 1.5fr); gap: clamp(42px, 8vw, 100px); align-items: center; }
-.clan-seal { width: min(230px, 56vw); aspect-ratio: 1; margin: auto; display: grid; place-items: center; color: var(--paper); background: var(--forest); border: 12px solid var(--cream-deep); border-radius: 50%; box-shadow: 0 0 0 1px var(--gold), var(--shadow); font-family: var(--serif); font-size: clamp(4.8rem, 10vw, 7.5rem); }
+.branch-directory .branch-card { min-height: 180px; background: var(--cream); }
+.branch-profile { display: grid; grid-template-columns: minmax(180px, .5fr) minmax(0, 1.5fr); gap: clamp(42px, 8vw, 100px); align-items: center; }
+.branch-seal { width: min(230px, 56vw); aspect-ratio: 1; margin: auto; display: grid; place-items: center; color: var(--paper); background: var(--forest); border: 12px solid var(--cream-deep); border-radius: 50%; box-shadow: 0 0 0 1px var(--gold), var(--shadow); font-family: var(--serif); font-size: clamp(4.8rem, 10vw, 7.5rem); }
 
 .timeline { position: relative; max-width: 830px; margin: 54px 0 0; }
 .timeline::before { content: ""; position: absolute; left: 7px; top: 8px; bottom: 8px; width: 1px; background: var(--gold); }
@@ -583,14 +583,14 @@ h3 { margin: 0 0 10px; font-size: 1.55rem; font-weight: 600; line-height: 1.15; 
 .tree-couple { padding: 16px 24px; color: var(--paper); background: var(--forest); font-family: var(--serif); font-size: 1.4rem; }
 .tree-line { width: 1px; height: 34px; margin: 0 auto; background: var(--gold); }
 .tree-children,
-.tree-clans { width: 100%; display: grid; gap: 9px; }
+.tree-branches { width: 100%; display: grid; gap: 9px; }
 .tree-children { grid-template-columns: repeat(4, 1fr); }
-.tree-clans { grid-template-columns: repeat(3, 1fr); }
+.tree-branches { grid-template-columns: repeat(3, 1fr); }
 .tree-children span,
-.tree-clans span { padding: 13px 8px; background: var(--cream); border-top: 3px solid var(--rust); font-family: var(--serif); }
+.tree-branches span { padding: 13px 8px; background: var(--cream); border-top: 3px solid var(--rust); font-family: var(--serif); }
 .tree-children small { display: block; margin-top: 3px; color: var(--rust); font-family: var(--sans); font-size: .7rem; font-weight: 750; }
 .tree-children .tree-remembered { color: var(--ink-soft); background: #ebe4d8; border-color: var(--gold); }
-.tree-clans span { color: var(--paper); background: var(--rust); border: 0; font-weight: 700; }
+.tree-branches span { color: var(--paper); background: var(--rust); border: 0; font-weight: 700; }
 
 .reunion-overview { display: grid; grid-template-columns: 1.05fr .95fr; gap: clamp(48px, 8vw, 110px); align-items: center; }
 .event-facts { margin: 34px 0; display: grid; gap: 1px; background: var(--line); border: 1px solid var(--line); }
@@ -647,11 +647,12 @@ h3 { margin: 0 0 10px; font-size: 1.55rem; font-weight: 600; line-height: 1.15; 
 .arrival-times span { display: block; margin-top: 8px; font-family: var(--serif); font-size: 1.7rem; }
 
 .schedule-list { position: relative; max-width: 900px; margin: 0; padding: 0; list-style: none; }
-.schedule-list::before { content: ""; position: absolute; left: 108px; top: 12px; bottom: 12px; width: 1px; background: var(--gold); }
-.schedule-item { position: relative; padding: 22px 0 22px clamp(150px, 12vw, 180px); display: grid; grid-template-columns: 1fr; gap: 4px; }
-.schedule-item::before { content: ""; position: absolute; left: 101px; top: 34px; width: 15px; height: 15px; background: var(--cream); border: 2px solid var(--rust); border-radius: 50%; }
+.schedule-list::before { content: ""; position: absolute; left: 214px; top: 12px; bottom: 12px; width: 1px; background: var(--gold); }
+.schedule-item { position: relative; padding: 26px 0; display: grid; grid-template-columns: 200px 1fr; gap: 0 30px; align-items: start; }
+.schedule-item::before { content: ""; position: absolute; left: 206px; top: 22px; width: 16px; height: 16px; background: var(--cream); border: 2px solid var(--rust); border-radius: 50%; }
 .schedule-featured::before { background: var(--rust); }
-.schedule-time { position: absolute; left: 0; top: 22px; color: var(--rust); font-family: var(--serif); font-size: 1.35rem; font-weight: 700; }
+.schedule-time { grid-column: 1; color: var(--rust); font-family: var(--serif); font-size: 1.3rem; font-weight: 700; }
+.schedule-details { grid-column: 2; }
 .schedule-details h3 { margin: 0 0 4px; }
 .schedule-details p { margin: 0; color: var(--ink-soft); }
 .schedule-featured .schedule-details h3 { color: var(--rust-dark); }
@@ -737,15 +738,15 @@ h3 { margin: 0 0 10px; font-size: 1.55rem; font-weight: 600; line-height: 1.15; 
   .artwork-hero::before { width: 86vw; right: -35vw; }
   .quick-strip-inner { grid-template-columns: 1fr 1fr; }
   .quick-strip-inner .button { justify-self: start; }
-  .intro-grid, .family-promise, .reunion-cta, .tree-foundation, .reunion-overview, .profile-overview, .clan-profile, .origin-story, .years-band, .reunion-footer-cta { grid-template-columns: 1fr; }
+  .intro-grid, .family-promise, .reunion-cta, .tree-foundation, .reunion-overview, .profile-overview, .branch-profile, .origin-story, .years-band, .reunion-footer-cta { grid-template-columns: 1fr; }
   .arrival-banner-inner { grid-template-columns: 1fr; gap: 30px; }
   .schedule-list::before { display: none; }
-  .schedule-item { padding: 0 0 32px; display: grid; grid-template-columns: 92px 1fr; gap: 4px 16px; }
+  .schedule-item { padding: 0 0 32px; display: grid; grid-template-columns: 200px 1fr; gap: 0 26px; }
   .schedule-item::before { display: none; }
   .schedule-time { position: static; top: auto; }
   .origin-photo { width: min(72vw, 430px); }
   .children-grid { grid-template-columns: repeat(2, 1fr); }
-  .clan-grid { grid-template-columns: 1fr; }
+  .branch-grid { grid-template-columns: 1fr; }
   .family-promise .rings { grid-row: 2; }
   .feature-grid { grid-template-columns: 1fr; }
   .logistics-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
@@ -802,7 +803,7 @@ h3 { margin: 0 0 10px; font-size: 1.55rem; font-weight: 600; line-height: 1.15; 
   .tree-diagram-inner { gap: 8px; }
   .tree-node { padding: 13px 6px; font-size: .84rem; }
   .tree-children { grid-template-columns: repeat(2, 1fr); }
-  .tree-clans { grid-template-columns: 1fr; }
+  .tree-branches { grid-template-columns: 1fr; }
   .profile-facts { grid-template-columns: 1fr; }
   .profile-actions { align-items: stretch; flex-direction: column; gap: 7px; }
   .profile-actions .button,

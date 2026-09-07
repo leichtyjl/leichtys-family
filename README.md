@@ -61,10 +61,10 @@ The HTML files at the repository root and inside route directories are generated
 /family/john-and-salome/
 /family/children/
 /family/iona-leichty/
-/family/clans/
-/family/clans/simon/
-/family/clans/jacob/
-/family/clans/carl/
+/family/branches/
+/family/branches/simon/
+/family/branches/jacob/
+/family/branches/carl/
 /family-tree/
 /photos/
 /videos/
@@ -73,7 +73,7 @@ The HTML files at the repository root and inside route directories are generated
 
 `/reunion/rsvp/` is currently an informational placeholder. It intentionally collects no information.
 
-The family data intentionally distinguishes John and Salome’s four children from the three descendant clans. Iona remains in the immediate family record, with `hasDescendants: false` and `descendantClan: null`; there is no Iona clan route.
+The family data intentionally distinguishes John and Salome’s four children from the three descendant branches. Iona remains in the immediate family record, with `hasDescendants: false` and `descendantBranch: null`; there is no Iona branch route.
 
 ## Testing
 

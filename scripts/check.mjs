@@ -12,10 +12,10 @@ const pages = [
   'family/john-and-salome/index.html',
   'family/children/index.html',
   'family/iona-leichty/index.html',
-  'family/clans/index.html',
-  'family/clans/simon/index.html',
-  'family/clans/jacob/index.html',
-  'family/clans/carl/index.html',
+  'family/branches/index.html',
+  'family/branches/simon/index.html',
+  'family/branches/jacob/index.html',
+  'family/branches/carl/index.html',
   'family-tree/index.html',
   'photos/index.html',
   'videos/index.html',
@@ -49,33 +49,33 @@ for (const page of pages) {
 }
 
 const expectedChildren = ['simon-leichty', 'iona-leichty', 'jacob-leichty', 'carl-leichty'];
-const expectedClans = ['simon', 'jacob', 'carl'];
-const personFields = ['id', 'name', 'birth', 'death', 'parents', 'spouse', 'generation', 'biography', 'photos', 'descendantClan', 'hasDescendants'];
-const clanFields = ['id', 'name', 'foundingPerson', 'description', 'photo', 'descendants'];
+const expectedBranches = ['simon', 'jacob', 'carl'];
+const personFields = ['id', 'name', 'birth', 'death', 'parents', 'spouse', 'generation', 'biography', 'photos', 'descendantBranch', 'hasDescendants'];
+const branchFields = ['id', 'name', 'foundingPerson', 'description', 'photo', 'descendants'];
 const iona = family.persons.find((person) => person.id === 'iona-leichty');
 if (JSON.stringify(family.children) !== JSON.stringify(expectedChildren)) failures.push('Family data must list Simon, Iona, Jacob, and Carl as the four children');
-if (JSON.stringify(family.clans.map((clan) => clan.id)) !== JSON.stringify(expectedClans)) failures.push('Family data must define exactly the Simon, Jacob, and Carl clans');
-if (!iona || iona.hasDescendants !== false || iona.descendantClan !== null) failures.push('Iona must remain a child with no descendant clan');
-if (family.clans.some((clan) => clan.id === 'iona' || clan.foundingPerson === 'iona-leichty')) failures.push('Iona must not be represented as a clan');
+if (JSON.stringify(family.branches.map((branch) => branch.id)) !== JSON.stringify(expectedBranches)) failures.push('Family data must define exactly the Simon, Jacob, and Carl branches');
+if (!iona || iona.hasDescendants !== false || iona.descendantBranch !== null) failures.push('Iona must remain a child with no descendant branch');
+if (family.branches.some((branch) => branch.id === 'iona' || branch.foundingPerson === 'iona-leichty')) failures.push('Iona must not be represented as a branch');
 for (const person of family.persons) {
   for (const field of personFields) if (!(field in person)) failures.push(`${person.id || 'Person'} is missing ${field}`);
 }
-for (const clan of family.clans) {
-  for (const field of clanFields) if (!(field in clan)) failures.push(`${clan.id || 'Clan'} is missing ${field}`);
+for (const branch of family.branches) {
+  for (const field of branchFields) if (!(field in branch)) failures.push(`${branch.id || 'Branch'} is missing ${field}`);
 }
 
 try {
-  await access(join(root, 'family/clans/iona/index.html'));
-  failures.push('An Iona clan route must not exist');
+  await access(join(root, 'family/branches/iona/index.html'));
+  failures.push('An Iona branch route must not exist');
 } catch {
-  // Expected: Iona has a family-history page, not a clan page.
+  // Expected: Iona has a family-history page, not a branch page.
 }
 
 const home = await readFile(join(root, 'index.html'), 'utf8');
-for (const fragment of ['Four children. Three descendant clans.', 'Simon Leichty', 'Iona Leichty', 'Jacob Leichty', 'Carl Leichty', 'Three Descendant Clans']) {
+for (const fragment of ['Four children. Three descendant branches.', 'John + Salome Leichty', 'Simon Leichty', 'Iona Leichty', 'Jacob Leichty', 'Carl Leichty', 'Three Descendant Branches', 'href="/family/branches/simon/"']) {
   if (!home.includes(fragment)) failures.push(`Homepage is missing ${fragment}`);
 }
-for (const fragment of ['Leichty Family Reunion 2027', '/assets/reunion-artwork.webp', 'John + Salome Leichty', 'Seven generations strong']) {
+for (const fragment of ['Leichty Family Reunion 2027', '/assets/reunion-artwork.webp', 'Seven generations strong', 'href="/family/"']) {
   if (!home.includes(fragment)) failures.push(`Homepage is missing ${fragment}`);
 }
 
@@ -89,4 +89,4 @@ if (failures.length) {
   process.exit(1);
 }
 
-console.log(`Checked ${pages.length} pages, ${requiredAssets.length} required assets, four children, and three clans.`);
+console.log(`Checked ${pages.length} pages, ${requiredAssets.length} required assets, four children, and three branches.`);
