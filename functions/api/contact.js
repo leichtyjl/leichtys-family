@@ -58,11 +58,14 @@ export async function onRequestPost({ request, env }) {
   const message = body.message.trim().slice(0, 4000);
   if (!name || !emailRe.test(email) || !message) return j(400, { ok: false, message: 'fields' });
   const ip = request.headers.get('CF-Connecting-IP') || 'unknown';
-  if (rateLimited(ip)) return j(429, { ok: false, message: 'Too many messages from your connection right now. Please try again later.' });
 
   let idemKey = typeof body.idempotencyKey === 'string' ? body.idempotencyKey.slice(0, 64).replace(/[^A-Za-z0-9_-]/g, '') : '';
   if (!idemKey) idemKey = 'srv-' + simpleHash(ip + name + email + message);
   if (duplicate(idemKey)) return j(200, { ok: true, message: 'received', duplicate: true });
+
+  // Rate limit counts accepted messages only; validation failures and
+  // idempotent retries must not consume the quota.
+  if (rateLimited(ip)) return j(429, { ok: false, message: 'Too many messages from your connection right now. Please try again later.' });
 
   if (env.TURNSTILE_SITE_KEY && env.TURNSTILE_SECRET) {
     const token = typeof body.turnstileToken === 'string' ? body.turnstileToken : '';
