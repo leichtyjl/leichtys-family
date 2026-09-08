@@ -213,7 +213,6 @@ const pages = [
           <figure class="reunion-page-photo"><img src="/assets/reunion-centerpiece.webp" width="1087" height="1447" alt="Historic Leichty family photograph:John Leichty seated on a longhorn steer beside Salome Leichty"><figcaption>John & Salome Leichty</figcaption></figure>
           <div>
             <p class="tagline">Four children. Three descendant branches.</p>
-            <p class="section-lead">John and Salome are the parents of four children — Simon, Iona, Jacob,and Carl. Their descendants are gathering for the family reunion on June 12, 2027.</p>
           </div>
         </div>
       </section>
@@ -633,7 +632,7 @@ ${robots}    <link rel="canonical" href="${canonical}">
     ${page.socialImage
       ? `<meta name="twitter:image" content="${site.canonicalOrigin}/assets/reunion-centerpiece-social.jpg">`
       : `<meta name="twitter:image" content="${site.canonicalOrigin}/assets/og.png">`}
-${imagePreload}    <link rel="stylesheet" href="/assets/styles.css?v=20260907r">
+${imagePreload}    <link rel="stylesheet" href="/assets/styles.css?v=20260907s">
     <script src="/assets/site.js?v=20260907o" defer></script>
   </head>
   <body>

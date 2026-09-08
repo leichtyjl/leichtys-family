@@ -684,7 +684,7 @@ h3 { margin: 0 0 10px; font-size: 1.55rem; font-weight: 600; line-height: 1.15; 
 .schedule-featured::before { background: var(--rust); }
 .schedule-time { grid-column: 1; color: var(--rust); font-family: var(--serif); font-size: 1.3rem; font-weight: 700; }
 .schedule-details { grid-column: 2; }
-.schedule-details h3 { margin: 0 0 4px; }
+.schedule-details h3 { margin: 0 0 4px; text-wrap: balance; }
 .schedule-details p { margin: 0; color: var(--ink-soft); }
 .schedule-featured .schedule-details h3 { color: var(--rust-dark); }
 
@@ -776,6 +776,7 @@ h3 { margin: 0 0 10px; font-size: 1.55rem; font-weight: 600; line-height: 1.15; 
   .arrival-banner-inner { grid-template-columns: 1fr; gap: 30px; }
   .schedule-list::before { display: none; }
   .schedule-item { padding: 0 0 32px; display: grid; grid-template-columns: 1fr; gap: 6px; }
+  .schedule-details { grid-column: 1; }
   .schedule-item::before { display: none; }
   .schedule-time { position: static; top: auto; }
   .origin-photo { width: min(72vw, 430px); }
