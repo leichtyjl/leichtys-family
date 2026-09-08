@@ -224,17 +224,28 @@ const pages = [
           <p class="eyebrow">Their children</p>
           <h2 id="kids-title">Four children.</h2>
         </div>
-        <ul class="simple-children">
-          <li>Simon Leichty<span>1915–1992</span></li>
-          <li>Iona Leichty<span>1917–1920</span></li>
-          <li>Jacob Leichty<span>1920–2012</span></li>
-          <li>Carl Leichty<span>1925–2007</span></li>
+        <ul class="family-children-grid" aria-label="John and Salome’s four children">
+          <li>
+            <span class="child-photo"><img src="/assets/portraits/simon.jpeg" width="336" height="336" alt="Portrait of Simon Leichty" loading="lazy" decoding="async"></span>
+            <strong>Simon Leichty</strong>
+            <span>1915–1992</span>
+          </li>
+          <li>
+            <span class="child-photo"><img src="/assets/portraits/iona.png" width="1086" height="1449" alt="Portrait of Iona Leichty" loading="lazy" decoding="async"></span>
+            <strong>Iona Leichty</strong>
+            <span>1917–1920</span>
+          </li>
+          <li>
+            <span class="child-photo"><img src="/assets/portraits/jacob.jpg" width="250" height="339" alt="Portrait of Jacob Leichty" loading="lazy" decoding="async"></span>
+            <strong>Jacob Leichty</strong>
+            <span>1920–2012</span>
+          </li>
+          <li>
+            <span class="child-photo"><img src="/assets/portraits/carl.png" width="1200" height="1600" alt="Portrait of Carl Leichty" loading="lazy" decoding="async"></span>
+            <strong>Carl Leichty</strong>
+            <span>1925–2007</span>
+          </li>
         </ul>
-        <div class="children-photos" aria-label="Portraits of Simon, Iona, and Carl Leichty">
-          <span class="child-photo"><img src="/assets/portraits/simon.jpeg" width="336" height="336" alt="Portrait of Simon Leichty" loading="lazy" decoding="async"></span>
-          <span class="child-photo"><img src="/assets/portraits/iona.png" width="1086" height="1449" alt="Portrait of Iona Leichty" loading="lazy" decoding="async"></span>
-          <span class="child-photo"><img src="/assets/portraits/carl.png" width="1200" height="1600" alt="Portrait of Carl Leichty" loading="lazy" decoding="async"></span>
-        </div>
         <p class="visit-note">More family photographs will be added in January 2027.</p>
       </section>`
   },
@@ -624,7 +635,7 @@ ${robots}    <link rel="canonical" href="${canonical}">
     ${page.socialImage
       ? `<meta name="twitter:image" content="${site.canonicalOrigin}/assets/reunion-centerpiece-social.jpg">`
       : `<meta name="twitter:image" content="${site.canonicalOrigin}/assets/og.png">`}
-${imagePreload}    <link rel="stylesheet" href="/assets/styles.css?v=20260907p">
+${imagePreload}    <link rel="stylesheet" href="/assets/styles.css?v=20260907q">
     <script src="/assets/site.js?v=20260907o" defer></script>
   </head>
   <body>

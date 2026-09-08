@@ -88,7 +88,10 @@
       "biography": null,
       "photos": [],
       "descendantBranch": "jacob",
-      "hasDescendants": true
+      "hasDescendants": true,
+      "photo": "/assets/portraits/jacob.jpg",
+      "photoWidth": 250,
+      "photoHeight": 339
     },
     {
       "id": "carl-leichty",

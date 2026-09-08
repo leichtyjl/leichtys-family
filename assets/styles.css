@@ -875,6 +875,9 @@ h3 { margin: 0 0 10px; font-size: 1.55rem; font-weight: 600; line-height: 1.15; 
 .form-status.is-error { background:rgba(229,57,53,.16); color:#ffe9e6; border:1px solid rgba(229,57,53,.5); }
 .form-status.is-info { background:rgba(255,255,255,.08); color:var(--ink); }
 .contact-closing { color:white; }
-.children-photos { display:flex; flex-wrap:wrap; gap:16px; margin:22px 0 0; }
-.children-photos .child-photo { width:min(160px, 42vw); aspect-ratio:1; overflow:hidden; border-radius:10px; }
-.children-photos .child-photo img { width:100%; height:100%; object-fit:cover; display:block; }
+.family-children-grid { list-style:none; display:grid; grid-template-columns:repeat(auto-fit, minmax(210px, 1fr)); gap:32px; margin:26px 0 0; padding:0; }
+.family-children-grid li { margin:0; }
+.family-children-grid .child-photo { display:block; width:100%; aspect-ratio:1; overflow:hidden; border-radius:12px; background:var(--paper); }
+.family-children-grid .child-photo img { width:100%; height:100%; object-fit:cover; display:block; }
+.family-children-grid strong { display:block; margin-top:14px; font-family:var(--serif); font-size:1.25rem; color:var(--ink); }
+.family-children-grid li > span:last-child { display:block; margin-top:2px; font-family:var(--serif); font-size:1.05rem; color:var(--ink-soft); }
