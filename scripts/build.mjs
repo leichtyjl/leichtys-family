@@ -39,7 +39,7 @@ const pages = [
         <div class="section-heading">
           <p class="eyebrow">Our Family</p>
           <h2 id="family-title">John and Salome Leichty are at the heart of the reunion.</h2>
-          <p class="section-lead">Their family gathers on June  ​​​​12, ​​​​2027 to reconnect, remember, and celebrate seven generations strong.</p>
+          <p class="section-lead">Their family gathers on June  ​​​​12, ​​​​2027 to reconnect, remember, and celebrate seven generations.</p>
           <a class="button button-light" href="/family/">Meet the Family</a>
         </div>
       </section>`
@@ -82,10 +82,9 @@ const pages = [
         </div>
       </section>
 
-      <section class="section" id="schedule" aria-labelledby="schedule-title">
+      <section class="section" id="schedule" aria-label="Schedule of events">
         <div class="section-heading">
           <p class="eyebrow">Schedule of events</p>
-          <h2 id="schedule-title">The day, minute by minute.</h2>
           <p class="section-lead">A relaxed afternoon ${site.reunion.dateShort}, from ${site.reunion.time}, with plenty of time to catch up.</p>
         </div>
         <ol class="schedule-list">${site.reunion.schedule.map(scheduleItem).join('')}</ol>
@@ -104,7 +103,6 @@ const pages = [
           <ul class="plain-list lodging-list">
             ${site.reunion.lodging.map((l) => `<li><a class="lodging-link" href="${l.url}" rel="noopener" target="_blank"><strong>${l.name}</strong><span class="lodging-meta">${l.distance} · ${l.address} · ${l.phone}</span><span>${l.detail}</span></a></li>`).join('')}
           </ul>
-          <p class="visit-note">No room block for this one &#8212; book whatever works for you.</p>
         </div>
 
         <details class="visit-details">
@@ -635,7 +633,7 @@ ${robots}    <link rel="canonical" href="${canonical}">
     ${page.socialImage
       ? `<meta name="twitter:image" content="${site.canonicalOrigin}/assets/reunion-centerpiece-social.jpg">`
       : `<meta name="twitter:image" content="${site.canonicalOrigin}/assets/og.png">`}
-${imagePreload}    <link rel="stylesheet" href="/assets/styles.css?v=20260907q">
+${imagePreload}    <link rel="stylesheet" href="/assets/styles.css?v=20260907r">
     <script src="/assets/site.js?v=20260907o" defer></script>
   </head>
   <body>

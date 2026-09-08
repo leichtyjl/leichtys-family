@@ -775,7 +775,7 @@ h3 { margin: 0 0 10px; font-size: 1.55rem; font-weight: 600; line-height: 1.15; 
   .intro-grid, .family-promise, .reunion-cta, .tree-foundation, .reunion-overview, .profile-overview, .branch-profile, .origin-story, .years-band, .reunion-footer-cta { grid-template-columns: 1fr; }
   .arrival-banner-inner { grid-template-columns: 1fr; gap: 30px; }
   .schedule-list::before { display: none; }
-  .schedule-item { padding: 0 0 32px; display: grid; grid-template-columns: 200px 1fr; gap: 0 26px; }
+  .schedule-item { padding: 0 0 32px; display: grid; grid-template-columns: 1fr; gap: 6px; }
   .schedule-item::before { display: none; }
   .schedule-time { position: static; top: auto; }
   .origin-photo { width: min(72vw, 430px); }
@@ -823,8 +823,8 @@ h3 { margin: 0 0 10px; font-size: 1.55rem; font-weight: 600; line-height: 1.15; 
   .bring-grid { grid-template-columns: 1fr; gap: 16px; }
   .highlights-grid, .reminders-grid { grid-template-columns: 1fr; gap: 16px; }
   .two-col-list { grid-template-columns: 1fr; }
-  .schedule-item { grid-template-columns: 1fr; gap: 6px; }
-  .schedule-time { font-size: 1.25rem; }
+  .schedule-item { gap: 5px; }
+  .schedule-time { font-size: 1.2rem; }
   .schedule-badge { display: inline-block; margin: 6px 0 0; vertical-align: baseline; }
   .detail-card { min-height: auto; }
   .children-grid { grid-template-columns: 1fr; }
