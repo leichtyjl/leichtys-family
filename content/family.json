@@ -1,6 +1,14 @@
 {
-  "foundation": ["john-leichty", "salome-chupp-leichty"],
-  "children": ["simon-leichty", "iona-leichty", "jacob-leichty", "carl-leichty"],
+  "foundation": [
+    "john-leichty",
+    "salome-chupp-leichty"
+  ],
+  "children": [
+    "simon-leichty",
+    "iona-leichty",
+    "jacob-leichty",
+    "carl-leichty"
+  ],
   "persons": [
     {
       "id": "john-leichty",
@@ -33,7 +41,10 @@
       "name": "Simon Leichty",
       "birth": 1915,
       "death": 1992,
-      "parents": ["john-leichty", "salome-chupp-leichty"],
+      "parents": [
+        "john-leichty",
+        "salome-chupp-leichty"
+      ],
       "spouse": null,
       "generation": 2,
       "biography": null,
@@ -49,7 +60,10 @@
       "name": "Iona Leichty",
       "birth": 1917,
       "death": 1920,
-      "parents": ["john-leichty", "salome-chupp-leichty"],
+      "parents": [
+        "john-leichty",
+        "salome-chupp-leichty"
+      ],
       "spouse": null,
       "generation": 2,
       "biography": null,
@@ -65,14 +79,14 @@
       "name": "Jacob Leichty",
       "birth": 1920,
       "death": 2012,
-      "parents": ["john-leichty", "salome-chupp-leichty"],
+      "parents": [
+        "john-leichty",
+        "salome-chupp-leichty"
+      ],
       "spouse": null,
       "generation": 2,
       "biography": null,
       "photos": [],
-      "photo": "/assets/portraits/jacob.jpg",
-      "photoWidth": 250,
-      "photoHeight": 339,
       "descendantBranch": "jacob",
       "hasDescendants": true
     },
@@ -81,7 +95,10 @@
       "name": "Carl Leichty",
       "birth": 1925,
       "death": 2007,
-      "parents": ["john-leichty", "salome-chupp-leichty"],
+      "parents": [
+        "john-leichty",
+        "salome-chupp-leichty"
+      ],
       "spouse": null,
       "generation": 2,
       "biography": null,

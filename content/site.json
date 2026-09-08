@@ -19,43 +19,36 @@
       {
         "time": "11:30 AM",
         "event": "Doors Open & Arrival",
-        "detail": "Welcome, name tags, and getting settled.",
         "featured": false
       },
       {
         "time": "12:00 PM",
         "event": "Family Photo",
-        "detail": "All-family group portrait gathered together before lunch.",
         "featured": true
       },
       {
         "time": "12:30 – 1:15 PM",
         "event": "Catered Lunch",
-        "detail": "Buffet service, blessing, and open family table seating.",
         "featured": false
       },
       {
         "time": "1:15 – 2:15 PM",
         "event": "Family Stories & Memories",
-        "detail": "A relaxed time to share family stories, memories, and connections.",
         "featured": false
       },
       {
         "time": "2:15 – 3:45 PM",
         "event": "Games & Activities",
-        "detail": "Casual games, visiting, photo browsing, and family activities.",
         "featured": false
       },
       {
         "time": "3:45 – 4:00 PM",
         "event": "Game Winners Announced & Closing Remarks",
-        "detail": "We'll announce the game winners and close out the afternoon together.",
         "featured": false
       },
       {
         "time": "4:00 PM",
         "event": "Family Farewells",
-        "detail": "Warm goodbyes and safe travels. Cleanup begins afterward.",
         "featured": false
       }
     ],
@@ -141,7 +134,7 @@
       "tip": "Check flight prices and schedules for SBN first, followed by FWA. It may also be worth comparing the other airports for better fares or nonstop flights.",
       "secondary": {
         "code": "Fort Wayne International Airport (FWA)",
-        "detail": "The second-best airport option after South Bend International Airport."
+        "detail": "Good backup if South Bend doesn't work for your flights."
       }
     },
     "restaurants": {

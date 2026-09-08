@@ -91,14 +91,6 @@ const pages = [
         <ol class="schedule-list">${site.reunion.schedule.map(scheduleItem).join('')}</ol>
       </section>
 
-      <section class="section section-paper" aria-labelledby="bring-title">
-        <div class="section-heading">
-          <p class="eyebrow">What to Bring</p>
-          <h2 id="bring-title">Just bring yourself.</h2>
-          <p class="section-lead">Lunch is catered, so there is nothing you need to bring. If you’d like, you’re welcome to bring family photographs, albums, keepsakes, or a favorite family memory to share with each other.</p>
-        </div>
-      </section>
-
       <section class="section" aria-labelledby="visiting-title">
         <div class="section-heading">
           <p class="eyebrow">Travel & lodging</p>
@@ -112,7 +104,7 @@ const pages = [
           <ul class="plain-list lodging-list">
             ${site.reunion.lodging.map((l) => `<li><a class="lodging-link" href="${l.url}" rel="noopener" target="_blank"><strong>${l.name}</strong><span class="lodging-meta">${l.distance} · ${l.address} · ${l.phone}</span><span>${l.detail}</span></a></li>`).join('')}
           </ul>
-          <p class="visit-note">You can also check <a href="https://www.airbnb.com/" rel="noopener" target="_blank">Airbnb</a> for vacation rentals or use Google to search for additional hotels and lodging options in the Goshen area. Please choose whichever option works best for your family — these are suggestions only, with no reserved room blocks or special rates.</p>
+          <p class="visit-note">No room block for this one &#8212; book whatever works for you.</p>
         </div>
 
         <details class="visit-details">
@@ -145,8 +137,8 @@ const pages = [
       <section class="section section-forest" aria-labelledby="contact-title">
         <div class="section-heading section-heading-light">
           <p class="eyebrow">Questions?</p>
-          <h2 id="contact-title">We’re here to help.</h2>
-          <p class="section-lead">Have a question about the reunion? Send us a message and we’ll make sure it gets to the right person.</p>
+          <h2 id="contact-title">Send us a message.</h2>
+          <p class="section-lead">Use the form below and we&#8217;ll get back to you.</p>
         </div>
         <form class="contact-form" id="contactForm" method="post" action="/api/contact" novalidate>
           <div class="field">
@@ -223,7 +215,7 @@ const pages = [
           <figure class="reunion-page-photo"><img src="/assets/reunion-centerpiece.webp" width="1087" height="1447" alt="Historic Leichty family photograph:John Leichty seated on a longhorn steer beside Salome Leichty"><figcaption>John & Salome Leichty</figcaption></figure>
           <div>
             <p class="tagline">Four children. Three descendant branches.</p>
-            <p class="section-lead">John and Salome are the parents of four children — Simon, Iona, Jacob,and Carl. Their descendants gather for the family reunion on June  ​​​12, ​​​2027.</p>
+            <p class="section-lead">John and Salome are the parents of four children — Simon, Iona, Jacob,and Carl. Their descendants are gathering for the family reunion on June 12, 2027.</p>
           </div>
         </div>
       </section>
@@ -238,6 +230,12 @@ const pages = [
           <li>Jacob Leichty<span>1920–2012</span></li>
           <li>Carl Leichty<span>1925–2007</span></li>
         </ul>
+        <div class="children-photos" aria-label="Portraits of Simon, Iona, and Carl Leichty">
+          <span class="child-photo"><img src="/assets/portraits/simon.jpeg" width="336" height="336" alt="Portrait of Simon Leichty" loading="lazy" decoding="async"></span>
+          <span class="child-photo"><img src="/assets/portraits/iona.png" width="1086" height="1449" alt="Portrait of Iona Leichty" loading="lazy" decoding="async"></span>
+          <span class="child-photo"><img src="/assets/portraits/carl.png" width="1200" height="1600" alt="Portrait of Carl Leichty" loading="lazy" decoding="async"></span>
+        </div>
+        <p class="visit-note">More family photographs will be added in January 2027.</p>
       </section>`
   },
   {
@@ -466,7 +464,6 @@ function scheduleItem(item) {
     <div class="schedule-time">${item.time}</div>
     <div class="schedule-details">
       <h3>${item.event}</h3>
-      <p>${item.detail}</p>
     </div>
   </li>`;
 }
@@ -627,7 +624,7 @@ ${robots}    <link rel="canonical" href="${canonical}">
     ${page.socialImage
       ? `<meta name="twitter:image" content="${site.canonicalOrigin}/assets/reunion-centerpiece-social.jpg">`
       : `<meta name="twitter:image" content="${site.canonicalOrigin}/assets/og.png">`}
-${imagePreload}    <link rel="stylesheet" href="/assets/styles.css?v=20260907o">
+${imagePreload}    <link rel="stylesheet" href="/assets/styles.css?v=20260907p">
     <script src="/assets/site.js?v=20260907o" defer></script>
   </head>
   <body>
